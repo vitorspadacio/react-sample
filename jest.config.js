@@ -17,10 +17,6 @@ module.exports = {
         '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|)$': '<rootDir>/config/file-mock.js',
         '\\.(css|scss)$': 'identity-obj-proxy',
       },
-      setupFilesAfterEnv: [
-        '@testing-library/react/cleanup-after-each',
-        '<rootDir>/config.test/setup.js'
-      ]
     },
     {
       runner: 'jest-runner-eslint',

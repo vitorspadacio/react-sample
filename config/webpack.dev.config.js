@@ -3,7 +3,7 @@ const dotenv = require('dotenv-webpack');
 
 const baseConfig = require('./webpack.base.config');
 
-const devConfig = env => {
+const devConfig = () => {
   return merge([
     {
       plugins: [

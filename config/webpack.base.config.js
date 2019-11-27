@@ -9,6 +9,7 @@ module.exports = env => {
 
   return merge([
     {
+      stats: 'errors-only',
       resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         alias: {
