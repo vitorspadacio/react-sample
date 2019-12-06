@@ -3,5 +3,5 @@ export enum Types {
 }
 
 export default {
-  inicializar: () => ({ type: Types.Inicializar })
+  inicializar: () => ({ type: Types.Inicializar }),
 }

@@ -5,7 +5,7 @@ import Actions from '../HomeActions'
 export default () => {
   const dispatch = useDispatch()
   const [texto] = useState('Texto em variável do estado')
-  const reduxState = useSelector<any, any>(state => state.home)
+  const reduxState = useSelector<any, any>((state) => state.home)
 
   const mudarTexto = () => dispatch(Actions.inicializar())
 

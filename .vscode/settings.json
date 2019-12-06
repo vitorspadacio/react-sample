@@ -1,10 +1,8 @@
 {
   "editor.folding": true,
   "editor.foldingStrategy": "indentation",
-  "editor.formatOnSave": false,
-  "editor.rulers": [
-    100
-  ],
+  "editor.formatOnSave": true,
+  "editor.rulers": [100],
   "editor.showFoldingControls": "always",
   "editor.tabSize": 2
 }

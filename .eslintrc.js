@@ -13,7 +13,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error'],
     'jsx-quotes': ['error', 'prefer-single'],
     'react/jsx-filename-extension': [2, { 'extensions': ['.jsx', '.tsx'] }],
-    'react/jsx-one-expression-per-line': [0, { 'allow': 'literal' }],
+    'react/jsx-one-expression-per-line': [0],
     'react/prop-types': [0],
     'semi': ['error', 'never'],
   },

@@ -1,4 +1,4 @@
-import { Types } from "./HomeActions"
+import { Types } from './HomeActions'
 
 const INITIAL_STATE = { texto: 'Texto no redux' }
 
