@@ -14,7 +14,7 @@ export default () => {
       <h1>Hello World!</h1>
       <h2>{texto}</h2>
       <h3>{reduxState.texto}</h3>
-      <button onClick={() => mudarTexto()}>Muda texto</button>
+      <button type='button' onClick={() => mudarTexto()}>Muda texto</button>
     </>
   )
 }

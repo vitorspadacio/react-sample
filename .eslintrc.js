@@ -11,6 +11,7 @@ module.exports = {
     '@typescript-eslint/array-type': ['error', { default: 'array' }],
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
     '@typescript-eslint/no-unused-vars': ['error'],
+    'import/extensions': [0],
     'jsx-quotes': ['error', 'prefer-single'],
     'react/jsx-filename-extension': [2, { 'extensions': ['.jsx', '.tsx'] }],
     'react/jsx-one-expression-per-line': [0],
