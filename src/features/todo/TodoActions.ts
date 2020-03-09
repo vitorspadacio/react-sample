@@ -5,11 +5,13 @@ export enum Types {
   InsertTask = 'INSERT_TASK',
   IsInserting = 'IS_INSERTING',
   IsNotInserting = 'IS_NOT_INSERTING',
+  ToggleTask = 'TOGGLE_TASK',
 }
 
 export const Actions = {
-  addTask: (description: string) => ({ type: Types.CreateTask, description }),
+  createTask: (description: string) => ({ type: Types.CreateTask, description }),
   insertTask: (task: Task) => ({ type: Types.InsertTask, task }),
   isInserting: () => ({ type: Types.IsInserting }),
   isNotInserting: () => ({ type: Types.IsNotInserting }),
+  toggleTask: (id: string) => ({ type: Types.ToggleTask, id }),
 }
