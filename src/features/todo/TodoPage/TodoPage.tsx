@@ -1,40 +1,12 @@
-import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { Actions } from '../TodoActions'
-import { State } from '../../types'
+import React from 'react'
 
+import TodoForm from '../TodoForm'
 import TodoList from '../TodoList'
 
-export default () => {
-  const isInserting = useSelector<State, boolean>((state) => state.todo.isInserting)
-  const dispatch = useDispatch()
-
-  const [description, setDescription] = useState<string>('')
-
-  const handleDescriptionChange = (event) => {
-    const { target: { value } } = event
-    setDescription(value)
-  }
-
-  const handleCreateTaskClick = () => dispatch(Actions.createTask(description))
-
-  return (
-    <>
-      <h1>Lista de tarefas</h1>
-      <input
-        type='text'
-        onChange={handleDescriptionChange}
-        value={description}
-      />
-      <button
-        type='button'
-        onClick={handleCreateTaskClick}
-        disabled={isInserting}
-      >
-        Criar tarefa
-      </button>
-
-      <TodoList />
-    </>
-  )
-}
+export default () => (
+  <>
+    <h1>Lista de tarefas</h1>
+    <TodoForm />
+    <TodoList />
+  </>
+)

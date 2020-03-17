@@ -15,6 +15,7 @@ export default () => {
       <span>{task.description}</span>
       <input
         type='checkbox'
+        title={`${task.description} está completa?`}
         onChange={() => handleTaskToggle(task.id)}
         checked={task.isComplete}
       />
