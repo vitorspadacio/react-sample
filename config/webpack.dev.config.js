@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const dotenv = require('dotenv-webpack');
 
 const baseConfig = require('./webpack.base.config');
@@ -6,6 +6,7 @@ const baseConfig = require('./webpack.base.config');
 const devConfig = () => {
   return merge([
     {
+      mode: 'development',
       plugins: [
         new dotenv({ path: '.env.development' })
       ]

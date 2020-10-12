@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const dotenv = require('dotenv-webpack');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -11,6 +11,7 @@ const baseConfig = require('./webpack.base.config');
 const prodConfig = () => {
   return merge([
     {
+      mode: 'production',
       optimization: {
         runtimeChunk: 'single',
         splitChunks: {
