@@ -1,27 +1,22 @@
-import { call, takeEvery, put } from 'redux-saga/effects'
-import TodoApi from './TodoApi'
-import { Actions, Types } from './TodoActions'
-import { Task } from './TodoTypes'
+// import { call, takeEvery, put } from 'redux-saga/effects'
+// import { PayloadAction } from '@reduxjs/toolkit'
+// import { actions } from './TodoState'
+// import TodoApi from './TodoApi'
 
-function* insertTask(action) {
-  yield put(Actions.isInserting())
+// function* insertTask(action: PayloadAction<string>) {
+//   yield put(actions.showLoading(true))
 
-  try {
-    const response = yield call(TodoApi.getGuid)
+//   try {
+//     const response = yield call(TodoApi.getGuid)
 
-    const task = {
-      id: response.data,
-      description: action.description,
-      isComplete: false,
-    } as Task
-
-    yield put(Actions.insertTask(task))
-    yield put(Actions.isNotInserting())
-  } catch {
-    console.log('Ocorreu um erro')
-  }
-}
+//     const payload = { id: response.data, description: action.payload }
+//     yield put(actions.taskInserted(payload))
+//     yield put(actions.showLoading(false))
+//   } catch {
+//     console.log('Ocorreu um erro')
+//   }
+// }
 
 export default function* () {
-  yield takeEvery(Types.CreateTask, insertTask)
+  // yield takeEvery(actions.taskAdded.type, insertTask)
 }

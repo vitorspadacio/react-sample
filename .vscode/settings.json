@@ -4,5 +4,6 @@
   "editor.formatOnSave": true,
   "editor.rulers": [100],
   "editor.showFoldingControls": "always",
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "scssFormatter.singleQuote": true
 }

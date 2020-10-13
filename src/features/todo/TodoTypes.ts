@@ -6,5 +6,4 @@ export interface Task {
 
 export interface TodoState {
   tasks: Task[],
-  isInserting: boolean,
 }

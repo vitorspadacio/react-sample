@@ -1,20 +1,25 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import Actions from '../HomeActions'
+
+import { actions } from '../HomeState'
+import { selectNumber } from '../HomeSelectors'
 
 export default () => {
   const dispatch = useDispatch()
   const [texto] = useState('Texto em variável do estado')
-  const reduxState = useSelector<any, any>((state) => state.home)
+  const number = useSelector(selectNumber)
 
-  const mudarTexto = () => dispatch(Actions.inicializar())
+  const increment = () => dispatch(actions.increment())
+
+  const decrement = () => dispatch(actions.decrement())
 
   return (
     <>
       <h1>Hello World!</h1>
       <h2>{texto}</h2>
-      <h3>{reduxState.texto}</h3>
-      <button type='button' onClick={() => mudarTexto()}>Muda texto</button>
+      <h3>{number}</h3>
+      <button type='button' onClick={() => increment()}>Incrementar</button>
+      <button type='button' onClick={() => decrement()}>Decrementar</button>
     </>
   )
 }

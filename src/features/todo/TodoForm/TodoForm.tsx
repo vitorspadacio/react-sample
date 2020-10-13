@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { Actions } from '../TodoActions'
-import { State } from '../../types'
+import { useDispatch } from 'react-redux'
+import { actions } from '../TodoState'
 
 export default () => {
-  const isInserting = useSelector<State, boolean>((state) => state.todo.isInserting)
   const dispatch = useDispatch()
 
   const [description, setDescription] = useState<string>('')
@@ -14,7 +12,7 @@ export default () => {
     setDescription(value)
   }
 
-  const handleCreateTaskClick = () => dispatch(Actions.createTask(description))
+  const handleCreateTaskClick = () => dispatch(actions.addTask({ description }))
 
   return (
     <>
@@ -27,7 +25,6 @@ export default () => {
       <button
         type='button'
         onClick={handleCreateTaskClick}
-        disabled={isInserting}
       >
         Criar tarefa
       </button>

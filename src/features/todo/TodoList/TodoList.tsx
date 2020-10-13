@@ -1,14 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Actions } from '../TodoActions'
-import { Task } from '../TodoTypes'
-import { State } from '../../types'
+import { actions } from '../TodoState'
+import { selectTasks } from '../TodoSelectors'
 
 export default () => {
-  const tasks = useSelector<State, Task[]>((state) => state.todo.tasks)
+  const tasks = useSelector(selectTasks)
   const dispatch = useDispatch()
 
-  const handleTaskToggle = (id) => dispatch(Actions.toggleTask(id))
+  const handleTaskToggle = (id) => dispatch(actions.toggleTask(id))
 
   const listTasks = () => tasks.map((task) => (
     <li key={task.id}>
