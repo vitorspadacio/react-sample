@@ -1,11 +1,11 @@
 import { Task } from './TodoTypes'
 
 export enum Types {
-  CreateTask = 'CREATE_TASK',
-  InsertTask = 'INSERT_TASK',
-  IsInserting = 'IS_INSERTING',
-  IsNotInserting = 'IS_NOT_INSERTING',
-  ToggleTask = 'TOGGLE_TASK',
+  CreateTask = 'todo/createTask',
+  InsertTask = 'todo/insertTask',
+  IsInserting = 'todo/isInserting',
+  IsNotInserting = 'todo/isNotInserting',
+  ToggleTask = 'todo/toggleTask',
 }
 
 export const Actions = {

@@ -27,21 +27,9 @@ const toggleTask = (state, id) => {
   }
 }
 
-export default (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case Types.InsertTask:
-      return insertTask(state, action.task)
-
-    case Types.IsInserting:
-      return { ...state, isInserting: true }
-
-    case Types.IsNotInserting:
-      return { ...state, isInserting: false }
-
-    case Types.ToggleTask:
-      return toggleTask(state, action.id)
-
-    default:
-      return state
-  }
-}
+export default (state = INITIAL_STATE, action) => ({
+  [Types.InsertTask]: insertTask(state, action.task),
+  [Types.IsInserting]: { ...state, isInserting: true },
+  [Types.IsNotInserting]: { ...state, isInserting: false },
+  [Types.ToggleTask]: toggleTask(state, action.id),
+})[action.type]
