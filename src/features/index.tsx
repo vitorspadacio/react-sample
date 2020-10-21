@@ -11,10 +11,12 @@ export default () => (
   <>
     <BrowserRouter>
       <Menu />
-      <Switch>
-        <Route path='/' exact component={HomePage} />
-        <Route path='/todo' component={TodoPage} />
-      </Switch>
+      <section id='content'>
+        <Switch>
+          <Route path='/' exact component={HomePage} />
+          <Route path='/todo' component={TodoPage} />
+        </Switch>
+      </section>
     </BrowserRouter>
   </>
 )

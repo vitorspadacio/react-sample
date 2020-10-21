@@ -1,0 +1,19 @@
+@import '../../../assets/styles/colors';
+
+#todo-form {
+  display: flex;
+  margin: 1em 0;
+  width: 60%;
+
+  button.plus {
+    margin-right: 0.75em;
+  }
+
+  input {
+    border: 1px solid $light-blue;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 0.6em;
+    width: 100%;
+  }
+}

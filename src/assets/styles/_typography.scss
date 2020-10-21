@@ -1,6 +1,19 @@
 @import './colors';
 
 h1 {
-  color: $dark-bluel;
+  color: $dark-blue;
   font-size: 32px;
+  margin: 0.4em 0;
+}
+
+p {
+  margin: 1em 0;
+}
+
+ul {
+  list-style: square;
+
+  li {
+    margin-left: 1em;
+  }
 }

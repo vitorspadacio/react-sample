@@ -1,0 +1,24 @@
+@import '../../../assets/styles/colors';
+
+#todo-list {
+  list-style: none;
+
+  li {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    margin-left: 0;
+
+    input {
+      height: 40px;
+      margin: 0;
+      margin-right: 0.75em;
+      width: 36px;
+    }
+
+    span {
+      line-height: calc(40px - 0.6em);
+      padding: 0.6em;
+    }
+  }
+}

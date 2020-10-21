@@ -1,0 +1,10 @@
+@import './colors';
+
+button {
+  background-color: $light-blue;
+  border-radius: 8px;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  padding: 0.75em 1em;
+}

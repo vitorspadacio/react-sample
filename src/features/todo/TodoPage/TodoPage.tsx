@@ -6,7 +6,7 @@ import TodoList from '../TodoList'
 export default () => (
   <>
     <h1>Lista de tarefas</h1>
-    <TodoForm />
     <TodoList />
+    <TodoForm />
   </>
 )
