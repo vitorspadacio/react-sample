@@ -17,6 +17,6 @@
 //   }
 // }
 
-export default function* () {
-  // yield takeEvery(actions.taskAdded.type, insertTask)
-}
+// export default function* () {
+// yield takeEvery(actions.taskAdded.type, insertTask)
+// }
