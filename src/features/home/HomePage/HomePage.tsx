@@ -47,8 +47,8 @@ export default () => {
 
       <p className='counter'>Contador: {number}</p>
 
-      <button type='button' onClick={() => increment()}>Incrementar</button>
       <button type='button' onClick={() => decrement()}>Decrementar</button>
+      <button type='button' onClick={() => increment()}>Incrementar</button>
     </section>
   )
 }
