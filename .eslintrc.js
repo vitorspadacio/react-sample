@@ -13,6 +13,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': ['error'],
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/no-use-before-define': ['error'],
+    'func-names': 'off',
     'import/extensions': [0],
     'jsx-quotes': ['error', 'prefer-single'],
     'no-shadow': 'off',
