@@ -13,12 +13,13 @@ export default () => {
   const listTasks = () => tasks.map((task) => (
     <li key={task.id}>
       <input
+        id={task.id}
         type='checkbox'
         title={`${task.description} está completa?`}
         onChange={() => handleTaskToggle(task.id)}
         checked={task.isComplete}
       />
-      <span>{task.description}</span>
+      <label htmlFor={task.id}>{task.description}</label>
     </li>
   ))
 
