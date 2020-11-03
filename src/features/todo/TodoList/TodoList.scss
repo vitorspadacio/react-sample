@@ -7,8 +7,8 @@
     align-items: center;
     display: flex;
     height: 40px;
-    margin-left: 0;
     margin-bottom: 1em;
+    margin-left: 0;
 
     input {
       cursor: pointer;
@@ -43,7 +43,6 @@
       cursor: pointer;
       display: flex;
       line-height: calc(40px - 0.6em);
-      padding: 0.6em 0.6em 0.6em 0;
     }
   }
 }

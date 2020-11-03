@@ -1,37 +1,65 @@
 import React from 'react'
-import { wait } from '@testing-library/dom'
+import { waitFor, fireEvent } from '@testing-library/dom'
 import userEvent from '@testing-library/user-event'
 import { render } from '../../test-utils'
 
 import TodoPage from './TodoPage'
 
 describe('TodoPage', () => {
-  xtest('deve exibir lista inicial de tarefas', () => {
-    const page = render(<TodoPage />)
-    expect(page.getByText('Lavar louças'))
-    expect(page.getByText('Arrumar a sala'))
-    expect(page.getByText('Limpar banheiro'))
+  test('deve exibir lista inicial de tarefas', () => {
+    const { getByText, getByTitle } = render(<TodoPage />)
+
+    expect(getByText('Lavar louças'))
+    expect(getByText('Arrumar a sala'))
+    expect(getByText('Limpar banheiro'))
+
+    expect(getByTitle('Lavar louças está completa?')).toBeChecked()
+    expect(getByTitle('Arrumar a sala está completa?')).not.toBeChecked()
+    expect(getByTitle('Limpar banheiro está completa?')).not.toBeChecked()
   })
 
-  xtest('deve adicionar tarefa na lista de tarefas', async () => {
+  test('deve adicionar tarefa na lista de tarefas após clicar no botão +', async () => {
     const { getByTitle, getByText } = render(<TodoPage />)
+
     await userEvent.type(getByTitle('descrição'), 'Teste A')
-    userEvent.click(getByText('Criar tarefa'))
-    await wait(() => expect(getByText('Teste A')))
+    userEvent.click(getByText('+'))
+
+    await waitFor(() => expect(getByText('Teste A')))
   })
 
-  xtest('deve ter a primeira tarefa marcada como completa e a segunda não', async () => {
-    const { getByTitle } = render(<TodoPage />)
-    const checkbox1 = getByTitle('Lavar louças está completa?')
-    const checkbox2 = getByTitle('Arrumar a sala está completa?')
-    await wait(() => expect(checkbox1).toBeChecked())
-    await wait(() => expect(checkbox2).not.toBeChecked())
+  test('deve adicionar tarefa na lista de tarefas após apertar enter', async () => {
+    const { getByTitle, getByText, getByTestId } = render(<TodoPage />)
+
+    await userEvent.type(getByTitle('descrição'), 'Teste A')
+    fireEvent.submit(getByTestId('todo-form'))
+
+    await waitFor(() => expect(getByText('Teste A')))
   })
 
-  xtest('deve alterar tarefa para completo', async () => {
+  test('não deve adicionar tarefa na lista de tarefas com campo vazio', async () => {
+    const { getByTitle, getByText } = render(<TodoPage />)
+
+    await userEvent.type(getByTitle('descrição'), '')
+    userEvent.click(getByText('+'))
+
+    await waitFor(() => expect(getByText('Obrigatório preencher para adicionar tarefa')))
+  })
+
+  test('deve alterar estado da tarefa para completa ao clicar em uma tarefa incompleta', async () => {
     const { getByTitle } = render(<TodoPage />)
-    const checkbox = getByTitle('Lavar louças está completa?')
-    userEvent.click(checkbox)
-    await wait(() => expect(checkbox).not.toBeChecked())
+
+    const task = getByTitle('Arrumar a sala está completa?')
+    await userEvent.click(task)
+
+    await waitFor(() => expect(task).toBeChecked())
+  })
+
+  test('deve alterar estado da tarefa para incompleta ao clicar em uma tarefa completa', async () => {
+    const { getByTitle } = render(<TodoPage />)
+
+    const task = getByTitle('Lavar louças está completa?')
+    await userEvent.click(task)
+
+    await waitFor(() => expect(task).not.toBeChecked())
   })
 })

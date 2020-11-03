@@ -2,6 +2,7 @@
 
 #todo-form {
   display: flex;
+  flex-wrap: wrap;
   margin: 1em 0;
   width: 60%;
 
@@ -14,6 +15,13 @@
     border-radius: 4px;
     font-size: 16px;
     padding: 0.6em;
-    width: 100%;
+    width: calc(100% - 50px);
+  }
+
+  span {
+    color: $red;
+    font-size: 12px;
+    margin-left: 4em;
+    margin-top: 0.5em;
   }
 }
