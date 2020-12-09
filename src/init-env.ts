@@ -1,3 +1,5 @@
 export default async () => {
-  (window as any).TESTE = process.env.TESTE
+  (window as any).apis = {
+    starwars: process.env.starwarsapi,
+  }
 }
