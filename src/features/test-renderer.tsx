@@ -1,14 +1,19 @@
-import React from 'react'
-import { Store } from 'redux'
-import { Provider } from 'react-redux'
-import { Router } from 'react-router-dom'
+import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
-import '@testing-library/jest-dom/extend-expect'
+import React from 'react'
+import { Provider } from 'react-redux'
+import { Router } from 'react-router-dom'
+import { Store } from 'redux'
 import InitRedux from '../init-redux'
+
+(window as any).apis = {
+  starwars: 'http://foo.com',
+}
 
 const customRender = (
   ui: React.ReactElement,
+  fetchMock: Promise<any> = Promise.resolve(),
   store: Store = InitRedux(),
   {
     route = '/',
@@ -19,10 +24,14 @@ const customRender = (
     <Provider store={store}>
       <Router history={history}>{children}</Router>
     </Provider>
-  )
+  );
+
+  const fetch = jest.fn(() => fetchMock);
+  (window as any).fetch = fetch
 
   return {
     ...render(ui, { wrapper }),
+    fetch,
     history,
     store,
   }
@@ -30,3 +39,4 @@ const customRender = (
 
 export * from '@testing-library/react'
 export { customRender as render }
+

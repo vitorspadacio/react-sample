@@ -1,8 +1,7 @@
-import React from 'react'
-import { waitFor, fireEvent } from '@testing-library/dom'
+import { fireEvent, waitFor } from '@testing-library/dom'
 import userEvent from '@testing-library/user-event'
-import { render } from '../../test-utils'
-
+import React from 'react'
+import { render } from '../../test-renderer'
 import TodoPage from './TodoPage'
 
 describe('TodoPage', () => {

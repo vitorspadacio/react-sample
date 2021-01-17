@@ -1,7 +1,6 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
-import { render } from '../../test-utils'
-
+import React from 'react'
+import { render } from '../../test-renderer'
 import { actions } from '../HomeState'
 import HomePage from './HomePage'
 

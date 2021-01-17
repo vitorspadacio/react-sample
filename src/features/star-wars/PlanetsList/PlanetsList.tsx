@@ -10,7 +10,7 @@ export default () => {
   const isLoading = useSelector(selectIsLoading)
 
   const renderDetails = (planet: Planet) => (
-    <li>
+    <li key={planet.name}>
       <div><small>Nome</small> <span>{planet.name}</span></div>
       <div><small>Clima</small> <span>{planet.climate}</span></div>
       <div><small>População</small> <span>{planet.population}m</span></div>
