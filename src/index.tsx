@@ -1,11 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-
-import InitRedux from './init-redux'
-import InitEnv from './init-env'
-
 import Features from './features'
+import InitEnv from './init-env'
+import InitRedux from './init-redux'
 
 const store = InitRedux()
 InitEnv()

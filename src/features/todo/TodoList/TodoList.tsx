@@ -1,8 +1,8 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import './TodoList.scss'
-import { actions } from '../TodoState'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectTasks } from '../TodoSelectors'
+import { actions } from '../TodoState'
+import './TodoList.scss'
 
 export default () => {
   const tasks = useSelector(selectTasks)

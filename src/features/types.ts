@@ -1,6 +1,6 @@
 import { HomeState } from './home/HomeTypes'
-import { TodoState } from './todo/TodoTypes'
 import { StarWarsState } from './star-wars/StarWarsTypes'
+import { TodoState } from './todo/TodoTypes'
 
 export interface State {
   home: HomeState,

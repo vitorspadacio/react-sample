@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import './TodoForm.scss'
 import { actions } from '../TodoState'
+import './TodoForm.scss'
 
 export default () => {
   const dispatch = useDispatch()

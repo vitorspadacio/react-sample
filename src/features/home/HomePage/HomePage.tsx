@@ -1,9 +1,8 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import './HomePage.scss'
-
-import { actions } from '../HomeState'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectNumber } from '../HomeSelectors'
+import { actions } from '../HomeState'
+import './HomePage.scss'
 
 export default () => {
   const dispatch = useDispatch()

@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction, nanoid } from '@reduxjs/toolkit'
-import { TodoState, Task } from './TodoTypes'
+import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit'
+import { Task, TodoState } from './TodoTypes'
 
 const initialState: TodoState = {
   tasks: [
