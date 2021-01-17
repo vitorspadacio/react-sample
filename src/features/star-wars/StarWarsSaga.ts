@@ -2,7 +2,7 @@ import { call, takeEvery, put } from 'redux-saga/effects'
 import { actions } from './StarWarsState'
 import StarWarsApi from './StarWarsApi'
 
-function* getPlanets() {
+export function* getPlanets() {
   yield put(actions.isLoading(true))
 
   try {

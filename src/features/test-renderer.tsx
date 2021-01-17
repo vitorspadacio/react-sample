@@ -6,10 +6,7 @@ import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
 import { Store } from 'redux'
 import InitRedux from '../init-redux'
-
-(window as any).apis = {
-  starwars: 'http://foo.com',
-}
+import { mockFetch } from './test-helper'
 
 const customRender = (
   ui: React.ReactElement,
@@ -26,8 +23,7 @@ const customRender = (
     </Provider>
   );
 
-  const fetch = jest.fn(() => fetchMock);
-  (window as any).fetch = fetch
+  const fetch = mockFetch(fetchMock)
 
   return {
     ...render(ui, { wrapper }),

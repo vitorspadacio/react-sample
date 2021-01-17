@@ -25,7 +25,7 @@ module.exports = env => {
             use: [
               {
                 loader: 'babel-loader',
-                options: { cacheDirectory: true }
+                options: { cacheDirectory: true, compact: false }
               },
               {
                 loader: 'eslint-loader',

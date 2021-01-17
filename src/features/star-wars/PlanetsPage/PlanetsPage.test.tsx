@@ -1,5 +1,5 @@
 import React from 'react'
-import { fetchPromise } from '../../test-helper'
+import { createFetchPromise } from '../../test-helper'
 import { render, waitFor } from '../../test-renderer'
 import PlanetsPage from './PlanetsPage'
 
@@ -16,7 +16,7 @@ const fetchReturn = [
 
 describe('PlanetsPage', () => {
   test('deve exibir lista de planetas', async () => {
-    const { getByText } = render(<PlanetsPage />, fetchPromise(fetchReturn))
+    const { getByText } = render(<PlanetsPage />, createFetchPromise(fetchReturn))
 
     await waitFor(() => {
       expect(getByText('Test1'))
@@ -29,7 +29,7 @@ describe('PlanetsPage', () => {
   })
 
   test('deve exibir loading durante requisição', async () => {
-    const { getByTestId } = render(<PlanetsPage />, fetchPromise(fetchReturn))
+    const { getByTestId } = render(<PlanetsPage />, createFetchPromise(fetchReturn))
 
     await waitFor(() => expect(getByTestId('loading')))
   })
