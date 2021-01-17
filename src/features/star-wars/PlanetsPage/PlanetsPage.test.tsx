@@ -1,6 +1,6 @@
 import React from 'react'
-import { createFetchPromise } from '../../test-helper'
-import { render, waitFor } from '../../test-renderer'
+import { createFetchPromise, responseTypes } from '../../../infrastructure/test-helpers/test-mock-fetch'
+import { render, waitFor } from '../../../infrastructure/test-helpers/test-renderer'
 import PlanetsPage from './PlanetsPage'
 
 const fetchReturn = [
@@ -16,9 +16,10 @@ const fetchReturn = [
 
 describe('PlanetsPage', () => {
   test('deve exibir lista de planetas', async () => {
-    const { getByText } = render(<PlanetsPage />, createFetchPromise(fetchReturn))
+    const { getByText, queryByTestId } = render(<PlanetsPage />, createFetchPromise(fetchReturn))
 
     await waitFor(() => {
+      expect(queryByTestId('loading')).not.toBeTruthy()
       expect(getByText('Test1'))
       expect(getByText('12345 km'))
       expect(getByText('24'))
@@ -32,5 +33,13 @@ describe('PlanetsPage', () => {
     const { getByTestId } = render(<PlanetsPage />, createFetchPromise(fetchReturn))
 
     await waitFor(() => expect(getByTestId('loading')))
+  })
+
+  test('deve exibir mensagem de error quando requisição retornar erro', async () => {
+    const { getByText } = render(<PlanetsPage />, createFetchPromise({}, responseTypes.notFound))
+
+    await waitFor(() => expect(
+      getByText(`Ocorreu um erro. Motivo: ${responseTypes.notFound.statusText}`),
+    ))
   })
 })

@@ -9,6 +9,11 @@ export const selectPlanets = createSelector(
   (state: StarWarsState) => state.planets,
 )
 
+export const selectErrorMessage = createSelector(
+  selectFeature,
+  (state: StarWarsState) => state.errorMessage,
+)
+
 export const selectIsLoading = createSelector(
   selectFeature,
   (state: StarWarsState) => state.isLoading,

@@ -12,8 +12,9 @@ module.exports = {
         '/init-redux.ts',
         '/init-env.ts',
         '/init-ga.ts',
-        '/test-helper.ts',
+        '/test-mock-fetch.ts',
         '/test-renderer.ts',
+        '/test-run-saga.ts',
       ],
       moduleNameMapper: {
         '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|)$': '<rootDir>/config/file-mock.js',

@@ -5,8 +5,8 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
 import { Store } from 'redux'
-import InitRedux from '../init-redux'
-import { mockFetch } from './test-helper'
+import InitRedux from '../../init-redux'
+import { mockFetch } from './test-mock-fetch'
 
 const customRender = (
   ui: React.ReactElement,

@@ -1,10 +1,10 @@
+import fetch from '../../fetch'
 import { Planet } from './StarWarsTypes'
 
 export default {
-  getPlanets: (page: number = 1): Promise<Planet[]> => fetch(
-    `${(window as any).apis.starwars}planets/?page=${page}`,
+  getPlanets: (): Promise<Planet[]> => fetch(
+    `${(window as any).apis.starwars}planets/?page=1`,
   )
-    .then((response) => response.json())
     .then((response) => response.results.map((planet) => ({
       name: planet.name,
       diameter: planet.diameter,

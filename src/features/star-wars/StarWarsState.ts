@@ -4,6 +4,7 @@ import { StarWarsState, Planet } from './StarWarsTypes'
 const initialState: StarWarsState = {
   planets: [],
   isLoading: false,
+  errorMessage: '',
 }
 
 const getPlanets = (state) => state
@@ -11,6 +12,16 @@ const getPlanets = (state) => state
 const setPlanets = (state: StarWarsState, action: PayloadAction<{ planets: Planet[] }>) => ({
   ...state,
   planets: action.payload.planets,
+})
+
+const setError = (state: StarWarsState, action: PayloadAction<{ message: string }>) => ({
+  ...state,
+  errorMessage: action.payload.message,
+})
+
+const removeError = (state: StarWarsState) => ({
+  ...state,
+  errorMessage: '',
 })
 
 const isLoading = (state: StarWarsState, action: PayloadAction<boolean>) => ({
@@ -24,6 +35,8 @@ const slice = createSlice({
   reducers: {
     getPlanets,
     setPlanets,
+    setError,
+    removeError,
     isLoading,
   },
 })

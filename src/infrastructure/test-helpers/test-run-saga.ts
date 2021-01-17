@@ -1,19 +1,5 @@
-import { runSaga } from "redux-saga";
-
-const apis = {
-  starwars: 'http://foo.com',
-}
-
-export const mockFetch = (fetchMock: Promise<any> = Promise.resolve()) => {
-  (window as any).apis = apis
-  const fetch = jest.fn(() => fetchMock);
-  (window as any).fetch = fetch
-  return fetch
-}
-
-export const createFetchPromise = (expectedResult: any): Promise<any> => Promise.resolve({
-  json: () => Promise.resolve({ results: expectedResult })
-})
+import { runSaga } from "redux-saga"
+import { mockFetch } from "./test-mock-fetch"
 
 // Tudo contido daqui para baixo pode ser removido se não houver intenção de realizar
 // testes em sagas. E é o recomendado sempre testar o uso da saga num contexto de
@@ -23,11 +9,11 @@ export const createFetchPromise = (expectedResult: any): Promise<any> => Promise
 
 const runContextSaga = async (saga) => {
   const dispatches = []
-  await runSaga({
+  const task = await runSaga({
     dispatch: (action) => dispatches.push(action),
     getState: () => ({}),
   }, saga)
-  return dispatches
+  return { dispatches, task }
 }
 
 export const runSagaTest = async (saga, fetchPromise?) => {
@@ -35,4 +21,3 @@ export const runSagaTest = async (saga, fetchPromise?) => {
   else mockFetch()
   return await runContextSaga(saga)
 }
-
