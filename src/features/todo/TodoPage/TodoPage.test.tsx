@@ -1,6 +1,5 @@
 import { fireEvent, waitFor } from '@testing-library/dom'
 import userEvent from '@testing-library/user-event'
-import React from 'react'
 import { render } from '../../../infrastructure/test-helpers/test-renderer'
 import TodoPage from './TodoPage'
 
