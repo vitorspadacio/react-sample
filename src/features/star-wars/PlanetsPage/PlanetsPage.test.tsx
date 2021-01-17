@@ -1,4 +1,3 @@
-import React from 'react'
 import { createFetchPromise, responseTypes } from '../../../infrastructure/test-helpers/test-mock-fetch'
 import { render, waitFor } from '../../../infrastructure/test-helpers/test-renderer'
 import PlanetsPage from './PlanetsPage'
