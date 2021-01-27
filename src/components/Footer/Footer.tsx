@@ -1,7 +1,17 @@
-import './Footer.scss'
+import styled from 'styled-components'
+import colors from '../../assets/styles/colors'
+
+const Footer = styled.footer`
+  padding: 1em;
+
+  h4 {
+    color: ${colors.white};
+    text-align: center;
+  }
+`
 
 export default () => (
-  <footer>
+  <Footer>
     <h4>React Sample</h4>
-  </footer>
+  </Footer>
 )

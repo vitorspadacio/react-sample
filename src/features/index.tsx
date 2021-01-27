@@ -1,15 +1,16 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import './index.scss'
-
-import Menu from '../components/Menu'
+import Reset from '../assets/styles/reset'
 import Footer from '../components/Footer'
-
+import Menu from '../components/Menu'
 import HomePage from './home/HomePage'
-import TodoPage from './todo/TodoPage'
 import PlanetsPage from './star-wars/PlanetsPage'
+import GlobalStyle from './style'
+import TodoPage from './todo/TodoPage'
 
 export default () => (
   <BrowserRouter>
+    <Reset />
+    <GlobalStyle />
     <Menu />
     <section id='content'>
       <Switch>

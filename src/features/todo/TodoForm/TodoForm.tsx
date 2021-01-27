@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { actions } from '../TodoState'
-import './TodoForm.scss'
+import { ButtonPlus, Container, InsertInput } from './TodoForm.styles'
 
 export default () => {
   const dispatch = useDispatch()
@@ -37,15 +37,15 @@ export default () => {
     showError ? (<span>Obrigatório preencher para adicionar tarefa</span>) : '')
 
   return (
-    <form id='todo-form' onSubmit={handleSubmit} data-testid='todo-form'>
-      <button className='plus' type='submit'>+</button>
-      <input
+    <Container id='todo-form' onSubmit={handleSubmit} data-testid='todo-form'>
+      <ButtonPlus type='submit'>+</ButtonPlus>
+      <InsertInput
         type='text'
         onChange={handleDescriptionChange}
         title='descrição'
         value={description}
       />
       { shouldShowError()}
-    </form>
+    </Container>
   )
 }
