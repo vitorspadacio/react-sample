@@ -1,11 +1,8 @@
 version: 2.1
-jobs:
-  build:
-    docker:
-      - image: circleci/node:lts
-    working_directory: ~/repo
+
+commands:
+  install-packages:
     steps:
-      - checkout
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
@@ -21,14 +18,27 @@ jobs:
           paths:
             - ~/.cache/yarn
 
-      # - run:
-      #     name: Build
-      #     command: yarn build
+executors:
+  docker-executor:
+    docker:
+      - image: circleci/node:lts
+    working_directory: ~/repo
+
+jobs:
+  test:
+    executor: docker-executor
+    steps:
+      - install-packages
 
       - run:
           name: Run Tests
           command: yarn test    
 
-      # - run:
-      #     name: Firebase Deploy
-      #     command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
+  build:
+    executor: docker-executor
+    steps:
+      - install-packages
+
+      - run:
+          name: Build App
+          command: yarn build    
