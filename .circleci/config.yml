@@ -33,7 +33,9 @@ jobs:
 
       - run:
           name: Run Tests
-          command: yarn test    
+          command: yarn test
+
+      - store-test-results
 
   build:
     executor: docker-executor
@@ -52,13 +54,15 @@ jobs:
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
 
 workflows:
-  build-and-test:
+  test:
     jobs:
-      - build
-
-      - test:
+      - test
+  
+  build-and-deploy:
+    jobs:
+      - build:
           requires:
-            - build
+            - test
 
       - approve-deploy:
           type: approval
