@@ -61,11 +61,11 @@ workflows:
           - build
 
       - approve-deploy
-        type: approval
-        requires:
-          - build
-          - test
+          type: approval
+          requires:
+            - build
+            - test
 
       - deploy
-        requires:
-          - approve-deploy
+          requires:
+            - approve-deploy
