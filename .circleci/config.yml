@@ -63,7 +63,7 @@ workflows:
       - approve-deploy:
           type: approval
           requires:
-            - build
+            - test
 
       - deploy:
           requires:
