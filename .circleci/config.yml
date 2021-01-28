@@ -3,6 +3,7 @@ version: 2.1
 commands:
   install-packages:
     steps:
+      - checkout
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
