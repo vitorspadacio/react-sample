@@ -23,11 +23,11 @@ executors:
   docker-executor:
     docker:
       - image: circleci/node:lts
+    working_directory: ~/repo
 
 jobs:
   test:
     executor: docker-executor
-    working_directory: ~/repo
     steps:
       - install-packages
 
@@ -37,16 +37,35 @@ jobs:
 
   build:
     executor: docker-executor
-    working_directory: ~/repo
     steps:
       - install-packages
 
       - run:
           name: Build App
-          command: yarn build    
+          command: yarn build
+  
+  deploy:
+    executor: docker-executor
+    steps:
+      - run:
+          name: Firebase Deploy
+          command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
 
 workflows:
   build-and-test:
     jobs:
-      # - build
+      - build
+
       - test
+        requires:
+          - build
+
+      - approve-deploy
+        type: approval
+        requires:
+          - build
+          - test
+
+      - deploy
+        requires:
+          - approve-deploy
