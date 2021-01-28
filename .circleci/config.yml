@@ -34,11 +34,17 @@ jobs:
           name: Run Tests
           command: yarn test    
 
-  # build:
-  #   executor: docker-executor
-  #   steps:
-  #     - install-packages
+  build:
+    executor: docker-executor
+    steps:
+      - install-packages
 
-  #     - run:
-  #         name: Build App
-  #         command: yarn build    
+      - run:
+          name: Build App
+          command: yarn build    
+
+workflow:
+  build_and_test:
+    jobs:
+      # - build
+      - test
