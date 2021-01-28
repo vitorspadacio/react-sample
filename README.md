@@ -1,4 +1,5 @@
 # 🤖 react-sample
+![CircleCI](https://circleci.com/gh/vitorspadacio/react-sample.svg?style=shield)
 
 Neste repositório você encontrará um exemplo de aplicação frontend usando a biblioteca React.
 

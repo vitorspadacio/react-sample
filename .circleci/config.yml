@@ -30,6 +30,9 @@ jobs:
       - run:
           name: Run Tests
           command: yarn test
+      
+      - store_artifacts:
+          path: coverage
 
       - store_test_results:
           path: ./junit.xml
