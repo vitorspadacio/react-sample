@@ -56,16 +56,16 @@ workflows:
     jobs:
       - build
 
-      - test
-        requires:
-          - build
+      - test:
+          requires:
+            - build
 
-      - approve-deploy
+      - approve-deploy:
           type: approval
           requires:
             - build
             - test
 
-      - deploy
+      - deploy:
           requires:
             - approve-deploy
