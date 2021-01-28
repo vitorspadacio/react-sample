@@ -35,7 +35,8 @@ jobs:
           name: Run Tests
           command: yarn test
 
-      - store-test-results
+      - store-test-results:
+          path: ./
 
   build:
     executor: docker-executor
