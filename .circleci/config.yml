@@ -44,13 +44,18 @@ jobs:
           command: yarn test
 
       - store_test_results:
-          path: ./
+          path: ./junit.xml
+  
+  build:
+    executor: docker-executor
+    steps:
+      - run:
+          name: Build App
+          command: yarn build
 
   deploy:
     executor: docker-executor
     steps:
-      - build
-
       - run:
           name: Firebase Deploy
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
@@ -59,13 +64,11 @@ workflows:
   deploy:
     jobs:
       - test
-  
-      - approve-deploy:
-          type: approval
-          requires:
-            - test
 
+      - build
+        requires:
+          - test
+  
       - deploy:
           requires:
-            - test
-            - approve-deploy
+            - build
