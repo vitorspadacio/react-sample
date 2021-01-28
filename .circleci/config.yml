@@ -18,6 +18,14 @@ commands:
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+  
+  build:
+    steps:
+      - install-packages
+
+      - run:
+          name: Build App
+          command: yarn build
 
 executors:
   docker-executor:
@@ -38,19 +46,10 @@ jobs:
       - store_test_results:
           path: ./
 
-  build:
-    executor: docker-executor
-    steps:
-      - install-packages
-
-      - run:
-          name: Build App
-          command: yarn build
-  
   deploy:
     executor: docker-executor
     steps:
-      - install-packages
+      - build
 
       - run:
           name: Firebase Deploy
@@ -61,10 +60,6 @@ workflows:
     jobs:
       - test
   
-      - build:
-          requires:
-            - test
-
       - approve-deploy:
           type: approval
           requires:
@@ -72,4 +67,5 @@ workflows:
 
       - deploy:
           requires:
+            - test
             - approve-deploy
