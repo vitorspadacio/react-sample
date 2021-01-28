@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { Button } from '../../../components/Styled/Buttons'
 import { selectNumber } from '../HomeSelectors'
 import { actions } from '../HomeState'
-import './HomePage.scss'
+import { Container, Counter } from './HomePage.styles'
 
 export default () => {
   const dispatch = useDispatch()
@@ -12,7 +13,7 @@ export default () => {
   const decrement = () => dispatch(actions.decrement())
 
   return (
-    <section id='home-page'>
+    <Container id='home-page'>
       <h1>Olá Mundo!</h1>
       <p>Essa é uma aplicação de exemplo de React.</p>
 
@@ -43,10 +44,10 @@ export default () => {
         <li>Variáveis de ambientes;</li>
       </ul>
 
-      <p className='counter'>Contador: {number}</p>
+      <Counter>Contador: {number}</Counter>
 
-      <button type='button' onClick={() => decrement()}>Decrementar</button>
-      <button type='button' onClick={() => increment()}>Incrementar</button>
-    </section>
+      <Button type='button' onClick={() => decrement()}>Decrementar</Button>
+      <Button type='button' onClick={() => increment()}>Incrementar</Button>
+    </Container>
   )
 }

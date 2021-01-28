@@ -1,5 +1,3 @@
-@import '../../assets/styles/colors';
-
 #loading {
   display: inline-block;
   position: relative;
@@ -8,7 +6,7 @@
 }
 #loading div {
   position: absolute;
-  border: 4px solid $dark-blue;
+  border: 4px solid #244675;
   opacity: 1;
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
