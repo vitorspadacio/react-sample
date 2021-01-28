@@ -43,8 +43,8 @@ jobs:
           name: Build App
           command: yarn build    
 
-workflow:
-  build_and_test:
+workflows:
+  build-and-test:
     jobs:
       # - build
       - test
