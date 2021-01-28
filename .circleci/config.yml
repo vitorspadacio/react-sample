@@ -1,9 +1,17 @@
 version: 2.1
 
-commands:
-  install-packages:
+executors:
+  docker-executor:
+    docker:
+      - image: circleci/node:lts
+    working_directory: ~/repo
+
+jobs:
+  build-test-deploy:
+    executor: docker-executor
     steps:
       - checkout
+
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
@@ -18,26 +26,6 @@ commands:
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-  
-  build:
-    steps:
-      - install-packages
-
-      - run:
-          name: Build App
-          command: yarn build
-
-executors:
-  docker-executor:
-    docker:
-      - image: circleci/node:lts
-    working_directory: ~/repo
-
-jobs:
-  test:
-    executor: docker-executor
-    steps:
-      - install-packages
 
       - run:
           name: Run Tests
@@ -46,29 +34,10 @@ jobs:
       - store_test_results:
           path: ./junit.xml
   
-  build:
-    executor: docker-executor
-    steps:
       - run:
           name: Build App
           command: yarn build
 
-  deploy:
-    executor: docker-executor
-    steps:
       - run:
           name: Firebase Deploy
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
-
-workflows:
-  deploy:
-    jobs:
-      - test
-
-      - build:
-          requires:
-            - test
-  
-      - deploy:
-          requires:
-            - build
