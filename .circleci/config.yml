@@ -50,12 +50,14 @@ jobs:
   deploy:
     executor: docker-executor
     steps:
+      - install-packages
+
       - run:
           name: Firebase Deploy
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
 
 workflows:
-  test:
+  deploy:
     jobs:
       - test
   
