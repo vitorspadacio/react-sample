@@ -4,7 +4,6 @@ const dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const Visualizer = require('webpack-visualizer-plugin');
 
 const baseConfig = require('./webpack.base.config');
 
@@ -29,7 +28,6 @@ const prodConfig = () => {
       plugins: [
         new MiniCssExtractPlugin(),
         new OptimizeCssAssetsPlugin(),
-        //new Visualizer({ filename: './statistics.html' }),
         new dotenv({ path: '.env.production' })
       ]
     }

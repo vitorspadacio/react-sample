@@ -16,7 +16,7 @@ module.exports = env => {
           modules: __dirname + '/node-modules'
         }
       },
-      devtool: 'source-map',
+      devtool: PLATFORM === 'production' ? false : 'source-map',
       module: {
         rules: [
           {
