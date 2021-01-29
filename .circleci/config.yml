@@ -1,5 +1,20 @@
 version: 2.1
 
+obs:
+  coveralls: coveralls/coveralls@1.0.6
+
+commands:
+  replace-environment-variable:
+      description: Replace a value with an evironment variable in a git repository
+      parameters:
+        target:
+          type: string
+        replacement-env-var-name:
+          type: string
+      steps:
+        - run: |
+            git grep -l '<< parameters.target >>' | xargs sed -i "s/<< parameters.target >>/${<< parameters.replacement >>}/g"
+
 executors:
   docker-executor:
     docker:
@@ -30,9 +45,8 @@ jobs:
       - run:
           name: Run Tests
           command: yarn test
-      
-      - store_artifacts:
-          path: coverage
+
+      - coveralls/upload
 
       - store_test_results:
           path: ./junit.xml
