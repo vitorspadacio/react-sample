@@ -34,7 +34,13 @@ jobs:
       - coveralls/upload
 
       - store_test_results:
-          path: ./junit.xml
+          path: junit.xml
+      
+      - envsubst/install
+
+      - run:
+          name: Set Env Variables
+          command: envsubst < .env.production 
 
       - run:
           name: Build App
