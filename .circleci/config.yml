@@ -1,13 +1,13 @@
 version: 2.1
 
-obs:
-  coveralls: coveralls/coveralls@1.0.6
-
 executors:
   docker-executor:
     docker:
       - image: circleci/node:lts
     working_directory: ~/repo
+
+obs:
+  coveralls: coveralls/coveralls@1.0.6
 
 jobs:
   build:
@@ -34,7 +34,8 @@ jobs:
           name: Run Tests
           command: yarn test
 
-      - coveralls/upload
+      -   coveralls/upload
+
 
       - store_test_results:
           path: ./junit.xml
