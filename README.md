@@ -6,6 +6,8 @@ Neste repositório você encontrará um exemplo de aplicação frontend usando a
 
 Esse exemplo é opinativo e segue uma estrutura que mescla diferentes recomendações de JavaScript, TypeScript, React, testes, além de unir a experiência de utilização e entrega de projetos para diferentes clientes em produção.
 
+[Exemplo app publicado](https://react-sample-49efc.firebaseapp.com/)
+
 ---
 
 <br/>
