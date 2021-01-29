@@ -31,13 +31,13 @@ jobs:
           name: Run Tests
           command: yarn test
 
-      - coveralls/upload
+      - coveralls/upload:
+          path_to_lcov: ./coverage/lcov.info
+
 
       - store_test_results:
           path: ./junit.xml
 
-      - envsubst/install
-  
       - run:
           name: Build App
           command: yarn build
