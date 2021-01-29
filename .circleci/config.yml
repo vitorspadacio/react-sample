@@ -30,7 +30,7 @@ jobs:
           name: Run Tests
           command: yarn test
 
-      -   coveralls/upload
+      - coveralls/upload
 
 
       - store_test_results:
