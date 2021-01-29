@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga'
 import Reducers from './features/reducers'
 import Sagas from './features/sagas'
 
-const isProduction = process.env.PLATAFORM === 'production'
+const isProduction = process.env.PLATFORM === 'production'
 
 export default () => {
   /* eslint-disable no-underscore-dangle */
