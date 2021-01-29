@@ -1,17 +1,13 @@
 version: 2.1
 
-executors:
-  docker-executor:
-    docker:
-      - image: circleci/node:lts
-    working_directory: ~/repo
-
 obs:
   coveralls: coveralls/coveralls@1.0.6
 
 jobs:
   build:
-    executor: docker-executor
+    docker:
+      - image: circleci/node:lts
+    working_directory: ~/repo
     steps:
       - checkout
 
