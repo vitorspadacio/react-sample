@@ -24,7 +24,7 @@ export const Info = styled.div`
   justify-content: space-between;
 
   small {
-    color: $light-blue;
+    color: ${colors.lightBlue};
     font-size: 0.75em;
   }
 

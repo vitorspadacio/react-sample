@@ -1,14 +1,15 @@
 import { createGlobalStyle } from 'styled-components'
+import colors from './assets/styles/colors'
 
 export default createGlobalStyle`
   * {
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
   }
 
   html,
   body {
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
     height: 100%;
   }
 
@@ -29,7 +30,7 @@ export default createGlobalStyle`
   }
 
   h1 {
-    color: $dark-blue;
+    color: ${colors.darkBlue};
     font-size: 32px;
     margin: 0.4em 0;
   }
