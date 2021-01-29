@@ -1,6 +1,6 @@
 # 🤖 react-sample
-![CircleCI](https://circleci.com/gh/vitorspadacio/react-sample.svg?style=shield) 
-![Coverage Status](https://coveralls.io/repos/github/vitorspadacio/react-sample/badge.svg?branch=main)
+[![Build Status](https://circleci.com/gh/vitorspadacio/react-sample.svg?style=shield)](https://circleci.com/gh/vitorspadacio/react-sample) 
+[![Coverage Status](https://coveralls.io/repos/github/vitorspadacio/react-sample/badge.svg?branch=main)](https://coveralls.io/github/vitorspadacio/react-sample?branch=main) [![dependencies Status](https://status.david-dm.org/gh/vitorspadacio/react-sample.svg)](https://david-dm.org/vitorspadacio/react-sample) [![devDependencies Status](https://status.david-dm.org/gh/vitorspadacio/react-sample.svg?type=dev)](https://david-dm.org/vitorspadacio/react-sample?type=dev)
 
 Neste repositório você encontrará um exemplo de aplicação frontend usando a biblioteca React.
 
