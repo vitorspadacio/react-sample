@@ -15,7 +15,7 @@ Esse exemplo é opinativo e segue uma estrutura que mescla diferentes recomenda�
 As tecnologias e estruturas utilizadas no exemplo são:
 - Renderização com React 17;
 - Estrutura de pastas pronta para aplicação de médio porte;
-- Estilização com SASS;
+- Estilização com SASS e/ou styled-components;
 - Padronização de código com .editorconfig e ESLint;
 - Requisição HTTP com API fetch nativa;
 - Gerenciamento de estado único (Redux);
@@ -30,6 +30,11 @@ Além disso encontrará diferentes exemplos para os seguintes cenários:
 - Testes de integração;
 - Testes de unidade em módulos e generators (sagas);
 - Variáveis de ambientes.
+
+No quesito publicação temos:
+- Setup utilizando Firebase Hosting;
+- Build CI utilizando CircleCI;
+- Badges com informações de build, coverage e dependencies.
 
 ---
 

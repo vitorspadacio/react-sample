@@ -25,8 +25,9 @@ export default () => {
 
       <p>As tecnologias utilizadas no exemplo são:</p>
       <ul>
+        <li>Renderização com React 17;</li>
         <li>Estrutura de pastas pronta para aplicação de médio porte;</li>
-        <li>Estilização com SASS;</li>
+        <li>Estilização com SASS e/ou styled-components;</li>
         <li>Padronização de código com .editorconfig e ESLint;</li>
         <li>Gerenciamento de estado único (Redux);</li>
         <li>Middleware de efeitos colaterais (Redux-Saga);</li>
@@ -42,6 +43,13 @@ export default () => {
         <li>Testes de integração;</li>
         <li>Testes de unidade em módulos e generators (sagas);</li>
         <li>Variáveis de ambientes;</li>
+      </ul>
+
+      <p>No quesito publicação temos:</p>
+      <ul>
+        <li>Setup utilizando Firebase Hosting;</li>
+        <li>Build CI utilizando CircleCI;</li>
+        <li>Badges com informações de build, coverage e dependencies.</li>
       </ul>
 
       <Counter>Contador: {number}</Counter>
