@@ -7,7 +7,7 @@ export const Container = styled.ul`
   justify-content: space-between;
 `
 
-export const ListItem = styled.p`
+export const ListItem = styled.li`
   border-radius: 4px;
   border: 1px solid ${colors.lightBlue};
   display: flex;
