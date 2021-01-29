@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.config.js --hot --history-api-fallback --env PLATFORM='local' --env VERSION='stag'",
     "build": "webpack --config config/webpack.prod.config.js --progress --env PLATFORM='production' --env VERSION='stag'",
-    "test": "set \"NODE_ICU_DATA=node_modules/full-icu\" && jest --ci --reporters=jest-junit --reporters=default --coverage --coverageReporters=cobertura --coverageReporters=html",
+    "test": "set \"NODE_ICU_DATA=node_modules/full-icu\" && jest --ci --reporters=jest-junit --reporters=default --coverage --coverageReporters=cobertura --coverageReporters=lcov",
     "test:watch": "set \"NODE_ICU_DATA=node_modules/full-icu\" && jest --watch --coverage"
   },
   "devDependencies": {

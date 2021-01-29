@@ -31,8 +31,7 @@ jobs:
           name: Run Tests
           command: yarn test
 
-      - coveralls/upload:
-          path_to_lcov: ./coverage/lcov.info
+      - coveralls/upload
 
       - store_test_results:
           path: ./junit.xml
