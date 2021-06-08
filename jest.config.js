@@ -11,7 +11,6 @@ module.exports = {
         '/index.ts',
         '/init-redux.ts',
         '/init-env.ts',
-        '/init-ga.ts',
         '/test-mock-fetch.ts',
         '/test-renderer.ts',
         '/test-run-saga.ts',
