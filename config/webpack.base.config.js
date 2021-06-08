@@ -1,8 +1,8 @@
-const webpack = require('webpack');
-const { merge } = require('webpack-merge');
+const webpack = require('webpack')
+const { merge } = require('webpack-merge')
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = env => {
   const { PLATFORM, VERSION } = env;
@@ -37,13 +37,19 @@ module.exports = env => {
             test: /\.ts[x]?$/,
             use: [
               {
-                loader: 'awesome-typescript-loader'
+                loader: 'ts-loader'
               },
               {
                 loader: 'eslint-loader',
                 options: { fix: true }
               }
             ]
+          },
+          {
+            test: /\.m?js/,
+            resolve: {
+              fullySpecified: false
+            }
           },
           {
             test: /\.scss$/,
@@ -74,7 +80,7 @@ module.exports = env => {
         new webpack.DefinePlugin({
           'process.env.VERSION': JSON.stringify(VERSION),
           'process.env.PLATFORM': JSON.stringify(PLATFORM)
-        })
+        }),
       ]
     }
   ]);

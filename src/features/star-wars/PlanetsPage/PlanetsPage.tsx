@@ -10,7 +10,7 @@ export default () => {
 
   useEffect(() => {
     dispatch(actions.getPlanets())
-    return () => dispatch(actions.setPlanets({ planets: [] }))
+    return () => { dispatch(actions.setPlanets({ planets: [] })) }
   }, [dispatch])
 
   return (
