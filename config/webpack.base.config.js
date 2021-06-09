@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 
+const ESLintPlugin = require('eslint-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -35,14 +36,11 @@ module.exports = env => {
           },
           {
             test: /\.ts[x]?$/,
+            exclude: /node_modules/,
             use: [
               {
                 loader: 'ts-loader'
               },
-              {
-                loader: 'eslint-loader',
-                options: { fix: true }
-              }
             ]
           },
           {
@@ -81,7 +79,9 @@ module.exports = env => {
           'process.env.VERSION': JSON.stringify(VERSION),
           'process.env.PLATFORM': JSON.stringify(PLATFORM)
         }),
+        new ESLintPlugin({ fix: true }),
       ]
     }
   ]);
 }
+
