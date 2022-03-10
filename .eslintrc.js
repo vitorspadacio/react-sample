@@ -15,6 +15,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['error'],
     'func-names': 'off',
     'import/extensions': [0],
+    'import/prefer-default-export': [0],
     'jsx-quotes': ['error', 'prefer-single'],
     'no-shadow': 'off',
     'no-unused-vars': 'off',
