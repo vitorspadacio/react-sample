@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
-import * as React from 'react';
+import * as React from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
 import { Store } from 'redux'
@@ -19,9 +19,14 @@ const customRender = (
 ) => {
   const wrapper = ({ children }) => (
     <Provider store={store}>
-      <Router history={history}>{children}</Router>
+      <Router
+        location='teste'
+        navigator={history}
+      >
+        {children}
+      </Router>
     </Provider>
-  );
+  )
 
   const fetch = mockFetch(fetchMock)
 
@@ -35,4 +40,3 @@ const customRender = (
 
 export * from '@testing-library/react'
 export { customRender as render }
-
