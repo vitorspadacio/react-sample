@@ -37,7 +37,7 @@ describe('TodoPage', () => {
   test('não deve adicionar tarefa na lista de tarefas com campo vazio', async () => {
     const { getByTitle, getByText } = render(<TodoPage />)
 
-    await userEvent.type(getByTitle('descrição'), '')
+    await userEvent.click(getByTitle('descrição'))
     userEvent.click(getByText('+'))
 
     await waitFor(() => expect(getByText('Obrigatório preencher para adicionar tarefa')))

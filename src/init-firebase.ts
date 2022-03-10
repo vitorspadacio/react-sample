@@ -1,4 +1,4 @@
-import firebase from 'firebase/app'
+import firebase from 'firebase/compat/app'
 
 export default () => firebase.initializeApp({
   apiKey: process.env.API_KEY,
