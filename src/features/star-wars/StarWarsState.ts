@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { justForSideEffect } from '../../infrastructure/saga-actions'
 import { StarWarsState, Planet } from './StarWarsTypes'
 
 const initialState: StarWarsState = {
@@ -7,7 +8,7 @@ const initialState: StarWarsState = {
   errorMessage: '',
 }
 
-const getPlanets = (state) => state
+const getPlanets = justForSideEffect()
 
 const setPlanets = (state: StarWarsState, action: PayloadAction<{ planets: Planet[] }>) => ({
   ...state,
