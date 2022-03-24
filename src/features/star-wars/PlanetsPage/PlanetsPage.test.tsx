@@ -17,15 +17,13 @@ describe('PlanetsPage', () => {
   test('deve exibir lista de planetas', async () => {
     render(<PlanetsPage />, createFetchPromise(fetchReturn))
 
-    await waitFor(() => {
-      expect(screen.queryByTestId('loading')).not.toBeTruthy()
-      expect(screen.getByText('Test1'))
-      expect(screen.getByText('12345 km'))
-      expect(screen.getByText('24'))
-      expect(screen.getByText('1000m'))
-      expect(screen.getByText('arid'))
-      expect(screen.getByText('desert'))
-    })
+    await waitFor(() => expect(screen.queryByTestId('loading')).not.toBeInTheDocument())
+    expect(screen.getByText('Test1'))
+    expect(screen.getByText('12345 km'))
+    expect(screen.getByText('24'))
+    expect(screen.getByText('1000m'))
+    expect(screen.getByText('arid'))
+    expect(screen.getByText('desert'))
   })
 
   test('deve exibir loading durante requisição', async () => {

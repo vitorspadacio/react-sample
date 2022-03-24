@@ -1,6 +1,7 @@
-import { fireEvent, waitFor } from '@testing-library/dom'
 import userEvent from '@testing-library/user-event'
-import { render, screen } from '../../../infrastructure/test-helpers/test-renderer'
+import {
+  render, screen, waitFor, fireEvent,
+} from '../../../infrastructure/test-helpers/test-renderer'
 import TodoPage from './TodoPage'
 
 describe('TodoPage', () => {
