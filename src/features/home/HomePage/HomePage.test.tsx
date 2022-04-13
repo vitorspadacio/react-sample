@@ -35,10 +35,8 @@ describe('HomePage', () => {
   test('deve decrementar o contador ao clicar no botão Decrementar', async () => {
     render(<HomePage />)
 
-    userEvent.click(screen.getByText('Incrementar'))
-    await screen.findByText('Contador: 1')
     userEvent.click(screen.getByText('Decrementar'))
 
-    expect(await screen.findByText('Contador: 0')).toBeVisible()
+    expect(await screen.findByText('Contador: -1')).toBeVisible()
   })
 })
