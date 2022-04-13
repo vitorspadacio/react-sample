@@ -1,4 +1,4 @@
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import Reset from './assets/styles/reset'
 import Features from './features'
@@ -11,11 +11,10 @@ const store = InitRedux()
 InitEnv()
 InitFirebase()
 
-render(
+createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <Reset />
     <GlobalStyle />
     <Features />
   </Provider>,
-  document.getElementById('root'),
 )

@@ -46,4 +46,4 @@ export default createGlobalStyle`
       margin-left: 1em;
     }
   }
-`
+` as any

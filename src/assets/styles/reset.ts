@@ -55,4 +55,4 @@ export default createGlobalStyle`
     border-spacing: 0;
   }
 
-`
+` as any

@@ -29,14 +29,14 @@ describe('PlanetsPage', () => {
   test('deve exibir loading durante requisição', async () => {
     render(<PlanetsPage />, createFetchPromise(fetchReturn))
 
-    await waitFor(() => expect(screen.getByTestId('loading')))
+    expect(await screen.findByTestId('loading'))
+    expect(await screen.findByText('Test1'))
   })
 
   test('deve exibir mensagem de error quando requisição retornar erro', async () => {
     render(<PlanetsPage />, createFetchPromise({}, responseTypes.notFound))
 
-    await waitFor(() => expect(
-      screen.getByText(`Ocorreu um erro. Motivo: ${responseTypes.notFound.statusText}`),
-    ))
+    expect(await screen
+      .findByText(`Ocorreu um erro. Motivo: ${responseTypes.notFound.statusText}`))
   })
 })
