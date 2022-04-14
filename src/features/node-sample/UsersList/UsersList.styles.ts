@@ -33,4 +33,20 @@ export const Info = styled.div`
   }
 `
 
+export const Actions = styled.div`
+  display: flex;
+  margin-top: 0.75em;
+  justify-content: space-around;
+
+  img {
+    height: 30px;
+    width: 30px;
+  }
+`
+
+export const ActionButton = styled.button`
+  border: none;
+  background-color: transparent;
+`
+
 export default { Container, ListItem, Info }

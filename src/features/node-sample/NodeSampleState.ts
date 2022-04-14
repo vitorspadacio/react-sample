@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { justForSideEffect } from '../../infrastructure/saga-actions'
+import { justForSideEffectWithPayload, justForSideEffect } from '../../infrastructure/saga-actions'
 import { NodeSampleState, User } from './NodeSampleTypes'
 
 const initialState: NodeSampleState = {
@@ -9,6 +9,7 @@ const initialState: NodeSampleState = {
 }
 
 const getUsers = justForSideEffect()
+const deleteUser = justForSideEffectWithPayload<{ id }>()
 
 const setUsers = (state: NodeSampleState, action: PayloadAction<User[]>) => ({
   ...state,
@@ -31,10 +32,11 @@ const isLoading = (state: NodeSampleState, action: PayloadAction<boolean>) => ({
 })
 
 const slice = createSlice({
-  name: 'starwars',
+  name: 'nodesample',
   initialState,
   reducers: {
     getUsers,
+    deleteUser,
     setUsers,
     setError,
     removeError,
