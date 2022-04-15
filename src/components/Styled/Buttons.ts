@@ -9,4 +9,7 @@ export const Button = styled.button`
   cursor: pointer;
   padding: 0.75em 1em;
 `
-export default { Button }
+
+export const RedButton = styled(Button)`
+  background-color: ${colors.red};
+`

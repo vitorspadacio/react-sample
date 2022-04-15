@@ -6,6 +6,7 @@ const initialState: NodeSampleState = {
   users: [],
   isLoading: false,
   errorMessage: '',
+  showDeleteModal: false,
 }
 
 const getUsers = justForSideEffect()
@@ -31,6 +32,11 @@ const isLoading = (state: NodeSampleState, action: PayloadAction<boolean>) => ({
   isLoading: action.payload,
 })
 
+const setShowDeleteModal = (state: NodeSampleState, action: PayloadAction<boolean>) => ({
+  ...state,
+  setShowDeleteModal: action.payload,
+})
+
 const slice = createSlice({
   name: 'nodesample',
   initialState,
@@ -41,6 +47,7 @@ const slice = createSlice({
     setError,
     removeError,
     isLoading,
+    setShowDeleteModal,
   },
 })
 

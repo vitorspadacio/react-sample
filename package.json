@@ -55,6 +55,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@faker-js/faker": "^6.1.2",
     "@reduxjs/toolkit": "1.8.1",
     "@testing-library/dom": "^8.13.0",
     "@testing-library/jest-dom": "^5.16.4",
@@ -70,6 +71,7 @@
     "mask-fn": "^1.0.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-modal": "^3.14.4",
     "react-redux": "^8.0.0-rc.0",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",

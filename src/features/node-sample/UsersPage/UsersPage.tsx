@@ -1,17 +1,28 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import PlanetsList from '../UsersList/UsersList'
 import { selectErrorMessage } from '../NodeSampleSelectors'
 import { actions } from '../NodeSampleState'
+import UserDeleteModal from '../UserDeleteModal/UserDeleteModal'
+import UsersList from '../UsersList'
 
 export default () => {
   const dispatch = useDispatch()
   const errorMessage = useSelector(selectErrorMessage)
+  const [idToDelete, setIdToDelete] = useState(0)
 
   useEffect(() => {
     dispatch(actions.getUsers())
     return () => { dispatch(actions.setUsers([])) }
   }, [dispatch])
+
+  const handleDeleteClick = (id) => setIdToDelete(id)
+
+  const handleConfirmClick = () => {
+    dispatch(actions.deleteUser({ id: idToDelete }))
+    setIdToDelete(0)
+  }
+
+  const handleCancelClick = () => setIdToDelete(0)
 
   return (
     <>
@@ -22,7 +33,13 @@ export default () => {
       </p>
       { errorMessage
         ? (<span>Ocorreu um erro. Motivo: {errorMessage}</span>)
-        : (<PlanetsList />)}
+        : (<UsersList onDeleteClick={handleDeleteClick} />)}
+
+      <UserDeleteModal
+        idToDelete={idToDelete}
+        onConfirmClick={handleConfirmClick}
+        onCancelClick={handleCancelClick}
+      />
     </>
   )
 }

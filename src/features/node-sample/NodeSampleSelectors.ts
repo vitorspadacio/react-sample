@@ -19,4 +19,9 @@ export const selectIsLoading = createSelector(
   (state: NodeSampleState) => state.isLoading,
 )
 
+export const selectShowDeleteModal = createSelector(
+  selectFeature,
+  (state: NodeSampleState) => state.showDeleteModal,
+)
+
 export default selectFeature

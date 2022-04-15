@@ -1,42 +1,67 @@
+import userEvent from '@testing-library/user-event'
+import { act } from 'react-dom/test-utils'
+import userBuilder from '../../../infrastructure/builders/user.builder'
+import mockApi from '../../../infrastructure/test-helpers/test-mock-api'
 import { createFetchPromise, responseTypes } from '../../../infrastructure/test-helpers/test-mock-fetch'
 import { render, screen, waitFor } from '../../../infrastructure/test-helpers/test-renderer'
-import PlanetsPage from './UsersPage'
+import NodeSampleApi from '../NodeSampleApi'
+import UsersPage from './UsersPage'
 
-const fetchReturn = [
-  {
-    name: 'Test1',
-    diameter: '12345',
-    rotation_period: '24',
-    population: '1000',
-    climate: 'arid',
-    terrain: 'desert',
-  },
-]
+jest.mock('../NodeSampleApi')
 
-describe('PlanetsPage', () => {
-  test('deve exibir lista de planetas', async () => {
-    render(<PlanetsPage />, createFetchPromise(fetchReturn))
+const getUsersReturn = {
+  data: [
+    { ...userBuilder().create() },
+    { ...userBuilder().create() },
+    { ...userBuilder().create() },
+  ],
+}
 
+describe('UsersPage', () => {
+  beforeAll(() => jest.useFakeTimers())
+  afterAll(() => jest.useRealTimers())
+
+  beforeEach(() => {
+    mockApi(NodeSampleApi.getUsers).mockResolvedValue(getUsersReturn)
+  })
+
+  test('deve exibir lista usuários', async () => {
+    render(<UsersPage />)
+
+    const [user1, user2, user3] = getUsersReturn.data
     await waitFor(() => expect(screen.queryByTestId('loading')).not.toBeInTheDocument())
-    expect(screen.getByText('Test1'))
-    expect(screen.getByText('12345 km'))
-    expect(screen.getByText('24'))
-    expect(screen.getByText('1000m'))
-    expect(screen.getByText('arid'))
-    expect(screen.getByText('desert'))
+    expect(screen.getByText(user1.id))
+    expect(screen.getByText(user1.name))
+    expect(screen.getByText(`${user1.age} anos`))
+
+    expect(screen.getByText(user2.id))
+    expect(screen.getByText(user2.name))
+    expect(screen.getByText(`${user2.age} anos`))
+
+    expect(screen.getByText(user3.id))
+    expect(screen.getByText(user3.name))
+    expect(screen.getByText(`${user3.age} anos`))
   })
 
   test('deve exibir loading durante requisição', async () => {
-    render(<PlanetsPage />, createFetchPromise(fetchReturn))
+    render(<UsersPage />)
 
+    const [user] = getUsersReturn.data
     expect(await screen.findByTestId('loading'))
-    expect(await screen.findByText('Test1'))
+    expect(await screen.findByText(user.name))
   })
 
-  test('deve exibir mensagem de error quando requisição retornar erro', async () => {
-    render(<PlanetsPage />, createFetchPromise({}, responseTypes.notFound))
+  test('deve exibir permitir cancelar processo de exclusão pelo botão Cancelar', async () => {
+    render(<UsersPage />)
+    const modalTitle = 'Deseja deletar o usuário?'
 
-    expect(await screen
-      .findByText(`Ocorreu um erro. Motivo: ${responseTypes.notFound.statusText}`))
+    const [user] = getUsersReturn.data
+    await screen.findByText(user.id)
+    userEvent.click(screen.getByTestId(`delete-${user.id}`))
+    await screen.findByText(modalTitle)
+    userEvent.click(screen.getByText('Cancelar'))
+
+    await waitFor(() => expect(screen.queryByText(modalTitle)).not.toBeInTheDocument())
+    jest.useRealTimers()
   })
 })

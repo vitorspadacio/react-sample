@@ -8,4 +8,5 @@ export interface NodeSampleState {
   users: User[],
   isLoading: boolean,
   errorMessage: string,
+  showDeleteModal: boolean,
 }
