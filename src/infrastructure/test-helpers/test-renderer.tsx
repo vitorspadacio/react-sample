@@ -3,36 +3,33 @@ import { render } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import * as React from 'react'
 import { Provider } from 'react-redux'
-import { Router } from 'react-router-dom'
-import { Store } from 'redux'
+import { Route, Router, Routes } from 'react-router-dom'
 import InitRedux from '../../init-redux'
-import { mockFetch } from './test-mock-fetch'
 
 const customRender = (
   ui: React.ReactElement,
-  fetchMock: Promise<any> = Promise.resolve(),
-  store: Store = InitRedux(),
   {
-    route = '/',
-    history = createMemoryHistory({ initialEntries: [route] }),
+    store = InitRedux(),
+    location = '/',
+    path = '/',
   } = {},
 ) => {
+  const history = createMemoryHistory()
   const wrapper = ({ children }) => (
     <Provider store={store}>
       <Router
-        location='teste'
+        location={location}
         navigator={history}
       >
-        {children}
+        <Routes>
+          <Route path={path} element={children} />
+        </Routes>
       </Router>
     </Provider>
   )
 
-  const fetch = mockFetch(fetchMock)
-
   return {
     ...render(ui, { wrapper }),
-    fetch,
     history,
     store,
   }

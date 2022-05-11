@@ -3,11 +3,11 @@ import { useCallback, useEffect, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate, useParams } from 'react-router'
-import { number, object, string } from 'yup'
 import { Button, OutlineButton } from '../../../components/Styled/Buttons'
 import { Input } from '../../../components/Styled/Input'
 import NodeSampleApi from '../NodeSampleApi'
 import { actions } from '../NodeSampleState'
+import { schema } from './UserDetailPage.schema'
 import {
   ButtonContainer, Container, Error, Label,
 } from './UserDetailPage.syles'
@@ -16,11 +16,6 @@ const routes = {
   edit: '/node-sample/edit/',
   create: '/node-sample/create/',
 }
-
-const schema = object({
-  name: string().required('Campo obrigatório'),
-  age: number().typeError('Idade deve ser um número').required('Campo obrigatório'),
-})
 
 export default () => {
   const location = useLocation()
@@ -49,7 +44,7 @@ export default () => {
 
   useEffect(() => {
     if (isEdit) { fetchUser() }
-  }, [fetchUser, isEdit, location])
+  }, [fetchUser, isEdit])
 
   const onSubmit = (user) => (isEdit
     ? dispatch(actions.updateUser(user)) : dispatch(actions.createUser(user)))
