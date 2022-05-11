@@ -55,4 +55,7 @@ export default createGlobalStyle`
     border-spacing: 0;
   }
 
+  input:focus, textarea:focus, select:focus{
+    outline: none;
+  }
 ` as any

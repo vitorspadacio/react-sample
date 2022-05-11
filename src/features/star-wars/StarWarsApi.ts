@@ -6,7 +6,7 @@ export default {
     `${(window as any).apis.starwars}planets`,
     { page: 1 },
   )
-    .then((response) => response.results.map((planet) => ({
+    .then((response) => (response as any).results.map((planet) => ({
       name: planet.name,
       diameter: planet.diameter,
       rotationPeriod: planet.rotation_period,

@@ -56,6 +56,7 @@
   },
   "dependencies": {
     "@faker-js/faker": "^6.1.2",
+    "@hookform/resolvers": "^2.8.8",
     "@reduxjs/toolkit": "1.8.1",
     "@testing-library/dom": "^8.13.0",
     "@testing-library/jest-dom": "^5.16.4",
@@ -71,6 +72,7 @@
     "mask-fn": "^1.0.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-hook-form": "^7.30.0",
     "react-modal": "^3.14.4",
     "react-redux": "^8.0.0-rc.0",
     "react-router": "^6.3.0",
@@ -78,6 +80,7 @@
     "redux": "4.1.2",
     "redux-devtools": "^3.7.0",
     "redux-saga": "^1.1.3",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "yup": "^0.32.11"
   }
 }

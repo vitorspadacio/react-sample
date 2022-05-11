@@ -11,6 +11,8 @@ const initialState: NodeSampleState = {
 
 const getUsers = justForSideEffect()
 const deleteUser = justForSideEffectWithPayload<{ id }>()
+const updateUser = justForSideEffectWithPayload<User>()
+const createUser = justForSideEffectWithPayload<User>()
 
 const setUsers = (state: NodeSampleState, action: PayloadAction<User[]>) => ({
   ...state,
@@ -43,6 +45,8 @@ const slice = createSlice({
   reducers: {
     getUsers,
     deleteUser,
+    updateUser,
+    createUser,
     setUsers,
     setError,
     removeError,

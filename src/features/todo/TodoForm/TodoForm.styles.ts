@@ -13,14 +13,6 @@ export const ButtonPlus = styled(Button)`
   margin-right: 0.75em;
 `
 
-export const InsertInput = styled.input`
-  border: 1px solid ${colors.lightBlue};
-  border-radius: 4px;
-  font-size: 16px;
-  padding: 0.6em;
-  width: calc(100% - 50px);
-`
-
 export const Error = styled.span`
   color: ${colors.red};
   font-size: 12px;

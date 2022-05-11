@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { Input } from '../../../components/Styled/Input'
 import { actions } from '../TodoState'
-import { ButtonPlus, Container, InsertInput } from './TodoForm.styles'
+import { ButtonPlus, Container } from './TodoForm.styles'
 
 export default () => {
   const dispatch = useDispatch()
@@ -28,9 +29,9 @@ export default () => {
   }
 
   const handleSubmit = (event) => {
+    event.preventDefault()
     validate(description)
     createTask()
-    event.preventDefault()
   }
 
   const shouldShowError = () => (
@@ -39,7 +40,7 @@ export default () => {
   return (
     <Container id='todo-form' onSubmit={handleSubmit} data-testid='todo-form'>
       <ButtonPlus type='submit'>+</ButtonPlus>
-      <InsertInput
+      <Input
         type='text'
         onChange={handleDescriptionChange}
         title='descrição'

@@ -24,7 +24,7 @@ export default ({ onDeleteClick }: Props) => {
       <Info><small>Nome</small> <span>{user.name}</span></Info>
       <Info><small>Idade</small> <span>{user.age} anos</span></Info>
       <Actions>
-        <Link to='/node-sample/edit/:id'><img src={editIcon} alt='edit' /></Link>
+        <Link to={`/node-sample/edit/${user.id}`}><img src={editIcon} alt='edit' /></Link>
         <ActionButton
           onClick={() => onDeleteClick(user.id)}
           data-testid={`delete-${user.id}`}

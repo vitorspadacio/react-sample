@@ -8,8 +8,19 @@ export const Button = styled.button`
   color: ${colors.white};
   cursor: pointer;
   padding: 0.75em 1em;
+
+  :disabled {
+    background-color: ${colors.softBlue};
+    color: ${colors.white};
+  }
 `
 
 export const RedButton = styled(Button)`
   background-color: ${colors.red};
+`
+
+export const OutlineButton = styled(Button)`
+  background-color: ${colors.white};
+  border: 1px solid ${colors.lightBlue};
+  color: ${colors.darkBlue};
 `
