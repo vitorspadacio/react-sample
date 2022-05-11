@@ -1,8 +1,6 @@
 import userEvent from '@testing-library/user-event'
-import { act } from 'react-dom/test-utils'
 import userBuilder from '../../../infrastructure/builders/user.builder'
 import mockApi from '../../../infrastructure/test-helpers/test-mock-api'
-import { createFetchPromise, responseTypes } from '../../../infrastructure/test-helpers/test-mock-fetch'
 import { render, screen, waitFor } from '../../../infrastructure/test-helpers/test-renderer'
 import NodeSampleApi from '../NodeSampleApi'
 import UsersPage from './UsersPage'
@@ -55,13 +53,30 @@ describe('UsersPage', () => {
     render(<UsersPage />)
     const modalTitle = 'Deseja deletar o usuário?'
 
-    const [user] = getUsersReturn.data
-    await screen.findByText(user.id)
-    userEvent.click(screen.getByTestId(`delete-${user.id}`))
+    const [{ id }] = getUsersReturn.data
+    await screen.findByText(id)
+    userEvent.click(screen.getByTestId(`delete-${id}`))
     await screen.findByText(modalTitle)
     userEvent.click(screen.getByText('Cancelar'))
 
     await waitFor(() => expect(screen.queryByText(modalTitle)).not.toBeInTheDocument())
-    jest.useRealTimers()
+  })
+
+  test('deve navegar para tela de criar usuário ao clicar em Criar', async () => {
+    const { history } = render(<UsersPage />)
+
+    userEvent.click(screen.getByText('Criar'))
+
+    await waitFor(() => expect(history.location.pathname).toBe('/node-sample/create'))
+  })
+
+  test('deve navegar para tela de edição com id do usuário ao clicar no botão para editar', async () => {
+    const { history } = render(<UsersPage />)
+
+    const [{ id }] = getUsersReturn.data
+    await screen.findByText(id)
+    userEvent.click(screen.getAllByAltText('edit')[0])
+
+    await waitFor(() => expect(history.location.pathname).toBe(`/node-sample/edit/${id}`))
   })
 })
