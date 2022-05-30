@@ -15,6 +15,7 @@ Esse exemplo é opinativo e segue uma estrutura que mescla diferentes recomenda�
 ## 📚 Tecnologias
 
 As tecnologias e estruturas utilizadas no exemplo são:
+- Node.js v16.15.0 LTS
 - Renderização com React 17;
 - Estrutura de pastas pronta para aplicação de médio porte;
 - Estilização com SASS e/ou styled-components;
