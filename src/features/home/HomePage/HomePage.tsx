@@ -25,12 +25,13 @@ export default () => {
 
       <p>As tecnologias utilizadas no exemplo são:</p>
       <ul>
-        <li>Renderização com React 17;</li>
+        <li>Renderização com React 18;</li>
         <li>Estrutura de pastas pronta para aplicação de médio porte;</li>
         <li>Estilização com SASS e/ou styled-components;</li>
         <li>Padronização de código com .editorconfig e ESLint;</li>
         <li>Gerenciamento de estado único (Redux);</li>
         <li>Middleware de efeitos colaterais (Redux-Saga);</li>
+        <li>Formulários com hooks (React-Hook-Form);</li>
         <li>Testes automátizados (Jest);</li>
         <li>Testes de integração com DOM em memória (Testing-Library);</li>
       </ul>
