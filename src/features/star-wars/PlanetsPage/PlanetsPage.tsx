@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import PlanetsList from '../PlanetsList/PlanetsList'
+import PlanetsList from '../PlanetsList'
 import { selectErrorMessage } from '../StarWarsSelectors'
 import { actions } from '../StarWarsState'
 

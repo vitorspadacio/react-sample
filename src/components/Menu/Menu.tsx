@@ -25,5 +25,6 @@ export default () => (
     <Link to='/'>Home</Link>
     <Link to='/todo'>Todo</Link>
     <Link to='/star-wars'>Star Wars</Link>
+    <Link to='/node-sample'>Node Sample</Link>
   </Nav>
 )

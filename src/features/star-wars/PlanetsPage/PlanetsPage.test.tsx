@@ -1,12 +1,15 @@
-import { createFetchPromise, responseTypes } from '../../../infrastructure/test-helpers/test-mock-fetch'
+import mockApi from '../../../infrastructure/test-helpers/test-mock-api'
 import { render, screen, waitFor } from '../../../infrastructure/test-helpers/test-renderer'
+import StarWarsApi from '../StarWarsApi'
 import PlanetsPage from './PlanetsPage'
 
-const fetchReturn = [
+jest.mock('../StarWarsApi')
+
+const getPlanetsReturn = [
   {
     name: 'Test1',
     diameter: '12345',
-    rotation_period: '24',
+    rotationPeriod: '24',
     population: '1000',
     climate: 'arid',
     terrain: 'desert',
@@ -14,8 +17,12 @@ const fetchReturn = [
 ]
 
 describe('PlanetsPage', () => {
+  beforeEach(() => {
+    mockApi(StarWarsApi.getPlanets).mockResolvedValue(getPlanetsReturn)
+  })
+
   test('deve exibir lista de planetas', async () => {
-    render(<PlanetsPage />, createFetchPromise(fetchReturn))
+    render(<PlanetsPage />)
 
     await waitFor(() => expect(screen.queryByTestId('loading')).not.toBeInTheDocument())
     expect(screen.getByText('Test1'))
@@ -27,16 +34,17 @@ describe('PlanetsPage', () => {
   })
 
   test('deve exibir loading durante requisição', async () => {
-    render(<PlanetsPage />, createFetchPromise(fetchReturn))
+    render(<PlanetsPage />)
 
     expect(await screen.findByTestId('loading'))
     expect(await screen.findByText('Test1'))
   })
 
   test('deve exibir mensagem de error quando requisição retornar erro', async () => {
-    render(<PlanetsPage />, createFetchPromise({}, responseTypes.notFound))
+    mockApi(StarWarsApi.getPlanets).mockRejectedValueOnce(new Error('Not Found'))
+    render(<PlanetsPage />)
 
     expect(await screen
-      .findByText(`Ocorreu um erro. Motivo: ${responseTypes.notFound.statusText}`))
+      .findByText('Ocorreu um erro. Motivo: Not Found'))
   })
 })
