@@ -96,10 +96,11 @@ describe('UserDetailPage', () => {
       }, undefined))
     })
 
-    test.skip('deve exibir errors de validação nos campos da edição', async () => {
+    test('deve exibir errors de validação nos campos da edição', async () => {
       render(<UserDetailPage />, { ...path })
 
-      userEvent.click(screen.getByText('Criar'))
+      userEvent.clear(screen.getByAltText('nome'))
+      userEvent.clear(screen.getByAltText('idade'))
 
       expect(await screen.findByText('Campo obrigatório')).toBeVisible()
       expect(screen.getByText('Campo obrigatório')).toBeVisible()
