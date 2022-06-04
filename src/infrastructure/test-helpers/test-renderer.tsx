@@ -4,6 +4,7 @@ import { createMemoryHistory } from 'history'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { Route, Router, Routes } from 'react-router-dom'
+import Navigation from '../../components/Navigation'
 import InitRedux from '../../init-redux'
 
 const customRender = (
@@ -21,6 +22,7 @@ const customRender = (
         location={location}
         navigator={history}
       >
+        <Navigation />
         <Routes>
           <Route path={path} element={children} />
         </Routes>

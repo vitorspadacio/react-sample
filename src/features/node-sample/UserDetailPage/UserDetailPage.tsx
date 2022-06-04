@@ -25,7 +25,7 @@ export default () => {
 
   const isEdit = useMemo(() => location.pathname.includes(routes.edit), [location])
 
-  const titleText = isEdit ? 'Edição do usuário' : 'Criação do usuario'
+  const titleText = isEdit ? 'Edição do usuário' : 'Criação do usuário'
   const buttonText = isEdit ? 'Salvar' : 'Criar'
 
   const {
@@ -63,13 +63,21 @@ export default () => {
 
         <Label>
           <span>Nome</span>
-          <Input {...register('name')} hasError={errors.name?.message} />
+          <Input
+            alt='nome'
+            {...register('name')}
+            hasError={errors.name?.message}
+          />
           <Error>{errors.name?.message}</Error>
         </Label>
 
         <Label>
           <span>Idade</span>
-          <Input {...register('age')} hasError={errors.age?.message} />
+          <Input
+            alt='idade'
+            {...register('age')}
+            hasError={errors.age?.message}
+          />
           <Error>{errors.age?.message}</Error>
         </Label>
 
