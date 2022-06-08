@@ -4,5 +4,3 @@ import { PayloadAction } from '@reduxjs/toolkit'
 export const justForSideEffect = () => () => {}
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const justForSideEffectWithPayload = <PT>() => (state: any, action: PayloadAction<PT>) => {}
-
-export const emptyArray = []
