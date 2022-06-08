@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { justForSideEffectWithPayload, justForSideEffect } from '../../infrastructure/saga-actions'
+import { justForSideEffect, justForSideEffectWithPayload } from '../../infrastructure/redux-helpers/saga-actions'
 import { NodeSampleState, User } from './NodeSampleTypes'
 
 const initialState: NodeSampleState = {

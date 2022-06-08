@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { justForSideEffect } from '../../infrastructure/saga-actions'
-import { StarWarsState, Planet } from './StarWarsTypes'
+import { justForSideEffect } from '../../infrastructure/redux-helpers/saga-actions'
+import { Planet, StarWarsState } from './StarWarsTypes'
 
 const initialState: StarWarsState = {
   planets: [],
