@@ -4,6 +4,7 @@ const { merge } = require('webpack-merge')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = env => {
   const { PLATFORM, VERSION } = env;
@@ -50,7 +51,7 @@ module.exports = env => {
             }
           },
           {
-            test: /\.scss$/,
+            test: /\.(sa|sc|c)ss$/,
             use: [
               PLATFORM === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
               'css-loader',
@@ -80,6 +81,7 @@ module.exports = env => {
           'process.env.PLATFORM': JSON.stringify(PLATFORM)
         }),
         new ESLintPlugin({ fix: true }),
+        new FaviconsWebpackPlugin('./src/favicon.png'),
       ]
     }
   ]);
