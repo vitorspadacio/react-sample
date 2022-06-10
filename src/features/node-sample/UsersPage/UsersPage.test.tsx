@@ -41,14 +41,6 @@ describe('UsersPage', () => {
     expect(screen.getByText(`${user3.age} anos`))
   })
 
-  test('deve exibir loading durante requisição', async () => {
-    render(<UsersPage />)
-
-    const [user] = getUsersReturn.data
-    expect(await screen.findByTestId('loading'))
-    expect(await screen.findByText(user.name))
-  })
-
   test('deve exibir permitir cancelar processo de exclusão pelo botão Cancelar', async () => {
     render(<UsersPage />)
     const modalTitle = 'Deseja deletar o usuário?'

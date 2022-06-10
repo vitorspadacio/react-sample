@@ -2,9 +2,11 @@ module.exports = {
   displayName: 'test',
   roots: ['<rootDir>/src'],
   testEnvironment: 'jsdom',
+  resolver: '<rootDir>/config/resolver.js',
   transform: {
     '^.+\\.js[x]?$': 'babel-jest',
     '^.+\\.ts[x]?$': 'ts-jest',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|)$': 'jest-transform-stub',
   },
   coveragePathIgnorePatterns: [
     '/index.ts',
@@ -15,7 +17,6 @@ module.exports = {
     '/test-run-saga.ts',
   ],
   moduleNameMapper: {
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|)$': '<rootDir>/config/file-mock.js',
     '\\.(css|scss)$': 'identity-obj-proxy',
   },
 }

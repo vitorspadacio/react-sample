@@ -24,20 +24,12 @@ describe('PlanetsPage', () => {
   test('deve exibir lista de planetas', async () => {
     render(<PlanetsPage />)
 
-    await waitFor(() => expect(screen.queryByTestId('loading')).not.toBeInTheDocument())
-    expect(screen.getByText('Test1'))
-    expect(screen.getByText('12345 km'))
-    expect(screen.getByText('24'))
-    expect(screen.getByText('1000m'))
-    expect(screen.getByText('arid'))
-    expect(screen.getByText('desert'))
-  })
-
-  test('deve exibir loading durante requisição', async () => {
-    render(<PlanetsPage />)
-
-    expect(await screen.findByTestId('loading'))
-    expect(await screen.findByText('Test1'))
+    expect(await screen.findByText('Test1')).toBeVisible()
+    expect(screen.getByText('12345 km')).toBeVisible()
+    expect(screen.getByText('24')).toBeVisible()
+    expect(screen.getByText('1000m')).toBeVisible()
+    expect(screen.getByText('arid')).toBeVisible()
+    expect(screen.getByText('desert')).toBeVisible()
   })
 
   test('deve exibir mensagem de error quando requisição retornar erro', async () => {

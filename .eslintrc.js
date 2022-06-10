@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'testing-library', 'jest-dom'],
   parserOptions: {
@@ -41,5 +41,6 @@ module.exports = {
       files: ['**/?(*.)+(spec|test).[jt]s?(x)'],
       extends: ['plugin:testing-library/react', 'plugin:jest-dom/recommended']
     }
-  ]
+  ],
+  include: [ '**/*.config.js' ]
 }
