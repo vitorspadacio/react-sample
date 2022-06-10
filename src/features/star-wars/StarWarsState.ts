@@ -4,7 +4,6 @@ import { Planet, StarWarsState } from './StarWarsTypes'
 
 const initialState: StarWarsState = {
   planets: [],
-  isLoading: false,
   errorMessage: '',
 }
 
@@ -25,11 +24,6 @@ const removeError = (state: StarWarsState) => ({
   errorMessage: '',
 })
 
-const isLoading = (state: StarWarsState, action: PayloadAction<boolean>) => ({
-  ...state,
-  isLoading: action.payload,
-})
-
 const slice = createSlice({
   name: 'starwars',
   initialState,
@@ -38,7 +32,6 @@ const slice = createSlice({
     setPlanets,
     setError,
     removeError,
-    isLoading,
   },
 })
 

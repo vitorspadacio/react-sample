@@ -4,7 +4,7 @@ import PlanetsList from '../PlanetsList'
 import { selectErrorMessage } from '../StarWarsSelectors'
 import { actions } from '../StarWarsState'
 
-export default () => {
+export default function () {
   const dispatch = useDispatch()
   const errorMessage = useSelector(selectErrorMessage)
 

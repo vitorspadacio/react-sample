@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'testing-library', 'jest-dom'],
+  plugins: ['@typescript-eslint'],
   parserOptions: {
     project: './tsconfig.json',
     ecmaVersion: 2018,
@@ -20,13 +20,12 @@ module.exports = {
     'no-shadow': 'off',
     'no-unused-vars': 'off',
     'no-use-before-define': 'off',
-    'react/function-component-definition': [0],
     'react/jsx-filename-extension': [2, { 'extensions': ['.jsx', '.tsx'] }],
     'react/jsx-one-expression-per-line': [0],
-    'react/jsx-props-no-spreading': [0],
     'react/jsx-uses-react': [0],
     'react/prop-types': [0],
     'react/react-in-jsx-scope': [0],
+    'react/require-default-props': [0],
     'semi': ['error', 'never'],
   },
   env: { browser: true, jest: true },
@@ -36,11 +35,5 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx']
       }
     }
-  },
-  overrides: [
-    {
-      files: ['**/?(*.)+(spec|test).[jt]s?(x)'],
-      extends: ['plugin:testing-library/react', 'plugin:jest-dom/recommended']
-    }
-  ]
+  }
 }

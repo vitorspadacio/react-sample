@@ -1,12 +1,10 @@
 import { useSelector } from 'react-redux'
-import Loading from '../../../components/Loading'
-import { selectIsLoading, selectPlanets } from '../StarWarsSelectors'
+import { selectPlanets } from '../StarWarsSelectors'
 import { Planet } from '../StarWarsTypes'
 import { Container, Info, ListItem } from './PlanetsList.styles'
 
-export default () => {
+export default function () {
   const planets = useSelector(selectPlanets)
-  const isLoading = useSelector(selectIsLoading)
 
   const renderDetails = (planet: Planet) => (
     <ListItem key={planet.name}>
@@ -21,7 +19,6 @@ export default () => {
 
   return (
     <Container id='planets-list'>
-      {isLoading ? <Loading /> : ''}
       {planets.map(renderDetails)}
     </Container>
   )

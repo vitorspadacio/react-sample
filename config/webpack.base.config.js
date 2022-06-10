@@ -81,7 +81,7 @@ module.exports = env => {
           'process.env.PLATFORM': JSON.stringify(PLATFORM)
         }),
         new ESLintPlugin({ fix: true }),
-        new FaviconsWebpackPlugin('./src/favicon.png'),
+        new FaviconsWebpackPlugin('./src/assets/favicon.png'),
       ]
     }
   ]);

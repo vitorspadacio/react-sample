@@ -9,6 +9,5 @@ export interface Planet {
 
 export interface StarWarsState {
   planets: Planet[],
-  isLoading: boolean,
   errorMessage: string,
 }

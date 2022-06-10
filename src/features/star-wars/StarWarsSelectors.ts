@@ -14,9 +14,4 @@ export const selectErrorMessage = createSelector(
   (state: StarWarsState) => state.errorMessage,
 )
 
-export const selectIsLoading = createSelector(
-  selectFeature,
-  (state: StarWarsState) => state.isLoading,
-)
-
 export default selectFeature
