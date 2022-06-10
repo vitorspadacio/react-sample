@@ -4,6 +4,7 @@ import { createFetchPromise, responseTypes } from '../../infrastructure/test-hel
 import { runSagaTest } from '../../infrastructure/test-helpers/test-run-saga'
 import StarWarsApi from './StarWarsApi'
 import saga, { getPlanets } from './StarWarsSaga'
+import { actions as appActions } from '../state'
 import { actions } from './StarWarsState'
 
 // Testes de saga não precisam ser feitos quando os testes integrados com testing-library
@@ -42,23 +43,19 @@ describe('StarWarsSaga', () => {
     const { dispatches } = await runSagaTest(getPlanets, createFetchPromise(fetchReturn))
     const expectedSet = await StarWarsApi.getPlanets()
 
-    await waitFor(() => {
-      expect(dispatches).toContainEqual(actions.removeError())
-      expect(dispatches).toContainEqual(actions.isLoading(true))
-      expect(dispatches).toContainEqual(actions.setPlanets({ planets: expectedSet }))
-      expect(dispatches).toContainEqual(actions.isLoading(false))
-    })
+    await waitFor(() => expect(dispatches).toContainEqual(actions.removeError()))
+    expect(dispatches).toContainEqual(appActions.addLoadingStack())
+    expect(dispatches).toContainEqual(actions.setPlanets({ planets: expectedSet }))
+    expect(dispatches).toContainEqual(appActions.removeLoadingStack())
   })
 
   test('deve chamar saga getPlanets e definir mensagme de erro', async () => {
     const responseType = responseTypes.notFound
     const { dispatches } = await runSagaTest(getPlanets, createFetchPromise({}, responseType))
 
-    await waitFor(() => {
-      expect(dispatches).toContainEqual(actions.removeError())
-      expect(dispatches).toContainEqual(actions.isLoading(true))
-      expect(dispatches).toContainEqual(actions.setError({ message: responseType.statusText }))
-      expect(dispatches).toContainEqual(actions.isLoading(false))
-    })
+    await waitFor(() => expect(dispatches).toContainEqual(actions.removeError()))
+    expect(dispatches).toContainEqual(appActions.addLoadingStack())
+    expect(dispatches).toContainEqual(actions.setError({ message: responseType.statusText }))
+    expect(dispatches).toContainEqual(appActions.removeLoadingStack())
   })
 })

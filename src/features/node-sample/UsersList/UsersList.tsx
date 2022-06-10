@@ -37,7 +37,6 @@ export default function ({ onDeleteClick }: Props) {
 
   return (
     <Container id='users-list'>
-      {isLoading ? <Loading /> : ''}
       {users.map(renderDetails)}
     </Container>
   )

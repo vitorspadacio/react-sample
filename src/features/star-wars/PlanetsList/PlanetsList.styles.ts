@@ -1,10 +1,23 @@
 import styled from 'styled-components'
 import colors from '../../../assets/styles/colors'
+import mediaQueries from '../../../assets/styles/media-queries'
 
 export const Container = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-column-gap: 2em;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @media (max-width: ${mediaQueries.large}) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: ${mediaQueries.medium}) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: ${mediaQueries.small}) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const ListItem = styled.li`
@@ -15,7 +28,6 @@ export const ListItem = styled.li`
   margin-bottom: 1em;
   margin-left: 0;
   padding: 1em;
-  width: 20em;
 `
 
 export const Info = styled.div`
