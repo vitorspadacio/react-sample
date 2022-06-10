@@ -14,7 +14,7 @@ interface Props {
   onDeleteClick: Function,
 }
 
-export default ({ onDeleteClick }: Props) => {
+export default function ({ onDeleteClick }: Props) {
   const users = useSelector(selectUsers)
   const isLoading = useSelector(selectIsLoading)
 

@@ -17,7 +17,7 @@ const routes = {
   create: '/node-sample/create/',
 }
 
-export default () => {
+export default function () {
   const location = useLocation()
   const dispatch = useDispatch()
   const navigate = useNavigate()

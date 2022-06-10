@@ -4,7 +4,7 @@ import { Input } from '../../../components/Styled/Input'
 import { actions } from '../TodoState'
 import { ButtonPlus, Container } from './TodoForm.styles'
 
-export default () => {
+export default function () {
   const dispatch = useDispatch()
 
   const [description, setDescription] = useState<string>('')

@@ -5,7 +5,7 @@ import {
   Checkbox, Container, Description, ListItem,
 } from './TodoList.styles'
 
-export default () => {
+export default function () {
   const tasks = useSelector(selectTasks)
   const dispatch = useDispatch()
 

@@ -10,8 +10,10 @@ const Footer = styled.footer`
   }
 `
 
-export default () => (
-  <Footer>
-    <h4>React Sample</h4>
-  </Footer>
-)
+export default function () {
+  return (
+    <Footer>
+      <h4>React Sample</h4>
+    </Footer>
+  )
+}

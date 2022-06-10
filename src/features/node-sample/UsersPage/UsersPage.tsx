@@ -7,7 +7,7 @@ import UserDeleteModal from '../UserDeleteModal/UserDeleteModal'
 import UsersList from '../UsersList'
 import { CreateButton } from './UsersPage.styles'
 
-export default () => {
+export default function () {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const errorMessage = useSelector(selectErrorMessage)

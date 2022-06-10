@@ -4,7 +4,7 @@ import { selectNumber } from '../HomeSelectors'
 import { actions } from '../HomeState'
 import { Container, Counter } from './HomePage.styles'
 
-export default () => {
+export default function () {
   const dispatch = useDispatch()
   const number = useSelector(selectNumber)
 

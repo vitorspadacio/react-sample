@@ -20,11 +20,13 @@ const Nav = styled.nav`
   }
 `
 
-export default () => (
-  <Nav>
-    <Link to='/'>Home</Link>
-    <Link to='/todo'>Todo</Link>
-    <Link to='/star-wars'>Star Wars</Link>
-    <Link to='/node-sample'>Node Sample</Link>
-  </Nav>
-)
+export default function () {
+  return (
+    <Nav>
+      <Link to='/'>Home</Link>
+      <Link to='/todo'>Todo</Link>
+      <Link to='/star-wars'>Star Wars</Link>
+      <Link to='/node-sample'>Node Sample</Link>
+    </Nav>
+  )
+}
