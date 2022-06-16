@@ -21,8 +21,8 @@ export const Container = styled.ul`
 `
 
 export const ListItem = styled.li`
+  border: 1px solid ${colors.light};
   border-radius: 4px;
-  border: 1px solid ${colors.lightBlue};
   display: flex;
   flex-direction: column;
   margin-bottom: 1em;
@@ -36,7 +36,7 @@ export const Info = styled.div`
   justify-content: space-between;
 
   small {
-    color: ${colors.lightBlue};
+    color: ${colors.light};
     font-size: 0.75em;
   }
 

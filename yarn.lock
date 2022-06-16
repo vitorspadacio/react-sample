@@ -4130,6 +4130,11 @@ cloneable-readable@^1.0.0:
     process-nextick-args "^2.0.0"
     readable-stream "^2.3.5"
 
+clsx@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
+  integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
+
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
@@ -5257,6 +5262,14 @@ eslint-module-utils@^2.7.3:
   dependencies:
     debug "^3.2.7"
     find-up "^2.1.0"
+
+eslint-plugin-better-styled-components@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-better-styled-components/-/eslint-plugin-better-styled-components-1.1.2.tgz#cc8af5607abfcdabb53160e94f8e342582a46031"
+  integrity sha512-pGLIv8Z05xnmMyDyLWV65KQs7HU+FN403Tqb5xv3BZvw5kjC3K18/aYm7mcRpLLPse5/lwhX8ieGQKflPgr0xQ==
+  dependencies:
+    postcss "^7.0.2"
+    requireindex "~1.1.0"
 
 eslint-plugin-import@^2.26.0:
   version "2.26.0"
@@ -9374,6 +9387,11 @@ phin@^2.9.1:
   resolved "https://registry.yarnpkg.com/phin/-/phin-2.9.3.tgz#f9b6ac10a035636fb65dfc576aaaa17b8743125c"
   integrity sha512-CzFr90qM24ju5f88quFC/6qohjC144rehe5n6DH900lgXmUe86+xCKc10ev56gRKC4/BkHUoG4uSiQgBiIXwDA==
 
+picocolors@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-0.2.1.tgz#570670f793646851d1ba135996962abad587859f"
+  integrity sha512-cMlDqaLEqfSaW8Z7N5Jw+lyIW869EzT73/F5lhtY9cLGoVxSXznfgfXMO0Z5K0o0Q2TkTXq+0KFsdnSe3jDViA==
+
 picocolors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
@@ -9666,6 +9684,14 @@ postcss-value-parser@^4.0.2, postcss-value-parser@^4.1.0, postcss-value-parser@^
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
+
+postcss@^7.0.2:
+  version "7.0.39"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.39.tgz#9624375d965630e2e1f2c02a935c82a59cb48309"
+  integrity sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==
+  dependencies:
+    picocolors "^0.2.1"
+    source-map "^0.6.1"
 
 postcss@^8.2.1, postcss@^8.4.7:
   version "8.4.14"
@@ -10046,6 +10072,13 @@ react-router@6.3.0, react-router@^6.3.0:
   dependencies:
     history "^5.2.0"
 
+react-toastify@^9.0.4:
+  version "9.0.4"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.0.4.tgz#016d0f3dae2f6e9c01eb36bd1d2c31b0a6de4434"
+  integrity sha512-MYmJ1V5F6DEU+TFxBb+pGGsveFPt4tjr4yK+TopXkU3sXPD9F2tFhX+G2HBLZpqObT2O6Z9jbXSg3JpaxuWtWw==
+  dependencies:
+    clsx "^1.1.1"
+
 react@18.1.0:
   version "18.1.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.1.0.tgz#6f8620382decb17fdc5cc223a115e2adbf104890"
@@ -10324,6 +10357,11 @@ requireindex@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.2.0.tgz#3463cdb22ee151902635aa6c9535d4de9c2ef1ef"
   integrity sha512-L9jEkOi3ASd9PYit2cwRfyppc9NoABujTP8/5gFcbERmo5jUoAKovIC3fsF17pkTnGsrByysqX+Kxd2OTNI1ww==
+
+requireindex@~1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.1.0.tgz#e5404b81557ef75db6e49c5a72004893fe03e162"
+  integrity sha512-LBnkqsDE7BZKvqylbmn7lTIVdpx4K/QCduRATpO5R+wtPmky/a8pN1bO2D6wXppn1497AJF9mNjqAXr6bdl9jg==
 
 requires-port@^1.0.0:
   version "1.0.0"

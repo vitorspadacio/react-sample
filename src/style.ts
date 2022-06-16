@@ -9,7 +9,10 @@ export default createGlobalStyle`
 
   html,
   body {
+    background-color: ${colors.white};
     box-sizing: border-box;
+    color: ${colors.dark};
+    font-weight: 400;
     height: 100%;
   }
 
@@ -30,9 +33,22 @@ export default createGlobalStyle`
   }
 
   h1 {
-    color: ${colors.darkBlue};
-    font-size: 32px;
+    color: ${colors.dark};
+    font-size: 2em;
+    font-weight: 600;
     margin: 0.4em 0;
+  }
+
+  h2 {
+    color: ${colors.light};
+    font-size: 1.75em;
+    margin: 0.4em 0;
+  }
+
+  h3 {
+    color: ${colors.soft};
+    font-size: 1.5em;
+    font-weight: 400;
   }
   
   p {

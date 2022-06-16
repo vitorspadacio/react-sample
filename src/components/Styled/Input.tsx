@@ -6,14 +6,14 @@ interface Props {
 }
 
 export const Input = styled.input<Props>`
-  border: 1px solid ${({ hasError }) => (hasError ? colors.red : colors.lightBlue)};
+  border: 1px solid ${({ hasError }) => (hasError ? colors.red : colors.light)};
   border-radius: 4px;
   font-size: 16px;
   padding: 0.6em;
   width: calc(100% - 50px);
 
   :disabled {
-    background-color: ${colors.softBlue};
-    color: ${colors.lightBlue}; 
+    background-color: ${colors.soft};
+    color: ${colors.light}; 
   }
 `

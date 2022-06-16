@@ -20,7 +20,7 @@ export const Checkbox = styled.input`
 
   & + label:before {
     background-color: ${colors.white};
-    border: 1px solid ${colors.lightBlue};
+    border: 1px solid ${colors.light};
     border-radius: 8px;
     content: '';
     cursor: pointer;
@@ -36,7 +36,7 @@ export const Checkbox = styled.input`
     }
 
     & + label:before {
-      background-color: ${colors.lightBlue};
+      background-color: ${colors.light};
     }
   }
 `

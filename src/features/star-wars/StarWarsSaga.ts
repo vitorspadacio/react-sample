@@ -1,4 +1,5 @@
 import { call, takeEvery, put } from 'redux-saga/effects'
+import { toast } from 'react-toastify'
 import { actions as appActions } from '../state'
 import { actions } from './StarWarsState'
 import StarWarsApi from './StarWarsApi'
@@ -10,6 +11,7 @@ export function* getPlanets() {
   try {
     const planets = yield call(StarWarsApi.getPlanets)
     yield put(actions.setPlanets({ planets }))
+    toast.success('Planetas carregados com sucesso!')
   } catch (error) {
     yield put(actions.setError({ message: error.message }))
   } finally {

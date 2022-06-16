@@ -11,7 +11,7 @@ export const Container = styled.section`
 `
 
 export const Counter = styled.p`
-  color: ${colors.darkBlue};
+  color: ${colors.dark};
   font-size: 32px;
   font-weight: bold;
 `

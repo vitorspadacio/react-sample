@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Footer from '../components/Footer'
 import Loading from '../components/Loading'
 import Menu from '../components/Menu'
@@ -16,8 +18,9 @@ export default function () {
 
   return (
     <BrowserRouter>
-      <Navigation />
       <Menu />
+      <Navigation />
+      <ToastContainer />
       <section id='content'>
         <Routes>
           <Route path='/' element={<HomePage />} />

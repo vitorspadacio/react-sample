@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Button } from '../../../components/Styled/Buttons'
+import { Button, OutlineButton, RedButton } from '../../../components/Styled/Buttons'
 import { selectNumber } from '../HomeSelectors'
 import { actions } from '../HomeState'
 import { Container, Counter } from './HomePage.styles'
@@ -12,9 +12,14 @@ export default function () {
 
   const decrement = () => dispatch(actions.decrement())
 
+  const reset = () => dispatch(actions.reset())
+
   return (
     <Container id='home-page'>
       <h1>Olá Mundo!</h1>
+      <h2>Olá Mundo!</h2>
+      <h3>Olá Mundo!</h3>
+
       <p>Essa é uma aplicação de exemplo de React.</p>
 
       <p>
@@ -55,7 +60,8 @@ export default function () {
 
       <Counter>Contador: {number}</Counter>
 
-      <Button type='button' onClick={() => decrement()}>Decrementar</Button>
+      <RedButton type='button' onClick={() => decrement()}>Decrementar</RedButton>
+      <OutlineButton type='button' onClick={() => reset()}>Limpar</OutlineButton>
       <Button type='button' onClick={() => increment()}>Incrementar</Button>
     </Container>
   )

@@ -10,7 +10,7 @@ export const Label = styled.label`
   flex-direction: column;
 
   span {
-    color: ${colors.softBlue};
+    color: ${colors.soft};
     margin-bottom: 0.5em;
   }
 `

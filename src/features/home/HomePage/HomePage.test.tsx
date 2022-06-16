@@ -1,12 +1,14 @@
 import userEvent from '@testing-library/user-event'
-import { render, screen, waitFor } from '../../../infrastructure/test-helpers/test-renderer'
-import { actions } from '../HomeState'
+import { render, screen } from '../../../infrastructure/test-helpers/test-renderer'
 import HomePage from './HomePage'
 
 describe('HomePage', () => {
   test('deve exibir o texto Olá Mundo!', () => {
     render(<HomePage />)
-    expect(screen.getByText('Olá Mundo!')).toBeVisible()
+    expect(screen.getAllByText('Olá Mundo!')).toHaveLength(3)
+    expect(screen.getAllByText('Olá Mundo!')[0]).toBeVisible()
+    expect(screen.getAllByText('Olá Mundo!')[1]).toBeVisible()
+    expect(screen.getAllByText('Olá Mundo!')[2]).toBeVisible()
   })
 
   test('deve exibir contador zerado ao entrar na página', () => {
@@ -38,5 +40,15 @@ describe('HomePage', () => {
     userEvent.click(screen.getByText('Decrementar'))
 
     expect(await screen.findByText('Contador: -1')).toBeVisible()
+  })
+
+  test('deve limpar o contador ao clicar no botão Limpar', async () => {
+    render(<HomePage />)
+
+    userEvent.click(screen.getByText('Decrementar'))
+    await screen.findByText('Contador: -1')
+    userEvent.click(screen.getByText('Limpar'))
+
+    expect(await screen.findByText('Contador: 0')).toBeVisible()
   })
 })

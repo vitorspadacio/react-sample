@@ -4,7 +4,7 @@ import colors from '../../assets/styles/colors'
 
 const Nav = styled.nav`
   align-items: center;
-  background-color: ${colors.darkBlue};
+  background-color: ${colors.dark};
   display: flex;
   height: 50px;
   width: 100%;
@@ -15,7 +15,7 @@ const Nav = styled.nav`
     padding: 1em 2em;
 
     &:hover {
-      color: ${colors.softBlue};
+      color: ${colors.soft};
     }
   }
 `

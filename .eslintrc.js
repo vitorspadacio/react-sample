@@ -1,6 +1,11 @@
-export default {
+module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'testing-library', 'jest-dom'],
+  plugins: [
+    '@typescript-eslint',
+    'better-styled-components',
+    'jest-dom',
+    'testing-library',
+  ],
   parserOptions: {
     project: './tsconfig.json',
     ecmaVersion: 2018,
@@ -26,7 +31,9 @@ export default {
     'react/jsx-uses-react': [0],
     'react/prop-types': [0],
     'react/react-in-jsx-scope': [0],
+    'react/require-default-props': [0],
     'semi': ['error', 'never'],
+    'better-styled-components/sort-declarations-alphabetically': 2,
   },
   env: { browser: true, jest: true },
   settings: {
@@ -42,5 +49,6 @@ export default {
       extends: ['plugin:testing-library/react', 'plugin:jest-dom/recommended']
     }
   ],
-  include: [ '**/*.config.js' ]
 }
+
+
