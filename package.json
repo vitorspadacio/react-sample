@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.config.js --hot --history-api-fallback --env PLATFORM='local' --env VERSION='stag'",
     "build": "webpack --config config/webpack.prod.config.js --progress --env PLATFORM='production' --env VERSION='stag'",
-    "test": "jest --ci --reporters=jest-junit --reporters=default --coverage --coverageReporters=cobertura --coverageReporters=lcov",
+    "test": "jest --ci --detectOpenHandles --reporters=jest-junit --reporters=default --coverage --coverageReporters=cobertura --coverageReporters=lcov",
     "test:watch": "jest --watch"
   },
   "devDependencies": {
