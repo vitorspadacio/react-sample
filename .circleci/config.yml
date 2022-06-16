@@ -7,7 +7,7 @@ orbs:
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: cimg/node:lts
+    - image: circleci/node:lts
 
 jobs:
   build:
