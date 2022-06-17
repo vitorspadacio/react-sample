@@ -25,6 +25,11 @@ export default function () {
 
   const isEdit = useMemo(() => location.pathname.includes(routes.edit), [location])
 
+  useEffect(() => {
+    const title = isEdit ? 'Editar' : 'Criar'
+    document.title = `${title} • Usuários • React Sample`
+  }, [isEdit])
+
   const titleText = isEdit ? 'Edição do usuário' : 'Criação do usuário'
   const buttonText = isEdit ? 'Salvar' : 'Criar'
 

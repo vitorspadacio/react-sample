@@ -14,6 +14,10 @@ export default function () {
   const [idToDelete, setIdToDelete] = useState(0)
 
   useEffect(() => {
+    document.title = 'Usuários • React Sample'
+  }, [])
+
+  useEffect(() => {
     dispatch(actions.getUsers())
     return () => { dispatch(actions.setUsers([])) }
   }, [dispatch])

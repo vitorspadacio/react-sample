@@ -49,6 +49,7 @@ export const Login = styled(MenuItem)`
 `
 
 export const DisplayName = styled.span`
+  color: ${colors.dark};
   padding: 1em 2em;
   padding-right: 0.5em;
 `

@@ -9,6 +9,10 @@ export default function () {
   const errorMessage = useSelector(selectErrorMessage)
 
   useEffect(() => {
+    document.title = 'Planetas • React Sample'
+  }, [])
+
+  useEffect(() => {
     dispatch(actions.getPlanets())
     return () => { dispatch(actions.setPlanets({ planets: [] })) }
   }, [dispatch])

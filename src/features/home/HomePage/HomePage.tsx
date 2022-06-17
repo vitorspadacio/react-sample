@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, OutlineButton, RedButton } from '../../../components/Styled/Buttons'
 import { selectNumber } from '../HomeSelectors'
@@ -7,6 +8,10 @@ import { Container, Counter } from './HomePage.styles'
 export default function () {
   const dispatch = useDispatch()
   const number = useSelector(selectNumber)
+
+  useEffect(() => {
+    document.title = 'React Sample'
+  }, [])
 
   const increment = () => dispatch(actions.increment())
 

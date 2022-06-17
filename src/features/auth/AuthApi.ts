@@ -1,23 +1,23 @@
 // const provider = new GoogleAuthProvider()
 
-import { GoogleAuthProvider, signInWithRedirect } from 'firebase/auth'
+import {
+  createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword,
+  signInWithPopup, signOut, updateProfile,
+} from 'firebase/auth'
 import { auth } from '../../infrastructure/firebase'
 
 const provider = new GoogleAuthProvider()
 
 export default {
-  signIn: (email: string, password: string) => ({ email, password }),
-  // signInWithEmailAndPassword(auth, email, password),
+  signIn: (email: string, password: string) => signInWithEmailAndPassword(auth, email, password),
 
-  googleSignIn: () => signInWithRedirect(auth, provider),
+  googleSignIn: () => signInWithPopup(auth, provider),
 
-  signOut: () => ({}), // signOut(auth),
+  signOut: () => signOut(auth),
 
-  register: async (displayName: string, email: string, password: string) => ({
-    displayName, email, password,
-  })
-  // const { user } = await createUserWithEmailAndPassword(auth, email, password)
-  // await updateProfile(user, { displayName })
-  // return user
-  ,
+  register: async (displayName: string, email: string, password: string) => {
+    const { user } = await createUserWithEmailAndPassword(auth, email, password)
+    await updateProfile(user, { displayName })
+    return user
+  },
 }
