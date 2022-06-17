@@ -1,32 +1,39 @@
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import colors from '../../assets/styles/colors'
-
-const Nav = styled.nav`
-  align-items: center;
-  background-color: ${colors.dark};
-  display: flex;
-  height: 50px;
-  width: 100%;
-
-  a {
-    color: ${colors.white};
-    text-decoration: none;
-    padding: 1em 2em;
-
-    &:hover {
-      color: ${colors.soft};
-    }
-  }
-`
+import { useSelector } from 'react-redux'
+import favicon from '../../assets/images/favicon.png'
+import userIcon from '../../assets/images/user.svg'
+import noUserIcon from '../../assets/images/no_user.svg'
+import { selectDisplayName, selectUser } from '../../features/auth/AuthSelectors'
+import {
+  Content, DisplayName, Logged, Login, MenuItem, Nav, Title,
+} from './Menu.styles'
 
 export default function () {
+  const user = useSelector(selectUser)
+  const displayName = useSelector(selectDisplayName)
+
+  const actualLogLink = user
+    ? <DisplayName>{displayName}</DisplayName>
+    : <Login to='/auth/login'>Entrar</Login>
+
+  const actualUserIcon = user ? userIcon : noUserIcon
+
   return (
     <Nav>
-      <Link to='/'>Home</Link>
-      <Link to='/todo'>Todo</Link>
-      <Link to='/star-wars'>Star Wars</Link>
-      <Link to='/node-sample'>Node Sample</Link>
+      <Content>
+        <Title to='/'>
+          <img src={favicon} alt='logo' />
+          React Sample
+        </Title>
+
+        <MenuItem to='/todo'>Todo</MenuItem>
+        <MenuItem to='star-wars'>Star Wars</MenuItem>
+        <MenuItem to='/node-sample'>Node Sample</MenuItem>
+
+        <Logged>
+          { actualLogLink }
+          <img alt='user' src={actualUserIcon} />
+        </Logged>
+      </Content>
     </Nav>
   )
 }

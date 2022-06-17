@@ -5,9 +5,9 @@ import InitFirebase from '../init-firebase'
 
 const firebase = InitFirebase()
 
-export const auth = getAuth(firebase || undefined)
-export const database = getFirestore(firebase || undefined)
-export const storage = getStorage(firebase || undefined)
+export const auth = getAuth(firebase)
+export const database = getFirestore(firebase)
+export const storage = getStorage(firebase)
 
 if (process.env.PLATFORM === 'local') {
   console.info('Conectando aos emuladores')

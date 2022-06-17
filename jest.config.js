@@ -3,6 +3,9 @@ module.exports = {
   roots: ['<rootDir>/src'],
   testEnvironment: 'jsdom',
   resolver: '<rootDir>/config/resolver.js',
+  setupFiles:[
+    '<rootDir>/config/setup.js'
+  ],
   transform: {
     '^.+\\.js[x]?$': 'babel-jest',
     '^.+\\.ts[x]?$': 'ts-jest',
