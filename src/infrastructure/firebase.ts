@@ -9,8 +9,9 @@ export const auth = getAuth(firebase || undefined)
 export const database = getFirestore(firebase || undefined)
 export const storage = getStorage(firebase || undefined)
 
-if (process.env.PLATAFORM === 'local') {
-  connectAuthEmulator(auth, 'localhost')
+if (process.env.PLATFORM === 'local') {
+  console.info('Conectando aos emuladores')
+  connectAuthEmulator(auth, 'http://localhost:9099')
   connectFirestoreEmulator(database, 'localhost', 8088)
   connectStorageEmulator(storage, 'localhost', 9199)
 }
