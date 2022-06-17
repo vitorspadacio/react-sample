@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -11,11 +10,8 @@ import UserDetailPage from './node-sample/UserDetailPage'
 import UsersPage from './node-sample/UsersPage'
 import PlanetsPage from './star-wars/PlanetsPage'
 import TodoPage from './todo/TodoPage'
-import { State } from './types'
 
 export default function () {
-  const isLoading = useSelector((state: State) => state.app.loadingStack > 0)
-
   return (
     <BrowserRouter>
       <Menu />
@@ -34,7 +30,7 @@ export default function () {
         </Routes>
       </section>
       <Footer />
-      <Loading show={isLoading} />
+      <Loading />
     </BrowserRouter>
   )
 }

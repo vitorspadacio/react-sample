@@ -1,9 +1,7 @@
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { State } from '../../features/types'
 import './Loading.scss'
-
-interface Props {
-  show: boolean,
-}
 
 const LoadingContainer = styled.section`
   background-color: rgba(0, 0, 0, 0.5);
@@ -18,8 +16,10 @@ const LoadingContainer = styled.section`
   }
 `
 
-export default function ({ show }: Props) {
-  return (show && (
+export default function () {
+  const isLoading = useSelector((state: State) => state.app.loadingStack > 0)
+
+  return (isLoading && (
     <LoadingContainer>
       <div id='loading' data-testid='loading'><div /><div /></div>
     </LoadingContainer>

@@ -6,7 +6,8 @@
     "start": "webpack serve --config config/webpack.dev.config.js --hot --history-api-fallback --env PLATFORM='local' --env VERSION='stag'",
     "build": "webpack --config config/webpack.prod.config.js --progress --env PLATFORM='production' --env VERSION='stag'",
     "test": "jest --ci --reporters=jest-junit --reporters=default --coverage --coverageReporters=cobertura --coverageReporters=lcov",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "emulators:start": "firebase emulators:start --only auth,firestore,storage,ui"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",

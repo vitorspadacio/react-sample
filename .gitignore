@@ -6,3 +6,5 @@ junit.xml
 .DS_Store
 **/*/.DS_Store
 yarn-error.log
+firestore-debug.log
+ui-debug.log
