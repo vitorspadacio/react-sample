@@ -19,7 +19,7 @@ const setUser = createStateReducer<User>((state, action) => ({
 }))
 
 const slice = createSlice({
-  name: 'armario',
+  name: 'auth',
   initialState,
   reducers: {
     logIn,
