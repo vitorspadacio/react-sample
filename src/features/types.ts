@@ -1,5 +1,5 @@
 import { AuthState } from './auth/AuthTypes'
-import { HomeState } from './home/HomeTypes'
+import { HomeStore } from './home/HomeTypes'
 import { NodeSampleState } from './node-sample/NodeSampleTypes'
 import { StarWarsState } from './star-wars/StarWarsTypes'
 import { TodoState } from './todo/TodoTypes'
@@ -9,10 +9,10 @@ export interface AppState {
 }
 
 export interface State {
-  app: AppState,
-  auth: AuthState,
-  home: HomeState,
-  nodeSample: NodeSampleState,
-  starWars: StarWarsState,
-  todo: TodoState,
+  app: AppState
+  auth: AuthState
+  home: HomeStore
+  nodeSample: NodeSampleState
+  starWars: StarWarsState
+  todo: TodoState
 }

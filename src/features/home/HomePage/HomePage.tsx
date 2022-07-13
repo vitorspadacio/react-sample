@@ -1,23 +1,16 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { Button, OutlineButton, RedButton } from '../../../components/Styled/Buttons'
-import { selectNumber } from '../HomeSelectors'
-import { actions } from '../HomeState'
+import useHomeStore from '../useHomeStore'
 import { Container, Counter } from './HomePage.styles'
 
 export default function () {
-  const dispatch = useDispatch()
-  const number = useSelector(selectNumber)
+  const {
+    number, decrement, increment, incrementBy, reset,
+  } = useHomeStore()
 
   useEffect(() => {
     document.title = 'React Sample'
   }, [])
-
-  const increment = () => dispatch(actions.increment())
-
-  const decrement = () => dispatch(actions.decrement())
-
-  const reset = () => dispatch(actions.reset())
 
   return (
     <Container id='home-page'>
@@ -68,6 +61,9 @@ export default function () {
       <RedButton type='button' onClick={() => decrement()}>Decrementar</RedButton>
       <OutlineButton type='button' onClick={() => reset()}>Limpar</OutlineButton>
       <Button type='button' onClick={() => increment()}>Incrementar</Button>
+      <Button type='button' onClick={() => incrementBy(2)}>
+        Incrementar +2
+      </Button>
     </Container>
   )
 }
