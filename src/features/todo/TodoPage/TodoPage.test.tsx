@@ -8,9 +8,9 @@ describe('TodoPage', () => {
   test('deve exibir lista inicial de tarefas', () => {
     render(<TodoPage />)
 
-    expect(screen.getByText('Lavar louças'))
-    expect(screen.getByText('Arrumar a sala'))
-    expect(screen.getByText('Limpar banheiro'))
+    expect(screen.getByText('Lavar louças')).toBeVisible()
+    expect(screen.getByText('Arrumar a sala')).toBeVisible()
+    expect(screen.getByText('Limpar banheiro')).toBeVisible()
 
     expect(screen.getByTitle('Lavar louças está completa?')).toBeChecked()
     expect(screen.getByTitle('Arrumar a sala está completa?')).not.toBeChecked()
@@ -20,35 +20,37 @@ describe('TodoPage', () => {
   test('deve adicionar tarefa na lista de tarefas após clicar no botão +', async () => {
     render(<TodoPage />)
 
-    await userEvent.type(screen.getByTitle('descrição'), 'Teste A')
+    userEvent.type(screen.getByTitle('descrição'), 'Teste A')
+    await screen.findByDisplayValue('Teste A')
     userEvent.click(screen.getByText('+'))
 
-    await waitFor(() => expect(screen.getByText('Teste A')))
+    expect(await screen.findByText('Teste A')).toBeVisible()
   })
 
   test('deve adicionar tarefa na lista de tarefas após apertar enter', async () => {
     render(<TodoPage />)
 
-    await userEvent.type(screen.getByTitle('descrição'), 'Teste A')
+    userEvent.type(screen.getByTitle('descrição'), 'Teste A')
+    await screen.findByDisplayValue('Teste A')
     fireEvent.submit(screen.getByTestId('todo-form'))
 
-    await waitFor(() => expect(screen.getByText('Teste A')))
+    expect(await screen.findByText('Teste A')).toBeVisible()
   })
 
   test('não deve adicionar tarefa na lista de tarefas com campo vazio', async () => {
     render(<TodoPage />)
 
-    await userEvent.click(screen.getByTitle('descrição'))
+    userEvent.click(screen.getByTitle('descrição'))
     userEvent.click(screen.getByText('+'))
 
-    await waitFor(() => expect(screen.getByText('Obrigatório preencher para adicionar tarefa')))
+    expect(await screen.findByText('Obrigatório preencher para adicionar tarefa')).toBeVisible()
   })
 
   test('deve alterar estado da tarefa para completa ao clicar em uma tarefa incompleta', async () => {
     render(<TodoPage />)
 
     const task = screen.getByTitle('Arrumar a sala está completa?')
-    await userEvent.click(task)
+    userEvent.click(task)
 
     await waitFor(() => expect(task).toBeChecked())
   })
@@ -57,7 +59,7 @@ describe('TodoPage', () => {
     render(<TodoPage />)
 
     const task = screen.getByTitle('Lavar louças está completa?')
-    await userEvent.click(task)
+    userEvent.click(task)
 
     await waitFor(() => expect(task).not.toBeChecked())
   })
