@@ -60,7 +60,7 @@ describe('UserDetailPage', () => {
         hash: '',
         pathname: '/node-sample',
         search: '',
-      }, undefined))
+      }, undefined, {}))
     })
   })
 
@@ -93,7 +93,7 @@ describe('UserDetailPage', () => {
         hash: '',
         pathname: '/node-sample',
         search: '',
-      }, undefined))
+      }, undefined, {}))
     })
 
     test('deve exibir errors de validação nos campos da edição', async () => {
@@ -116,7 +116,7 @@ describe('UserDetailPage', () => {
         hash: '',
         pathname: '/node-sample',
         search: '',
-      }, undefined))
+      }, undefined, {}))
     })
   })
 })

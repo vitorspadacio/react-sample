@@ -1,5 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useCallback, useEffect, useMemo } from 'react'
+import {
+  ReactNode, useCallback, useEffect, useMemo,
+} from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate, useParams } from 'react-router'
@@ -63,7 +65,7 @@ export default function () {
         <Label>
           <span>ID</span>
           <Input {...register('id')} disabled />
-          <Error>{errors.id?.message}</Error>
+          <Error>{errors.id?.message.toString()}</Error>
         </Label>
 
         <Label>
@@ -71,9 +73,9 @@ export default function () {
           <Input
             alt='nome'
             {...register('name')}
-            hasError={errors.name?.message}
+            hasError={!!errors.name?.message}
           />
-          <Error>{errors.name?.message}</Error>
+          <Error>{errors.name?.message.toString()}</Error>
         </Label>
 
         <Label>
@@ -81,9 +83,9 @@ export default function () {
           <Input
             alt='idade'
             {...register('age')}
-            hasError={errors.age?.message}
+            hasError={!!errors.age?.message}
           />
-          <Error>{errors.age?.message}</Error>
+          <Error>{errors.age?.message.toString()}</Error>
         </Label>
 
         <ButtonContainer>
