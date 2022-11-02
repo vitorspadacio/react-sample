@@ -34,6 +34,7 @@ module.exports = {
     'react/require-default-props': [0],
     'semi': ['error', 'never'],
     'better-styled-components/sort-declarations-alphabetically': 2,
+    'import/no-extraneous-dependencies': [0],
   },
   env: { browser: true, jest: true },
   settings: {
