@@ -8,3 +8,4 @@ junit.xml
 yarn-error.log
 *-debug.log
 src/.env
+.env
