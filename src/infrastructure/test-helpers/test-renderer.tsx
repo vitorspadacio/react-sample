@@ -17,17 +17,19 @@ const customRender = (
 ) => {
   const history = createMemoryHistory()
   const wrapper = ({ children }) => (
-    <Provider store={store}>
-      <Router
-        location={location}
-        navigator={history}
-      >
-        <Navigation />
-        <Routes>
-          <Route path={path} element={children} />
-        </Routes>
-      </Router>
-    </Provider>
+    <div id='root'>
+      <Provider store={store}>
+        <Router
+          location={location}
+          navigator={history}
+        >
+          <Navigation />
+          <Routes>
+            <Route path={path} element={children} />
+          </Routes>
+        </Router>
+      </Provider>
+    </div>
   )
 
   return {

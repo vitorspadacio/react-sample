@@ -1,7 +1,5 @@
 import firebase from 'firebase/compat/app'
 
-console.log(import.meta.env)
-
 export default () => firebase.initializeApp({
   apiKey: import.meta.env.VITE_API_KEY,
   authDomain: import.meta.env.VITE_AUTH_DOMAIN,
