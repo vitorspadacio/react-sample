@@ -1,6 +1,6 @@
 export default async () => {
   (window as any).apis = {
-    starwars: process.env.STARWARS_API,
-    nodesample: process.env.NODESAMPLE_API,
+    starwars: import.meta.env.VITE_STARWARS_API,
+    nodesample: import.meta.env.VITE_NODESAMPLE_API,
   }
 }

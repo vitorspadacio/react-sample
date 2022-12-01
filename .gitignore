@@ -7,3 +7,4 @@ junit.xml
 **/*/.DS_Store
 yarn-error.log
 *-debug.log
+.env

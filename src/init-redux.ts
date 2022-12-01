@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga'
 import reducers from './features/reducers'
 import Sagas from './features/sagas'
 
-const isProduction = process.env.PLATFORM === 'production'
+const isProduction = import.meta.env.PLATFORM === 'production'
 
 export default () => {
   const sagaMiddleware = createSagaMiddleware()
