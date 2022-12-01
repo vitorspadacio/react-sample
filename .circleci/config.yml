@@ -48,6 +48,8 @@ jobs:
 
       - store_test_results:
           path: .
+    
+    resource_class: large
 
   deploy:
     <<: *defaults
