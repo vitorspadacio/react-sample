@@ -4,7 +4,8 @@ orbs:
   coveralls: coveralls/coveralls@1.0.6
   envsubst: sawadashota/envsubst@1.1.0
 
-defaults: &defaults
+defaults:
+  &defaults
   working_directory: ~/repo
   docker:
     - image: circleci/node:lts
@@ -48,6 +49,8 @@ jobs:
 
       - store_test_results:
           path: .
+    # The resource_class feature allows configuring CPU and RAM resources for each job. Different resource classes are available for different executors. https://circleci.com/docs/2.0/configuration-reference/#resourceclass
+    resource_class: large
 
   deploy:
     <<: *defaults
@@ -59,7 +62,7 @@ jobs:
 
       - run:
           name: Set Env Variables
-          command: envsubst < .env.production 
+          command: envsubst < .env.production
 
       - run:
           name: Build App
