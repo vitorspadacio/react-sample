@@ -1,21 +1,15 @@
 import styled from 'styled-components'
 import colors from '../../assets/styles/colors'
 
-interface Props {
-  hasError?: boolean,
-}
-
-export const Input = styled.input<Props>`
+export const Input = styled.input`
   background-color: ${colors.white};
-  border: 1px solid ${({ hasError }) => (hasError ? colors.red : colors.light)};
-  border-radius: 4px;
-  color: ${colors.dark};
-  font-size: 1em;
-  height: 2.75em;
-  padding: 0 1em;
+  border: none;
+  color: ${colors.gray};
+  font-size: 1.5em;
+  padding: 0.5em 1em 0.5em 3em;
   width: 100%;
 
   &::placeholder {
-    color: ${({ hasError }) => (hasError ? colors.red : colors.light)};
+    color: ${colors.gray};
   }
 `
