@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import WeatherApi from "../WeatherApi"
+import { useEffect, useState } from 'react'
+import WeatherApi from '../WeatherApi'
 
 export default () => {
   const [backgroundImage, setBackgroundImage] = useState<string>('')

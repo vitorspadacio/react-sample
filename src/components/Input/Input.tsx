@@ -17,7 +17,6 @@ export default function ({
   placeholder = '',
   value = '',
 }: Props) {
-
   return (
     <Input
       disabled={disabled}
@@ -26,7 +25,7 @@ export default function ({
       onClick={() => onClick()}
       placeholder={placeholder}
       type='text'
-      value={value }
+      value={value}
     />
   )
 }

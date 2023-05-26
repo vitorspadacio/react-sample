@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import WeatherApi from "../WeatherApi"
-import { Location, Tuple } from "../WeatherTypes"
+import { useEffect, useState } from 'react'
+import WeatherApi from '../WeatherApi'
+import { Location, Tuple } from '../WeatherTypes'
 
 export default (latitude: number, longitude: number) => {
   const [location, setLocation] = useState<Location | undefined>(undefined)

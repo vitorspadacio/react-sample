@@ -7,10 +7,12 @@ export default {
   getBingImageOfTheDay: (): any => fetch.getImage<Buffer>(`${url}/bing`),
 
   getLocationByLatAndLng: (
-    latitude: number, longitude: number): Promise<Response<Location>> => fetch.get<Location>(
+    latitude: number,
+    longitude: number,
+  ): Promise<Response<Location>> => fetch.get<Location>(
     `${url}/weather/location-by-lat-lng`,
-    { latitude, longitude }),
+    { latitude, longitude },
+  ),
 
-  getForecastByCity: (city: string): any => fetch.get<Weather[]>(
-    `${url}/weather/forecast`, { city }),
+  getForecastByCity: (city: string): any => fetch.get<Weather[]>(`${url}/weather/forecast`, { city }),
 }

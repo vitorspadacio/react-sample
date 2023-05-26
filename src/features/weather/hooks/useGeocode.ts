@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 export default () => {
   const [latitude, setLatitude] = useState<number>()
@@ -14,12 +14,12 @@ export default () => {
           setLatitude(position.coords.latitude)
           setLongitude(position.coords.longitude)
         },
-        (error) => toast.warn('Ocorreu um erro: ' + error)
-      );
-    };
+        (error) => toast.warn(`Ocorreu um erro: ${error}`),
+      )
+    }
 
-    getLocation();
-  }, []);
+    getLocation()
+  }, [])
 
   return [latitude, longitude]
 }
