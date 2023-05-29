@@ -9,7 +9,7 @@ export const auth = getAuth(firebase)
 export const database = getFirestore(firebase)
 export const storage = getStorage(firebase)
 
-if (process.env.PLATFORM === 'local') {
+if (import.meta.env.DEV) {
   console.info('Conectando aos emuladores')
   connectAuthEmulator(auth, 'http://localhost:9099')
   connectFirestoreEmulator(database, 'localhost', 8088)

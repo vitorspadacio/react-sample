@@ -3,16 +3,18 @@
     "allowJs": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "module": "commonjs",
+    "module": "es2022",
+    "moduleResolution": "node",
     "noImplicitAny": false,
     "outDir": "./dist/",
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "target": "es5",
+    "target": "es2022",
   },
   "include": [
     "./src/**/*",
-    "./**/*"
+    "./**/*",
+    "vite.config.ts"
   ]
 }

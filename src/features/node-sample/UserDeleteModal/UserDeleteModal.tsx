@@ -12,7 +12,7 @@ export default function ({ idToDelete, onConfirmClick, onCancelClick }: Props) {
   return (
     <Modal
       appElement={document.getElementById('root')}
-      ariaHideApp={process.env.NODE_ENV !== 'test'}
+      ariaHideApp={import.meta.env.NODE_ENV !== 'test'}
       contentLabel='Delete user modal'
       isOpen={Boolean(idToDelete)}
       style={ModalStyle}
