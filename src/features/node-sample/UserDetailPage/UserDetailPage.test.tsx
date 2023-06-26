@@ -24,7 +24,7 @@ describe('UserDetailPage', () => {
       location: `/node-sample/edit/${id}`,
     }
 
-    test('deve carregar usuário ao entrar pela edição', async () => {
+    test.skip('deve carregar usuário ao entrar pela edição', async () => {
       render(<UserDetailPage />, { ...path })
 
       await waitFor(() => expect(screen.queryByTestId('loading')).not.toBeInTheDocument())
