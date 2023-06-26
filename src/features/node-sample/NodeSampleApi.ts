@@ -1,4 +1,4 @@
-import fetch from '../../fetch'
+import fetch from '../../infrastructure/fetch'
 import { User } from './NodeSampleTypes'
 
 const prefix = 'v1/user'

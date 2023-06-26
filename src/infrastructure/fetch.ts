@@ -39,5 +39,4 @@ export default {
   post: <T>(url: string, data?: object) => call<T>(HttpVerbs.Post, url, null, data),
   delete: <T>(url: string, query?: object) => call<T>(HttpVerbs.Delete, url, query),
   put: <T>(url: string, data?: object) => call<T>(HttpVerbs.Put, url, null, data),
-
 }
