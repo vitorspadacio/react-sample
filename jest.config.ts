@@ -27,9 +27,10 @@ export default {
     '/index.ts',
     '/init-redux.ts',
     '/init-env.ts',
-    '/test-mock-fetch.ts',
-    '/test-renderer.ts',
-    '/test-run-saga.ts',
+    '/src/assets/*',
+    '/src/infrastructure/builders/*',
+    '/src/infrastructure/redux-helpers/*',
+    '/src/infrastructure/test-helpers/*',
   ],
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',
