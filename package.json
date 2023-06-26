@@ -6,8 +6,8 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand --ci --reporters=jest-junit --reporters=default --coverage --coverageReporters=cobertura --coverageReporters=lcov",
-    "test:watch": "jest --watch",
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watch",
     "emulator": "firebase emulators:start --only auth,firestore,storage,ui"
   },
   "devDependencies": {
