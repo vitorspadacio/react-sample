@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event'
 import userBuilder from '../../../infrastructure/builders/user.builder'
-import mockApi from '../../../infrastructure/test-helpers/test-mock-api'
+import mockApi from '../../../infrastructure/test-helpers/mock-api'
 import { render, screen, waitFor } from '../../../infrastructure/test-helpers/test-renderer'
 import NodeSampleApi from '../NodeSampleApi'
 import UsersPage from './UsersPage'

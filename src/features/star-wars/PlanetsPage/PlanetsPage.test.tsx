@@ -1,4 +1,4 @@
-import mockApi from '../../../infrastructure/test-helpers/test-mock-api'
+import mockApi from '../../../infrastructure/test-helpers/mock-api'
 import { render, screen } from '../../../infrastructure/test-helpers/test-renderer'
 import StarWarsApi from '../StarWarsApi'
 import PlanetsPage from './PlanetsPage'

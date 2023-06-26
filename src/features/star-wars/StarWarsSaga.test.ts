@@ -1,6 +1,6 @@
 import { waitFor } from '@testing-library/react'
 import { takeEvery } from 'redux-saga/effects'
-import { createFetchPromise, responseTypes } from '../../infrastructure/test-helpers/test-mock-fetch'
+import { createFetchPromise, responseTypes } from '../../infrastructure/test-helpers/mock-fetch'
 import { runSagaTest } from '../../infrastructure/test-helpers/test-run-saga'
 import StarWarsApi from './StarWarsApi'
 import saga, { getPlanets } from './StarWarsSaga'
