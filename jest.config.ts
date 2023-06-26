@@ -31,6 +31,8 @@ export default {
     '/src/infrastructure/builders/*',
     '/src/infrastructure/redux-helpers/*',
     '/src/infrastructure/test-helpers/*',
+    '/src/infrastructure/fetch.ts',
+    '/src/infrastructure/firebase.ts',
   ],
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',
