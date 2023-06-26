@@ -5,9 +5,9 @@ faker.seed(123)
 
 export default () => ({
   user: {
-    id: faker.datatype.number(99),
-    name: faker.name.firstName(),
-    age: faker.datatype.number(55),
+    id: faker.number.int(99),
+    name: faker.person.firstName(),
+    age: faker.number.int(55),
   } as User,
 
   withName(name: string) {

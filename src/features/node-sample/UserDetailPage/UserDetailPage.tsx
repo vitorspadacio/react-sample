@@ -73,7 +73,7 @@ export default function () {
           <Input
             alt='nome'
             {...register('name')}
-            hasError={!!errors.name?.message}
+            haserror={errors.name?.message}
           />
           <Error>{errors.name?.message.toString()}</Error>
         </Label>
@@ -83,7 +83,7 @@ export default function () {
           <Input
             alt='idade'
             {...register('age')}
-            hasError={!!errors.age?.message}
+            haserror={errors.age?.message}
           />
           <Error>{errors.age?.message.toString()}</Error>
         </Label>
