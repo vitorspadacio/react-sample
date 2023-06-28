@@ -25,9 +25,9 @@ export default function () {
           React Sample
         </Title>
 
+        <MenuItem to='/'>Home</MenuItem>
         <MenuItem to='/todo'>Todo</MenuItem>
         <MenuItem to='star-wars'>Star Wars</MenuItem>
-        <MenuItem to='/node-sample'>Node Sample</MenuItem>
 
         <Logged>
           { actualLogLink }
