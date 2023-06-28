@@ -35,8 +35,8 @@ export default function () {
 
       <p>As tecnologias utilizadas no exemplo são:</p>
       <ul>
-        <li>Renderização com React 18;</li>
-        <li>Estrutura de pastas pronta para aplicação de médio porte;</li>
+        <li>Renderização com React;</li>
+        <li>Estrutura de pastas pronta para aplicação de médio porte e extensão para cenários maiores;</li>
         <li>Estilização com SASS e/ou styled-components;</li>
         <li>Padronização de código com .editorconfig e ESLint;</li>
         <li>Gerenciamento de estado único (Redux);</li>
@@ -44,6 +44,7 @@ export default function () {
         <li>Formulários com hooks (React-Hook-Form);</li>
         <li>Testes automátizados (Jest);</li>
         <li>Testes de integração com DOM em memória (Testing-Library);</li>
+        <li>Servidor de desenvolvimento e bundle (Vite).</li>
       </ul>
 
       <p>Além disso encontrará diferentes exemplos para os seguintes cenários:</p>
