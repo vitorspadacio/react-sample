@@ -1,28 +1,22 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useQuery } from 'react-query'
 import PlanetsList from '../PlanetsList'
-import { selectErrorMessage } from '../StarWarsSelectors'
-import { actions } from '../StarWarsState'
+import StarWarsApi from '../StarWarsApi'
 
 export default function () {
-  const dispatch = useDispatch()
-  const errorMessage = useSelector(selectErrorMessage)
-
+  const { data, status, error, isError, isLoading } = useQuery('planets', StarWarsApi.getPlanets)
   useEffect(() => {
-    document.title = 'Planetas • React Sample'
+    document.title = 'Star Wars • React Sample'
   }, [])
 
-  useEffect(() => {
-    dispatch(actions.getPlanets())
-    return () => { dispatch(actions.setPlanets({ planets: [] })) }
-  }, [dispatch])
+  const render = () => isError ? (<span>Ocorreu um erro. Motivo: {error.toString()}</span>) :
+    isLoading ? (<span>Carregando...</span>) :
+    (<PlanetsList planets={data} />)
 
   return (
     <>
       <h1>Star Wars: Planetas</h1>
-      { errorMessage
-        ? (<span>Ocorreu um erro. Motivo: {errorMessage}</span>)
-        : (<PlanetsList />)}
+      { render() }
     </>
   )
 }

@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { Route, Router, Routes } from 'react-router-dom'
 import Navigation from '../../components/Navigation'
 import InitRedux from '../../init-redux'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 const customRender = (
   ui: React.ReactElement,
@@ -16,18 +17,23 @@ const customRender = (
   } = {},
 ) => {
   const history = createMemoryHistory()
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { retry: false } }
+  })
   const wrapper = ({ children }) => (
     <div id='root'>
       <Provider store={store}>
-        <Router
-          location={location}
-          navigator={history}
-        >
-          <Navigation />
-          <Routes>
-            <Route path={path} element={children} />
-          </Routes>
-        </Router>
+        <QueryClientProvider client={queryClient}>
+          <Router
+            location={location}
+            navigator={history}
+          >
+            <Navigation />
+            <Routes>
+              <Route path={path} element={children} />
+            </Routes>
+          </Router>
+        </QueryClientProvider>
       </Provider>
     </div>
   )

@@ -37,6 +37,6 @@ describe('PlanetsPage', () => {
     render(<PlanetsPage />)
 
     expect(await screen
-      .findByText('Ocorreu um erro. Motivo: Not Found'))
+      .findByText('Ocorreu um erro. Motivo: Error: Not Found'))
   })
 })

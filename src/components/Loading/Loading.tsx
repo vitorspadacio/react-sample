@@ -16,10 +16,10 @@ const LoadingContainer = styled.section`
   }
 `
 
-export default function () {
-  const isLoading = useSelector((state: State) => state.app.loadingStack > 0)
+export default function ({ isLoading = true }) {
+  const isLoadingFromState = useSelector((state: State) => state.app.loadingStack > 0)
 
-  return (isLoading && (
+  return ((isLoadingFromState && isLoading) && (
     <LoadingContainer>
       <div id='loading' data-testid='loading'><div /><div /></div>
     </LoadingContainer>
