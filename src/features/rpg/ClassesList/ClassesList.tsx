@@ -10,7 +10,7 @@ export default function () {
       <Info><small>Nome</small> <span>{rpgClass.name}</span></Info>
       <Info><small>Dado de vida</small> <span>{rpgClass.hitDie}</span></Info>
       <Info><small>Salvaguardas</small> <span>{rpgClass.savingThrows.join(', ')}</span></Info>
-      <Info><small>Subclasses</small> <span>{rpgClass.subclasses}</span></Info>
+      <Info><small>Subclasses</small> <span>{rpgClass.subclasses.join(', ')}</span></Info>
     </ListItem>
   )
 

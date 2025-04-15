@@ -1,40 +1,37 @@
 import mockApi from '../../../infrastructure/test-helpers/mock-api'
 import { render, screen } from '../../../infrastructure/test-helpers/test-renderer'
-import StarWarsApi from '../RpgApi'
-import PlanetsPage from './ClassesPage'
+import RpgApi from '../RpgApi'
+import { RpgClass } from '../RpgTypes'
+import ClassesPage from './ClassesPage'
 
-jest.mock('../StarWarsApi')
+jest.mock('../RpgApi')
 
-const getPlanetsReturn = [
+const getClassesReturn = [
   {
     name: 'Test1',
-    diameter: '12345',
-    rotationPeriod: '24',
-    population: '1000',
-    climate: 'arid',
-    terrain: 'desert',
-  },
+    hitDie: 8,
+    savingThrows: ['DEX',  'STR'],
+    subclasses: ['TestA',  'TestB'],
+  } as RpgClass,
 ]
 
 describe('PlanetsPage', () => {
   beforeEach(() => {
-    mockApi(StarWarsApi.getPlanets).mockResolvedValue(getPlanetsReturn)
+    mockApi(RpgApi.getClasses).mockResolvedValue(getClassesReturn)
   })
 
-  test('deve exibir lista de planetas', async () => {
-    render(<PlanetsPage />)
+  test('deve exibir lista de classes', async () => {
+    render(<ClassesPage />)
 
     expect(await screen.findByText('Test1')).toBeVisible()
-    expect(screen.getByText('12345 km')).toBeVisible()
-    expect(screen.getByText('24')).toBeVisible()
-    expect(screen.getByText('1000m')).toBeVisible()
-    expect(screen.getByText('arid')).toBeVisible()
-    expect(screen.getByText('desert')).toBeVisible()
+    expect(screen.getByText('8')).toBeVisible()
+    expect(screen.getByText('DEX, STR')).toBeVisible()
+    expect(screen.getByText('TestA, TestB')).toBeVisible()
   })
 
   test('deve exibir mensagem de error quando requisição retornar erro', async () => {
-    mockApi(StarWarsApi.getPlanets).mockRejectedValueOnce(new Error('Not Found'))
-    render(<PlanetsPage />)
+    mockApi(RpgApi.getClasses).mockRejectedValueOnce(new Error('Not Found'))
+    render(<ClassesPage />)
 
     expect(await screen
       .findByText('Ocorreu um erro. Motivo: Not Found'))

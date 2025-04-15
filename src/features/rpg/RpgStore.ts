@@ -22,8 +22,14 @@ export const useRpgStore = create<RpgStore>((set => ({
 
   fetch: async() => {
     addLoading()
-    const classes = await RpgApi.getClasses()
-    set({ rpgClasses: classes })
+
+    try {
+      const classes = await RpgApi.getClasses()
+      set({ rpgClasses: classes })
+    } catch(error) {
+      set({ errorMessage: error.message })
+    }
+
     removeLoading()
   },
 
