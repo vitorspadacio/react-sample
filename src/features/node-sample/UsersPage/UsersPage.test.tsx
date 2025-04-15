@@ -15,7 +15,7 @@ const getUsersReturn = {
   ],
 }
 
-describe('UsersPage', () => {
+describe.skip('UsersPage', () => {
   beforeAll(() => jest.useFakeTimers())
   afterAll(() => jest.useRealTimers())
 

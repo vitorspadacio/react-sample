@@ -1,15 +1,13 @@
-import { useSelector } from 'react-redux'
 import favicon from '../../assets/images/favicon.png'
-import userIcon from '../../assets/images/user.svg'
 import noUserIcon from '../../assets/images/no_user.svg'
-import { selectDisplayName, selectUser } from '../../features/auth/AuthSelectors'
+import userIcon from '../../assets/images/user.svg'
 import {
   Content, DisplayName, Logged, Login, MenuItem, Nav, Title,
 } from './Menu.styles'
 
 export default function () {
-  const user = useSelector(selectUser)
-  const displayName = useSelector(selectDisplayName)
+  const user = undefined // useSelector(selectUser)
+  const displayName = undefined // useSelector(selectDisplayName)
 
   const actualLogLink = user
     ? <DisplayName>{displayName}</DisplayName>

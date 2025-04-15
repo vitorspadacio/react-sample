@@ -3,9 +3,8 @@ export default {
   roots: ['<rootDir>/src'],
   testEnvironment: 'jsdom',
   resolver: '<rootDir>/config/resolver.cjs',
-  setupFiles:[
-    '<rootDir>/config/setup.cjs'
-  ],
+  setupFiles:['<rootDir>/config/setup.cjs'],
+  setupFilesAfterEnv: ['<rootDir>/config/matchers.ts'],
   transform: {
     '^.+\\.[tj]s[x]?$': ['ts-jest', {
       useESM: true,
