@@ -24,7 +24,12 @@ export default createGlobalStyle`
 
   #content {
     flex: 1 0 auto;
+    margin: auto 15%;
     padding: 2em;
+
+    @media (max-width: 768px) {
+      margin: auto;
+    }
   }
 
   footer {
