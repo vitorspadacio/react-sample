@@ -1,5 +1,5 @@
+import { Button, OutlineButton, RedButton } from '@components/Styled/Buttons'
 import { useEffect } from 'react'
-import { Button, OutlineButton, RedButton } from '../../../components/Styled/Buttons'
 import { selectNumber } from '../HomeSelectors'
 import { useHomeStore } from '../HomeStore'
 import { Container, Counter } from './HomePage.styles'
