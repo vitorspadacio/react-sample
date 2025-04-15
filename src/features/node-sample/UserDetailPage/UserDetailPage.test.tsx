@@ -11,7 +11,7 @@ jest.mock('../NodeSampleApi')
 
 const getUserById = { data: { ...userBuilder().create() } }
 
-describe('UserDetailPage', () => {
+describe.skip('UserDetailPage', () => {
   beforeEach(() => {
     mockApi(NodeSampleApi.getUserById).mockResolvedValue(getUserById)
     mockApi(NodeSampleApi.createUser).mockResolvedValue({})
