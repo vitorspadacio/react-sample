@@ -9,7 +9,7 @@ export interface TodoStore {
   removeTask: (id: string) => void
 }
 
-const initialState = {
+export const initialState = {
   tasks: [
     { id: '1', description: 'Lavar louças', isComplete: true },
     { id: '2', description: 'Arrumar a sala', isComplete: false },

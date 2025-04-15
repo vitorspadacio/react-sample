@@ -1,10 +1,14 @@
 import userEvent from '@testing-library/user-event'
 import {
-  render, screen, waitFor, fireEvent,
+  fireEvent,
+  render, screen, waitFor,
 } from '../../../infrastructure/test-helpers/test-renderer'
+import { initialState, useTodoStore } from '../TodoStore'
 import TodoPage from './TodoPage'
 
 describe('TodoPage', () => {
+  beforeEach(() => useTodoStore.setState(initialState))
+
   test('deve exibir lista inicial de tarefas', () => {
     render(<TodoPage />)
 

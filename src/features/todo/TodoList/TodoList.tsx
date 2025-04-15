@@ -8,7 +8,6 @@ export default function () {
   const { tasks, toggleTask } = useTodoStore()
 
   const handleTaskToggle = (id) => {
-    console.info(id)
     toggleTask(id)
   }
 
