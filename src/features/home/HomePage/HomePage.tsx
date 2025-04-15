@@ -1,23 +1,22 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { Button, OutlineButton, RedButton } from '../../../components/Styled/Buttons'
 import { selectNumber } from '../HomeSelectors'
-import { actions } from '../HomeState'
+import { useHomeStore } from '../HomeStore'
 import { Container, Counter } from './HomePage.styles'
 
 export default function () {
-  const dispatch = useDispatch()
-  const number = useSelector(selectNumber)
+  const number = useHomeStore(selectNumber)
+  const { increment, decrement, reset } = useHomeStore()
 
   useEffect(() => {
     document.title = 'React Sample'
   }, [])
 
-  const increment = () => dispatch(actions.increment())
+  const onIncrementClick = () => increment()
 
-  const decrement = () => dispatch(actions.decrement())
+  const onDecrementClick = () => decrement()
 
-  const reset = () => dispatch(actions.reset())
+  const onResetClick = () => reset()
 
   return (
     <Container id='home-page'>
@@ -35,11 +34,11 @@ export default function () {
 
       <p>As tecnologias utilizadas no exemplo são:</p>
       <ul>
-        <li>Renderização com React 18;</li>
+        <li>Renderização com React 19;</li>
         <li>Estrutura de pastas pronta para aplicação de médio porte;</li>
         <li>Estilização com SASS e/ou styled-components;</li>
-        <li>Padronização de código com .editorconfig e ESLint;</li>
-        <li>Gerenciamento de estado único (Redux);</li>
+        <li>Padronização de código com .editorconfig, ESLint e Prettier;</li>
+        <li>Gerenciamento de estado único com Zustand (Redux);</li>
         <li>Middleware de efeitos colaterais (Redux-Saga);</li>
         <li>Formulários com hooks (React-Hook-Form);</li>
         <li>Testes automátizados (Jest);</li>
@@ -65,9 +64,9 @@ export default function () {
 
       <Counter>Contador: {number}</Counter>
 
-      <RedButton type='button' onClick={() => decrement()}>Decrementar</RedButton>
-      <OutlineButton type='button' onClick={() => reset()}>Limpar</OutlineButton>
-      <Button type='button' onClick={() => increment()}>Incrementar</Button>
+      <RedButton type='button' onClick={() => onDecrementClick()}>Decrementar</RedButton>
+      <OutlineButton type='button' onClick={() => onResetClick()}>Limpar</OutlineButton>
+      <Button type='button' onClick={() => onIncrementClick()}>Incrementar</Button>
     </Container>
   )
 }

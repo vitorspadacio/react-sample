@@ -1,8 +1,11 @@
 import userEvent from '@testing-library/user-event'
 import { render, screen } from '../../../infrastructure/test-helpers/test-renderer'
 import HomePage from './HomePage'
+import { useHomeStore } from '../HomeStore'
 
 describe('HomePage', () => {
+  beforeEach(() => useHomeStore.getState().reset())
+
   test('deve exibir o texto Olá Mundo!', () => {
     render(<HomePage />)
     expect(screen.getAllByText('Olá Mundo!')).toHaveLength(3)

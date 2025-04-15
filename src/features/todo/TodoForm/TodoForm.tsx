@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { Input } from '../../../components/Styled/Input'
-import { actions } from '../TodoState'
+import { useTodoStore } from '../TodoStore'
 import { ButtonPlus, Container } from './TodoForm.styles'
 
 export default function () {
-  const dispatch = useDispatch()
+  const { addTask } = useTodoStore()
 
   const [description, setDescription] = useState<string>('')
   const [isValid, setIsValid] = useState<boolean>(false)
@@ -24,7 +23,7 @@ export default function () {
 
   const createTask = () => {
     if (!isValid) return
-    dispatch(actions.addTask({ description }))
+    addTask(description)
     setDescription('')
   }
 
