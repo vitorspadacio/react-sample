@@ -31,7 +31,7 @@ export const useTodoStore = create<TodoStore>((set => ({
   }),
 
   toggleTask: (id) => set(({tasks}) => ({
-    tasks: tasks.map((task) => task.id === id ? {...task, completed: !task.isComplete } : task)
+    tasks: tasks.map((task) => task.id === id ? {...task, isComplete: !task.isComplete } : task)
   })),
 
   removeTask: (id) => set(({tasks}) => ({ tasks: tasks.filter((task) => task.id !== id) })),

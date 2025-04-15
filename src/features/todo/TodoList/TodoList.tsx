@@ -5,10 +5,12 @@ import {
 } from './TodoList.styles'
 
 export default function () {
-  const tasks = useTodoStore(selectTasks)
-  const { toggleTask } = useTodoStore()
+  const { tasks, toggleTask } = useTodoStore()
 
-  const handleTaskToggle = (id) => toggleTask(id)
+  const handleTaskToggle = (id) => {
+    console.info(id)
+    toggleTask(id)
+  }
 
   const listTasks = () => tasks.map((task) => (
     <ListItem key={task.id}>
