@@ -1,7 +1,7 @@
 import mockApi from '../../../infrastructure/test-helpers/mock-api'
 import { render, screen } from '../../../infrastructure/test-helpers/test-renderer'
-import StarWarsApi from '../StarWarsApi'
-import PlanetsPage from './PlanetsPage'
+import StarWarsApi from '../RpgApi'
+import PlanetsPage from './ClassesPage'
 
 jest.mock('../StarWarsApi')
 

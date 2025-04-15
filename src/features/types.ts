@@ -1,7 +1,7 @@
 import { AuthState } from './auth/AuthTypes'
 import { HomeState } from './home/HomeTypes'
 import { NodeSampleState } from './node-sample/NodeSampleTypes'
-import { StarWarsState } from './star-wars/StarWarsTypes'
+import { StarWarsState } from './rpg/RpgTypes'
 import { TodoState } from './todo/TodoTypes'
 
 export interface AppState {
