@@ -12,7 +12,7 @@ import RegisterPage from './auth/RegisterPage'
 import HomePage from './home/HomePage'
 import UserDetailPage from './node-sample/UserDetailPage'
 import UsersPage from './node-sample/UsersPage'
-import PlanetsPage from './star-wars/PlanetsPage'
+import ClassesPage from './rpg/ClassesPage'
 import TodoPage from './todo/TodoPage'
 
 export default function () {
@@ -25,7 +25,7 @@ export default function () {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/todo' element={<TodoPage />} />
-          <Route path='/star-wars' element={<PlanetsPage />} />
+          <Route path='/rpg' element={<ClassesPage />} />
           <Route path='/node-sample'>
             <Route path='' element={<UsersPage />} />
             <Route path='edit/:id' element={<UserDetailPage />} />

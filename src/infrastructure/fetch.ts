@@ -22,7 +22,7 @@ const call = <T>(
   query?: object,
   body?: object): Promise<Response<T>> => {
   const queryString = new URLSearchParams({ ...query })
-  return fetch(`${url}?${queryString}`, {
+  return fetch(`${url}${query ? `?${queryString}` : ''}`, {
     method,
     body: JSON.stringify(body),
     headers: {

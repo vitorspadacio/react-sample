@@ -1,6 +1,5 @@
-import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { State } from '../../features/types'
+import { useAppStore } from '../../features/store'
 import './Loading.scss'
 
 const LoadingContainer = styled.section`
@@ -17,7 +16,7 @@ const LoadingContainer = styled.section`
 `
 
 export default function () {
-  const isLoading = useSelector((state: State) => state.app.loadingStack > 0)
+  const isLoading = useAppStore(state => state.loadingStack > 0)
 
   return (isLoading && (
     <LoadingContainer>

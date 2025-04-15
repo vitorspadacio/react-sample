@@ -26,7 +26,7 @@ export default function () {
         </Title>
 
         <MenuItem to='/todo'>Todo</MenuItem>
-        {/* <MenuItem to='star-wars'>Star Wars</MenuItem> */}
+        <MenuItem to='/rpg'>RPG</MenuItem>
         {/* <MenuItem to='/node-sample'>Node Sample</MenuItem> */}
 
         <Logged>
