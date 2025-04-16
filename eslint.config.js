@@ -5,6 +5,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import tsParser from '@typescript-eslint/parser'
 import tseslint from '@typescript-eslint/eslint-plugin'
 import { defineConfig } from 'eslint/config'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
 
 export default defineConfig([
   {
@@ -19,16 +20,21 @@ export default defineConfig([
     },
     plugins: {
       '@typescript-eslint': tseslint,
+      'jsx-a11y': jsxA11y,
+      'react-hooks': reactHooks,
       prettier: prettierPlugin,
       react: react,
-      'react-hooks': reactHooks,
     },
     rules: {
+      'jsx-a11y/alt-text': 'error',
+      'jsx-a11y/anchor-is-valid': 'error',
+      'jsx-a11y/label-has-associated-control': 'error',
       '@typescript-eslint/no-shadow': ['error'],
       '@typescript-eslint/no-unused-vars': ['error'],
       'prettier/prettier': ['error'],
       'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
       'react/react-in-jsx-scope': 'off',
+      ...jsxA11y.flatConfigs.recommended.rules,
       ...prettierConfig.rules,
     },
   },

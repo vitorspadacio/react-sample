@@ -43,7 +43,7 @@ export const Checkbox = styled.input`
 
 export const Description = styled.label`
   align-items: center;
-   cursor: pointer;
-   display: flex;
-   line-height: calc(40px - 0.6em);
+  cursor: pointer;
+  display: flex;
+  line-height: calc(40px - 0.6em);
 `

@@ -1,7 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit'
-import {
-  call, takeEvery, put, all,
-} from 'redux-saga/effects'
+import { call, takeEvery, put, all } from 'redux-saga/effects'
 import { actions } from './NodeSampleState'
 import NodeSampleApi from './NodeSampleApi'
 import Navigator from '../../components/Navigation/Navigator'

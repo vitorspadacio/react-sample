@@ -19,7 +19,9 @@ export default function () {
 
   useEffect(() => {
     dispatch(actions.getUsers())
-    return () => { dispatch(actions.setUsers([])) }
+    return () => {
+      dispatch(actions.setUsers([]))
+    }
   }, [dispatch])
 
   const handleCreateClick = () => navigate('/node-sample/create')
@@ -36,20 +38,15 @@ export default function () {
   return (
     <>
       <h1>NodeSample: Users</h1>
-      <p>
-        Usando API criada e hospedada do node-sample, o sample
-        para desenvolvimento backend Node
-      </p>
+      <p>Usando API criada e hospedada do node-sample, o sample para desenvolvimento backend Node</p>
       <CreateButton onClick={handleCreateClick}>Criar</CreateButton>
-      { errorMessage
-        ? (<span>Ocorreu um erro. Motivo: {errorMessage}</span>)
-        : (<UsersList onDeleteClick={handleDeleteClick} />)}
+      {errorMessage ? (
+        <span>Ocorreu um erro. Motivo: {errorMessage}</span>
+      ) : (
+        <UsersList onDeleteClick={handleDeleteClick} />
+      )}
 
-      <UserDeleteModal
-        idToDelete={idToDelete}
-        onConfirmClick={handleConfirmClick}
-        onCancelClick={handleCancelClick}
-      />
+      <UserDeleteModal idToDelete={idToDelete} onConfirmClick={handleConfirmClick} onCancelClick={handleCancelClick} />
     </>
   )
 }

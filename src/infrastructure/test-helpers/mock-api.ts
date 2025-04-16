@@ -1,1 +1,1 @@
-export default (method: Function) => (method as jest.Mock)
+export default (method: Function) => method as jest.Mock

@@ -19,7 +19,7 @@ export default function () {
   const onResetClick = () => reset()
 
   return (
-    <Container id="home-page">
+    <Container id='home-page'>
       <h1>Olá Mundo!</h1>
       <h2>Olá Mundo!</h2>
       <h3>Olá Mundo!</h3>
@@ -64,13 +64,13 @@ export default function () {
 
       <Counter>Contador: {number}</Counter>
 
-      <RedButton type="button" onClick={() => onDecrementClick()}>
+      <RedButton type='button' onClick={() => onDecrementClick()}>
         Decrementar
       </RedButton>
-      <OutlineButton type="button" onClick={() => onResetClick()}>
+      <OutlineButton type='button' onClick={() => onResetClick()}>
         Limpar
       </OutlineButton>
-      <Button type="button" onClick={() => onIncrementClick()}>
+      <Button type='button' onClick={() => onIncrementClick()}>
         Incrementar
       </Button>
     </Container>

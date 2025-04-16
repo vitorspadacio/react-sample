@@ -4,14 +4,14 @@ import { Error, Label } from '../Styled/Label'
 import { Input } from './Input.styles'
 
 interface Props {
-  className?: string,
-  control: any,
-  disabled?: boolean,
-  label?: string,
-  name: string,
-  onKeyDown?: KeyboardEventHandler,
-  placeholder?: string,
-  type: HTMLInputTypeAttribute,
+  className?: string
+  control: any
+  disabled?: boolean
+  label?: string
+  name: string
+  onKeyDown?: KeyboardEventHandler
+  placeholder?: string
+  type: HTMLInputTypeAttribute
 }
 
 export default function ({
@@ -31,7 +31,7 @@ export default function ({
 
   return (
     <Label className={className}>
-      { label ? <span>{label}</span> : undefined }
+      {label ? <span>{label}</span> : undefined}
       <Input
         disabled={disabled}
         hasError={Boolean(error?.message)}

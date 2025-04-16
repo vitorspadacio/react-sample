@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import colors from '../../assets/styles/colors'
 
 interface Props {
-  haserror?: string,
+  haserror?: string
 }
 
 export const Input = styled.input<Props>`
@@ -14,6 +14,6 @@ export const Input = styled.input<Props>`
 
   :disabled {
     background-color: ${colors.soft};
-    color: ${colors.light}; 
+    color: ${colors.light};
   }
 `

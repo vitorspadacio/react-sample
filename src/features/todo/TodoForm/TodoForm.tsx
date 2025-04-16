@@ -16,7 +16,9 @@ export default function () {
   }
 
   const handleDescriptionChange = (event) => {
-    const { target: { value } } = event
+    const {
+      target: { value },
+    } = event
     validate(value)
     setDescription(value)
   }
@@ -33,19 +35,13 @@ export default function () {
     createTask()
   }
 
-  const shouldShowError = () => (
-    showError ? (<span>Obrigatório preencher para adicionar tarefa</span>) : '')
+  const shouldShowError = () => (showError ? <span>Obrigatório preencher para adicionar tarefa</span> : '')
 
   return (
     <Container id='todo-form' onSubmit={handleSubmit} data-testid='todo-form'>
       <ButtonPlus type='submit'>+</ButtonPlus>
-      <Input
-        type='text'
-        onChange={handleDescriptionChange}
-        title='descrição'
-        value={description}
-      />
-      { shouldShowError()}
+      <Input type='text' onChange={handleDescriptionChange} title='descrição' value={description} />
+      {shouldShowError()}
     </Container>
   )
 }

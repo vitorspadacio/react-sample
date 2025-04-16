@@ -8,9 +8,7 @@ import google from '../../../assets/images/google.svg'
 import Input from '../../../components/Input'
 import { selectUser } from '../AuthSelectors'
 import { actions } from '../AuthState'
-import {
-  BackButton, Buttons, Container, Form,
-} from '../AuthStyles'
+import { BackButton, Buttons, Container, Form } from '../AuthStyles'
 import { LoginForm, loginSchema } from './Login.schemas'
 import { EnterButton, GoogleButton, Register } from './LoginPage.styles'
 
@@ -44,34 +42,18 @@ export default function () {
       <h1>Entrar</h1>
 
       <Form onSubmit={handleSubmit(handleEnterClick)}>
-        <Input
-          control={control}
-          name='email'
-          placeholder='E-mail'
-          type='text'
-        />
+        <Input control={control} name='email' placeholder='E-mail' type='text' />
 
-        <Input
-          control={control}
-          name='password'
-          placeholder='Senha'
-          type='password'
-        />
+        <Input control={control} name='password' placeholder='Senha' type='password' />
 
         <Buttons>
           <EnterButton type='submit'>Entrar</EnterButton>
 
-          <BackButton
-            type='button'
-            onClick={handleBackClick}
-          >
+          <BackButton type='button' onClick={handleBackClick}>
             Voltar
           </BackButton>
 
-          <GoogleButton
-            type='button'
-            onClick={handleGoogleClick}
-          >
+          <GoogleButton type='button' onClick={handleGoogleClick}>
             <img alt='google log in' src={google} />
             Entrar com Google
           </GoogleButton>

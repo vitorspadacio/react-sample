@@ -17,22 +17,24 @@ export const initialState = {
   ] as Task[],
 }
 
-export const useTodoStore = create<TodoStore>((set => ({
+export const useTodoStore = create<TodoStore>((set) => ({
   ...initialState,
 
-  addTask: (description) => set(({tasks}) => {
-    const newTask = {
-      id: nanoid(),
-      description,
-      isComplete: false,
-    } as Task
+  addTask: (description) =>
+    set(({ tasks }) => {
+      const newTask = {
+        id: nanoid(),
+        description,
+        isComplete: false,
+      } as Task
 
-    return ({ tasks: [...tasks, newTask]})
-  }),
+      return { tasks: [...tasks, newTask] }
+    }),
 
-  toggleTask: (id) => set(({tasks}) => ({
-    tasks: tasks.map((task) => task.id === id ? {...task, isComplete: !task.isComplete } : task)
-  })),
+  toggleTask: (id) =>
+    set(({ tasks }) => ({
+      tasks: tasks.map((task) => (task.id === id ? { ...task, isComplete: !task.isComplete } : task)),
+    })),
 
-  removeTask: (id) => set(({tasks}) => ({ tasks: tasks.filter((task) => task.id !== id) })),
-})))
+  removeTask: (id) => set(({ tasks }) => ({ tasks: tasks.filter((task) => task.id !== id) })),
+}))

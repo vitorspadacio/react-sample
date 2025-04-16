@@ -1,8 +1,5 @@
 import userEvent from '@testing-library/user-event'
-import {
-  fireEvent,
-  render, screen, waitFor,
-} from '../../../infrastructure/test-helpers/test-renderer'
+import { fireEvent, render, screen, waitFor } from '../../../infrastructure/test-helpers/test-renderer'
 import { initialState, useTodoStore } from '../TodoStore'
 import TodoPage from './TodoPage'
 

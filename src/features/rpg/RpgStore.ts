@@ -17,16 +17,16 @@ export const initialState = {
   errorMessage: '',
 }
 
-export const useRpgStore = create<RpgStore>((set => ({
+export const useRpgStore = create<RpgStore>((set) => ({
   ...initialState,
 
-  fetch: async() => {
+  fetch: async () => {
     addLoading()
 
     try {
       const classes = await RpgApi.getClasses()
       set({ rpgClasses: classes })
-    } catch(error) {
+    } catch (error) {
       set({ errorMessage: error.message })
     }
 
@@ -34,4 +34,4 @@ export const useRpgStore = create<RpgStore>((set => ({
   },
 
   clear: () => set(initialState),
-})))
+}))

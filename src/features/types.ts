@@ -5,14 +5,14 @@ import { StarWarsState } from './rpg/RpgTypes'
 import { TodoState } from './todo/TodoTypes'
 
 export interface AppState {
-  loadingStack: number,
+  loadingStack: number
 }
 
 export interface State {
-  app: AppState,
-  auth: AuthState,
-  home: HomeState,
-  nodeSample: NodeSampleState,
-  starWars: StarWarsState,
-  todo: TodoState,
+  app: AppState
+  auth: AuthState
+  home: HomeState
+  nodeSample: NodeSampleState
+  starWars: StarWarsState
+  todo: TodoState
 }

@@ -10,8 +10,8 @@ const getClassesReturn = [
   {
     name: 'Test1',
     hitDie: 8,
-    savingThrows: ['DEX',  'STR'],
-    subclasses: ['TestA',  'TestB'],
+    savingThrows: ['DEX', 'STR'],
+    subclasses: ['TestA', 'TestB'],
   } as RpgClass,
 ]
 
@@ -33,7 +33,6 @@ describe('PlanetsPage', () => {
     mockApi(RpgApi.getClasses).mockRejectedValueOnce(new Error('Not Found'))
     render(<ClassesPage />)
 
-    expect(await screen
-      .findByText('Ocorreu um erro. Motivo: Not Found'))
+    expect(await screen.findByText('Ocorreu um erro. Motivo: Not Found'))
   })
 })

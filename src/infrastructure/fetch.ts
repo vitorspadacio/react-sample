@@ -2,13 +2,13 @@ enum HttpVerbs {
   Get = 'GET',
   Post = 'POST',
   Delete = 'DELETE',
-  Put ='PUT'
+  Put = 'PUT',
 }
 
 export interface Response<T> {
-  data?: T,
-  code: number,
-  message?: string,
+  data?: T
+  code: number
+  message?: string
 }
 
 const handleErrors = (response) => {
@@ -16,11 +16,7 @@ const handleErrors = (response) => {
   return response
 }
 
-const call = <T>(
-  method: HttpVerbs,
-  url: string,
-  query?: object,
-  body?: object): Promise<Response<T>> => {
+const call = <T>(method: HttpVerbs, url: string, query?: object, body?: object): Promise<Response<T>> => {
   const queryString = new URLSearchParams({ ...query })
   return fetch(`${url}${query ? `?${queryString}` : ''}`, {
     method,

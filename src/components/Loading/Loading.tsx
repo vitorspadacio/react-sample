@@ -16,11 +16,16 @@ const LoadingContainer = styled.section`
 `
 
 export default function () {
-  const isLoading = useAppStore(state => state.loadingStack > 0)
+  const isLoading = useAppStore((state) => state.loadingStack > 0)
 
-  return (isLoading && (
-    <LoadingContainer>
-      <div id='loading' data-testid='loading'><div /><div /></div>
-    </LoadingContainer>
-  ))
+  return (
+    isLoading && (
+      <LoadingContainer>
+        <div id='loading' data-testid='loading'>
+          <div />
+          <div />
+        </div>
+      </LoadingContainer>
+    )
+  )
 }

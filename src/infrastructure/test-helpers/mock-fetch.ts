@@ -9,16 +9,14 @@ export const responseTypes = {
 }
 
 export const mockFetch = (fetchMock: Promise<any> = Promise.resolve()) => {
-  (window as any).apis = apis
-  const fetch = jest.fn(() => fetchMock);
-  (window as any).fetch = fetch
+  ;(window as any).apis = apis
+  const fetch = jest.fn(() => fetchMock)
+  ;(window as any).fetch = fetch
   return fetch
 }
 
-export const createFetchPromise = (
-  expectedResult: any,
-  responseType = responseTypes.ok,
-): Promise<any> => Promise.resolve({
-  ...responseType,
-  json: () => Promise.resolve({ results: expectedResult }),
-})
+export const createFetchPromise = (expectedResult: any, responseType = responseTypes.ok): Promise<any> =>
+  Promise.resolve({
+    ...responseType,
+    json: () => Promise.resolve({ results: expectedResult }),
+  })

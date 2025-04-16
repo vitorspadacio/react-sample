@@ -7,11 +7,10 @@ export interface HomeStore {
   reset: () => void
 }
 
-export const useHomeStore = create<HomeStore>((set => ({
+export const useHomeStore = create<HomeStore>((set) => ({
   number: 0,
 
-  increment: () => set(({number}) => ({ number: number+1 })),
-  decrement: () => set(({number}) => ({ number: number-1 })),
+  increment: () => set(({ number }) => ({ number: number + 1 })),
+  decrement: () => set(({ number }) => ({ number: number - 1 })),
   reset: () => set(() => ({ number: 0 })),
-})))
-
+}))

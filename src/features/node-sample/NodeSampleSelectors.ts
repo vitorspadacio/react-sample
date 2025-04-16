@@ -4,24 +4,12 @@ import { NodeSampleState } from './NodeSampleTypes'
 
 const selectFeature = (state: State) => state.nodeSample
 
-export const selectUsers = createSelector(
-  selectFeature,
-  (state: NodeSampleState) => state.users,
-)
+export const selectUsers = createSelector(selectFeature, (state: NodeSampleState) => state.users)
 
-export const selectErrorMessage = createSelector(
-  selectFeature,
-  (state: NodeSampleState) => state.errorMessage,
-)
+export const selectErrorMessage = createSelector(selectFeature, (state: NodeSampleState) => state.errorMessage)
 
-export const selectIsLoading = createSelector(
-  selectFeature,
-  (state: NodeSampleState) => state.isLoading,
-)
+export const selectIsLoading = createSelector(selectFeature, (state: NodeSampleState) => state.isLoading)
 
-export const selectShowDeleteModal = createSelector(
-  selectFeature,
-  (state: NodeSampleState) => state.showDeleteModal,
-)
+export const selectShowDeleteModal = createSelector(selectFeature, (state: NodeSampleState) => state.showDeleteModal)
 
 export default selectFeature

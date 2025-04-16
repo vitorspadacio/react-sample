@@ -1,9 +1,7 @@
 import userEvent from '@testing-library/user-event'
 import userBuilder from '../../../infrastructure/builders/user.builder'
 import mockApi from '../../../infrastructure/test-helpers/mock-api'
-import {
-  fireEvent, render, screen, waitFor,
-} from '../../../infrastructure/test-helpers/test-renderer'
+import { fireEvent, render, screen, waitFor } from '../../../infrastructure/test-helpers/test-renderer'
 import NodeSampleApi from '../NodeSampleApi'
 import UserDetailPage from './UserDetailPage'
 
@@ -56,11 +54,17 @@ describe.skip('UserDetailPage', () => {
       await screen.findByDisplayValue(id)
       userEvent.click(screen.getByText('Voltar'))
 
-      await waitFor(() => expect(history.push).toHaveBeenCalledWith({
-        hash: '',
-        pathname: '/node-sample',
-        search: '',
-      }, undefined, {}))
+      await waitFor(() =>
+        expect(history.push).toHaveBeenCalledWith(
+          {
+            hash: '',
+            pathname: '/node-sample',
+            search: '',
+          },
+          undefined,
+          {},
+        ),
+      )
     })
   })
 
@@ -89,11 +93,17 @@ describe.skip('UserDetailPage', () => {
       userEvent.click(screen.getByText('Criar'))
 
       await waitFor(() => expect(NodeSampleApi.createUser).toHaveBeenCalled())
-      await waitFor(() => expect(history.push).toHaveBeenCalledWith({
-        hash: '',
-        pathname: '/node-sample',
-        search: '',
-      }, undefined, {}))
+      await waitFor(() =>
+        expect(history.push).toHaveBeenCalledWith(
+          {
+            hash: '',
+            pathname: '/node-sample',
+            search: '',
+          },
+          undefined,
+          {},
+        ),
+      )
     })
 
     test('deve exibir errors de validação nos campos da edição', async () => {
@@ -112,11 +122,17 @@ describe.skip('UserDetailPage', () => {
 
       userEvent.click(screen.getByText('Voltar'))
 
-      await waitFor(() => expect(history.push).toHaveBeenCalledWith({
-        hash: '',
-        pathname: '/node-sample',
-        search: '',
-      }, undefined, {}))
+      await waitFor(() =>
+        expect(history.push).toHaveBeenCalledWith(
+          {
+            hash: '',
+            pathname: '/node-sample',
+            search: '',
+          },
+          undefined,
+          {},
+        ),
+      )
     })
   })
 })

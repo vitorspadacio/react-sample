@@ -3,23 +3,26 @@ export default {
   roots: ['<rootDir>/src'],
   testEnvironment: 'jsdom',
   resolver: '<rootDir>/config/resolver.cjs',
-  setupFiles:['<rootDir>/config/setup.cjs'],
+  setupFiles: ['<rootDir>/config/setup.cjs'],
   setupFilesAfterEnv: ['<rootDir>/config/matchers.ts'],
   transform: {
-    '^.+\\.[tj]s[x]?$': ['ts-jest', {
-      useESM: true,
-      diagnostics: {
-        ignoreCodes: [1343]
-      },
-      astTransformers: {
-        before: [
-          {
+    '^.+\\.[tj]s[x]?$': [
+      'ts-jest',
+      {
+        useESM: true,
+        diagnostics: {
+          ignoreCodes: [1343],
+        },
+        astTransformers: {
+          before: [
+            {
               path: 'node_modules/ts-jest-mock-import-meta',
-              options: { metaObjectReplacement: { env: { PROD: false, DEV: false } } }
-          }
-        ],
-      }
-    }],
+              options: { metaObjectReplacement: { env: { PROD: false, DEV: false } } },
+            },
+          ],
+        },
+      },
+    ],
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|)$': 'jest-transform-stub',
   },
   coveragePathIgnorePatterns: [
