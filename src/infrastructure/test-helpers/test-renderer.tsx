@@ -2,23 +2,12 @@ import { render } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import * as React from 'react'
 import { Route, Router, Routes } from 'react-router-dom'
-import Navigation from '../../components/Navigation'
 
-const customRender = (
-  ui: React.ReactElement,
-  {
-    location = '/',
-    path = '/',
-  } = {},
-) => {
+const customRender = (ui: React.ReactElement, { location = '/', path = '/' } = {}) => {
   const history = createMemoryHistory()
   const wrapper = ({ children }) => (
-    <div id='root'>
-      <Router
-        location={location}
-        navigator={history}
-      >
-        <Navigation />
+    <div id="root">
+      <Router location={location} navigator={history}>
         <Routes>
           <Route path={path} element={children} />
         </Routes>
@@ -34,4 +23,3 @@ const customRender = (
 
 export * from '@testing-library/react'
 export { customRender as render }
-

@@ -1,8 +1,12 @@
 // const provider = new GoogleAuthProvider()
 
 import {
-  createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword,
-  signInWithPopup, signOut, updateProfile,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
 } from 'firebase/auth'
 import { auth } from '../../infrastructure/firebase'
 

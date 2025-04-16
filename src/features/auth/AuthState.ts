@@ -15,7 +15,8 @@ const register = justForSideEffectWithPayload<RegisterForm>()
 const logOut = justForSideEffect()
 
 const setUser = createStateReducer<User>((state, action) => ({
-  ...state, user: action.payload,
+  ...state,
+  user: action.payload,
 }))
 
 const slice = createSlice({

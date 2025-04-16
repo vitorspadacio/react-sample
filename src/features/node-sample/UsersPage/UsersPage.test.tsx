@@ -8,11 +8,7 @@ import UsersPage from './UsersPage'
 jest.mock('../NodeSampleApi')
 
 const getUsersReturn = {
-  data: [
-    { ...userBuilder().create() },
-    { ...userBuilder().create() },
-    { ...userBuilder().create() },
-  ],
+  data: [{ ...userBuilder().create() }, { ...userBuilder().create() }, { ...userBuilder().create() }],
 }
 
 describe.skip('UsersPage', () => {

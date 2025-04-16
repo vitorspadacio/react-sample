@@ -1,8 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
-import {
-  all, call, put, takeEvery,
-} from 'redux-saga/effects'
+import { all, call, put, takeEvery } from 'redux-saga/effects'
 import Navigator from '../../components/Navigation/Navigator'
 import processError from '../../infrastructure/process-error'
 import { actions as appActions } from '../state'

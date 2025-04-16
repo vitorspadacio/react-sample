@@ -1,5 +1,5 @@
-import { runSaga } from "redux-saga"
-import { mockFetch } from "./mock-fetch"
+import { runSaga } from 'redux-saga'
+import { mockFetch } from './mock-fetch'
 
 // Tudo contido daqui para baixo pode ser removido se não houver intenção de realizar
 // testes em sagas. E é o recomendado sempre testar o uso da saga num contexto de
@@ -9,10 +9,13 @@ import { mockFetch } from "./mock-fetch"
 
 const runContextSaga = async (saga) => {
   const dispatches = []
-  const task = await runSaga({
-    dispatch: (action) => dispatches.push(action),
-    getState: () => ({}),
-  }, saga)
+  const task = await runSaga(
+    {
+      dispatch: (action) => dispatches.push(action),
+      getState: () => ({}),
+    },
+    saga,
+  )
   return { dispatches, task }
 }
 

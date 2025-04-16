@@ -19,7 +19,7 @@ export const GoogleButton = styled(Button)`
 export const Register = styled.section`
   display: flex;
   flex-direction: column;
-  
+
   a {
     color: ${colors.light};
   }

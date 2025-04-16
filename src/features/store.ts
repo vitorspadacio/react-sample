@@ -11,9 +11,9 @@ export const initialState = {
   loadingStack: 0,
 }
 
-export const useAppStore = create<AppStore>((set => ({
+export const useAppStore = create<AppStore>((set) => ({
   ...initialState,
 
-  addLoading: () => set(({loadingStack}) => ({ loadingStack: loadingStack+1 })),
-  removeLoading: () => set(({loadingStack}) => ({ loadingStack: loadingStack-1 })),
-})))
+  addLoading: () => set(({ loadingStack }) => ({ loadingStack: loadingStack + 1 })),
+  removeLoading: () => set(({ loadingStack }) => ({ loadingStack: loadingStack - 1 })),
+}))

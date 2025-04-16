@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import colors from '../../assets/styles/colors'
 
 interface Props {
-  hasError?: boolean,
+  hasError?: boolean
 }
 
 export const Input = styled.input<Props>`

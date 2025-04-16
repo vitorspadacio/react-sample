@@ -3,18 +3,28 @@
     "allowJs": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "module": "es2022",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "noImplicitAny": false,
     "outDir": "./dist/",
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "target": "es2022",
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@assets/*": ["assets/*"],
+      "@components/*": ["components/*"],
+      "@features/*": ["features/*"],
+      "@infrastructure/*": ["infrastructure/*"],
+    }
   },
   "include": [
     "./src/**/*",
     "./**/*",
+    ".prettierrc.js",
     "vite.config.ts"
   ]
 }

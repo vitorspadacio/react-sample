@@ -11,15 +11,13 @@ export default function () {
 
   useEffect(() => {
     fetch()
-    return () => clear() 
+    return () => clear()
   }, [])
 
   return (
     <>
       <h1>Dungeons & Dragons 5E: Classes</h1>
-      { errorMessage
-        ? (<span>Ocorreu um erro. Motivo: {errorMessage}</span>)
-        : (<ClassesList />)}
+      {errorMessage ? <span>Ocorreu um erro. Motivo: {errorMessage}</span> : <ClassesList />}
     </>
   )
 }

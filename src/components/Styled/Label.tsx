@@ -5,7 +5,7 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   margin-bottom: 0.5em;
-  
+
   span {
     color: ${colors.dark};
     margin-bottom: 0.75em;

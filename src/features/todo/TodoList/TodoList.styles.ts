@@ -1,5 +1,5 @@
+import colors from '@assets/styles/colors'
 import styled from 'styled-components'
-import colors from '../../../assets/styles/colors'
 
 export const Container = styled.ul`
   list-style: none;
@@ -43,7 +43,7 @@ export const Checkbox = styled.input`
 
 export const Description = styled.label`
   align-items: center;
-   cursor: pointer;
-   display: flex;
-   line-height: calc(40px - 0.6em);
+  cursor: pointer;
+  display: flex;
+  line-height: calc(40px - 0.6em);
 `

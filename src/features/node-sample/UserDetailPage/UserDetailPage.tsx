@@ -1,7 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import {
-  ReactNode, useCallback, useEffect, useMemo,
-} from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate, useParams } from 'react-router'
@@ -10,9 +8,7 @@ import { Input } from '../../../components/Styled/Input'
 import NodeSampleApi from '../NodeSampleApi'
 import { actions } from '../NodeSampleState'
 import { schema } from './UserDetailPage.schema'
-import {
-  ButtonContainer, Container, Error, Label,
-} from './UserDetailPage.syles'
+import { ButtonContainer, Container, Error, Label } from './UserDetailPage.syles'
 
 const routes = {
   edit: '/node-sample/edit/',
@@ -43,18 +39,21 @@ export default function () {
   } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) })
 
   const fetchUser = useCallback(async () => {
-    const { data: { name, age } } = await NodeSampleApi.getUserById(Number(id))
+    const {
+      data: { name, age },
+    } = await NodeSampleApi.getUserById(Number(id))
     setValue('id', id, { shouldValidate: true })
     setValue('name', name, { shouldValidate: true })
     setValue('age', age, { shouldValidate: true })
   }, [id, setValue])
 
   useEffect(() => {
-    if (isEdit) { fetchUser() }
+    if (isEdit) {
+      fetchUser()
+    }
   }, [fetchUser, isEdit])
 
-  const onSubmit = (user) => (isEdit
-    ? dispatch(actions.updateUser(user)) : dispatch(actions.createUser(user)))
+  const onSubmit = (user) => (isEdit ? dispatch(actions.updateUser(user)) : dispatch(actions.createUser(user)))
 
   const handleBackClick = () => navigate('/node-sample')
 
@@ -70,26 +69,20 @@ export default function () {
 
         <Label>
           <span>Nome</span>
-          <Input
-            alt='nome'
-            {...register('name')}
-            haserror={errors.name?.message}
-          />
+          <Input alt="nome" {...register('name')} haserror={errors.name?.message} />
           <Error>{errors.name?.message.toString()}</Error>
         </Label>
 
         <Label>
           <span>Idade</span>
-          <Input
-            alt='idade'
-            {...register('age')}
-            haserror={errors.age?.message}
-          />
+          <Input alt="idade" {...register('age')} haserror={errors.age?.message} />
           <Error>{errors.age?.message.toString()}</Error>
         </Label>
 
         <ButtonContainer>
-          <Button type='submit' disabled={!isValid}>{buttonText}</Button>
+          <Button type="submit" disabled={!isValid}>
+            {buttonText}
+          </Button>
           <OutlineButton onClick={handleBackClick}>Voltar</OutlineButton>
         </ButtonContainer>
       </form>

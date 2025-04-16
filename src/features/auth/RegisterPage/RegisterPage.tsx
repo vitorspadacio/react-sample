@@ -5,9 +5,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
 import Input from '../../../components/Input'
 import { actions } from '../AuthState'
-import {
-  BackButton, Buttons, Container, Form,
-} from '../AuthStyles'
+import { BackButton, Buttons, Container, Form } from '../AuthStyles'
 import { RegisterForm, registerSchema } from './Register.schemas'
 import { RegisterButton } from './RegisterPage.styles'
 
@@ -32,41 +30,18 @@ export default function () {
       <h1>Cadastrar</h1>
 
       <Form onSubmit={handleSubmit(handleRegisterClick)}>
-        <Input
-          control={control}
-          name='displayName'
-          label='Nome de exibição'
-          type='text'
-        />
+        <Input control={control} name='displayName' label='Nome de exibição' type='text' />
 
-        <Input
-          control={control}
-          name='email'
-          label='E-mail'
-          type='text'
-        />
+        <Input control={control} name='email' label='E-mail' type='text' />
 
-        <Input
-          control={control}
-          name='password'
-          label='Senha'
-          type='password'
-        />
+        <Input control={control} name='password' label='Senha' type='password' />
 
-        <Input
-          control={control}
-          name='confirmPassword'
-          label='Confirmação da senha'
-          type='password'
-        />
+        <Input control={control} name='confirmPassword' label='Confirmação da senha' type='password' />
 
         <Buttons>
           <RegisterButton type='submit'>Cadastrar</RegisterButton>
 
-          <BackButton
-            type='button'
-            onClick={handleBackClick}
-          >
+          <BackButton type='button' onClick={handleBackClick}>
             Voltar
           </BackButton>
         </Buttons>

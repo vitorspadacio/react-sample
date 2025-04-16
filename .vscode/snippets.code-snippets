@@ -1,6 +1,6 @@
 {
   "create-store": {
-    "prefix": "cria-store",
+    "prefix": "create-store",
     "body": [
       "import { create } from 'zustand'",
       "",

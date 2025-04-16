@@ -1,7 +1,7 @@
+import { render, screen } from '@infrastructure/test-helpers/test-renderer'
 import userEvent from '@testing-library/user-event'
-import { render, screen } from '../../../infrastructure/test-helpers/test-renderer'
-import HomePage from './HomePage'
 import { useHomeStore } from '../HomeStore'
+import HomePage from './HomePage'
 
 describe('HomePage', () => {
   beforeEach(() => useHomeStore.getState().reset())
