@@ -19,7 +19,7 @@ export default function () {
   const onResetClick = () => reset()
 
   return (
-    <Container id='home-page'>
+    <Container id="home-page">
       <h1>Olá Mundo!</h1>
       <h2>Olá Mundo!</h2>
       <h3>Olá Mundo!</h3>
@@ -27,9 +27,9 @@ export default function () {
       <p>Essa é uma aplicação de exemplo de React.</p>
 
       <p>
-        Esse exemplo é opinativo e segue uma estrutura que mescla diferentes recomendações de
-        JavaScript, TypeScript, React, testes, além de unir a experiência de utilização e entrega
-        de projetos para diferentes clientes em produção.
+        Esse exemplo é opinativo e segue uma estrutura que mescla diferentes recomendações de JavaScript, TypeScript,
+        React, testes, além de unir a experiência de utilização e entrega de projetos para diferentes clientes em
+        produção.
       </p>
 
       <p>As tecnologias utilizadas no exemplo são:</p>
@@ -64,9 +64,15 @@ export default function () {
 
       <Counter>Contador: {number}</Counter>
 
-      <RedButton type='button' onClick={() => onDecrementClick()}>Decrementar</RedButton>
-      <OutlineButton type='button' onClick={() => onResetClick()}>Limpar</OutlineButton>
-      <Button type='button' onClick={() => onIncrementClick()}>Incrementar</Button>
+      <RedButton type="button" onClick={() => onDecrementClick()}>
+        Decrementar
+      </RedButton>
+      <OutlineButton type="button" onClick={() => onResetClick()}>
+        Limpar
+      </OutlineButton>
+      <Button type="button" onClick={() => onIncrementClick()}>
+        Incrementar
+      </Button>
     </Container>
   )
 }

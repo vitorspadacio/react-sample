@@ -3,7 +3,7 @@
     "allowJs": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "module": "nodenext",
+    "module": "ESNext",
     "moduleResolution": "bundler",
     "noImplicitAny": false,
     "outDir": "./dist/",
@@ -24,6 +24,7 @@
   "include": [
     "./src/**/*",
     "./**/*",
+    ".prettierrc.js",
     "vite.config.ts"
   ]
 }

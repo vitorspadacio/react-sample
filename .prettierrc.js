@@ -1,10 +1,10 @@
-module.exports = {
+export default {
   bracketSameLine: true,
   bracketSpacing: true,
   endOfLine: 'lf',
-  printWidth: 120,
+  jsxSingleQuote: true,
   printWidth: 120,
   semi: false,
   singleQuote: true,
   trailingComma: 'all',
-};
+}
