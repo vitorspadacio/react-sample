@@ -1,4 +1,4 @@
-import fetch from '../../infrastructure/fetch'
+import fetch from '@infrastructure/fetch'
 import { RpgClass } from './RpgTypes'
 
 export default {

@@ -1,5 +1,5 @@
+import { Input } from '@components/Styled/Input'
 import { useState } from 'react'
-import { Input } from '../../../components/Styled/Input'
 import { useTodoStore } from '../TodoStore'
 import { ButtonPlus, Container } from './TodoForm.styles'
 
@@ -38,9 +38,9 @@ export default function () {
   const shouldShowError = () => (showError ? <span>Obrigatório preencher para adicionar tarefa</span> : '')
 
   return (
-    <Container id='todo-form' onSubmit={handleSubmit} data-testid='todo-form'>
-      <ButtonPlus type='submit'>+</ButtonPlus>
-      <Input type='text' onChange={handleDescriptionChange} title='descrição' value={description} />
+    <Container id="todo-form" onSubmit={handleSubmit} data-testid="todo-form">
+      <ButtonPlus type="submit">+</ButtonPlus>
+      <Input type="text" onChange={handleDescriptionChange} title="descrição" value={description} />
       {shouldShowError()}
     </Container>
   )

@@ -1,4 +1,3 @@
-import { selectTasks } from '../TodoSelectors'
 import { useTodoStore } from '../TodoStore'
 import { Checkbox, Container, Description, ListItem } from './TodoList.styles'
 
@@ -14,7 +13,7 @@ export default function () {
       <ListItem key={task.id}>
         <Checkbox
           id={task.id}
-          type='checkbox'
+          type="checkbox"
           title={`${task.description} está completa?`}
           onChange={() => handleTaskToggle(task.id)}
           checked={task.isComplete}
@@ -23,5 +22,5 @@ export default function () {
       </ListItem>
     ))
 
-  return <Container id='todo-list'>{listTasks()}</Container>
+  return <Container id="todo-list">{listTasks()}</Container>
 }
