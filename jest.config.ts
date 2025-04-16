@@ -35,8 +35,13 @@ export default {
     '/src/infrastructure/test-helpers/*',
     '/src/infrastructure/fetch.ts',
     '/src/infrastructure/firebase.ts',
+    '/node_modules',
   ],
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',
+    '^@assets/(.*)$': '<rootDir>/src/assets/$1',
+    '^@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@features/(.*)$': '<rootDir>/src/features/$1',
+    '^@infrastructure/(.*)$': '<rootDir>/src/infrastructure/$1',
   },
 }

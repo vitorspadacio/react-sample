@@ -11,7 +11,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "target": "es2022",
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./src",
     "paths": {

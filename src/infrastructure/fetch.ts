@@ -32,7 +32,7 @@ const call = <T>(method: HttpVerbs, url: string, query?: object, body?: object):
 
 export default {
   get: <T>(url: string, query?: object) => call<T>(HttpVerbs.Get, url, query),
-  post: <T>(url: string, data?: object) => call<T>(HttpVerbs.Post, url, null, data),
+  post: <T>(url: string, data?: object) => call<T>(HttpVerbs.Post, url, undefined, data),
   delete: <T>(url: string, query?: object) => call<T>(HttpVerbs.Delete, url, query),
-  put: <T>(url: string, data?: object) => call<T>(HttpVerbs.Put, url, null, data),
+  put: <T>(url: string, data?: object) => call<T>(HttpVerbs.Put, url, undefined, data),
 }

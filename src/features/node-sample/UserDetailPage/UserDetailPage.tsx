@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { ReactNode, useCallback, useEffect, useMemo } from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate, useParams } from 'react-router'
@@ -69,18 +69,18 @@ export default function () {
 
         <Label>
           <span>Nome</span>
-          <Input alt='nome' {...register('name')} haserror={errors.name?.message} />
+          <Input alt="nome" {...register('name')} haserror={errors.name?.message} />
           <Error>{errors.name?.message.toString()}</Error>
         </Label>
 
         <Label>
           <span>Idade</span>
-          <Input alt='idade' {...register('age')} haserror={errors.age?.message} />
+          <Input alt="idade" {...register('age')} haserror={errors.age?.message} />
           <Error>{errors.age?.message.toString()}</Error>
         </Label>
 
         <ButtonContainer>
-          <Button type='submit' disabled={!isValid}>
+          <Button type="submit" disabled={!isValid}>
             {buttonText}
           </Button>
           <OutlineButton onClick={handleBackClick}>Voltar</OutlineButton>
