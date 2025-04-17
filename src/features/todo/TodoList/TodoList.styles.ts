@@ -47,3 +47,12 @@ export const Description = styled.label`
   display: flex;
   line-height: calc(40px - 0.6em);
 `
+
+export const Remove = styled.button`
+  all: unset;
+  border-radius: 5px;
+  color: red;
+  cursor: pointer;
+  font-size: 0.75em;
+  margin: 0 1.5em;
+`

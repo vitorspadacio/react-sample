@@ -4,9 +4,10 @@ import { createMemoryRouter, RouterProvider } from 'react-router'
 import { ToastContainer } from 'react-toastify'
 
 const customRender = (ui: React.ReactElement) => {
-  const router = createMemoryRouter([{ path: '/', element: ui }])
+  const router = createMemoryRouter([{ path: '*', element: ui }])
   const wrapper = () => (
     <div id='root'>
+      {/* <Menu /> */}
       <ToastContainer />
       <section id='content'>
         <RouterProvider router={router} />

@@ -23,7 +23,8 @@ export default {
         },
       },
     ],
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|)$': 'jest-transform-stub',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|)$':
+      '<rootDir>/config/file-transform.cjs',
   },
   coveragePathIgnorePatterns: [
     '/index.ts',

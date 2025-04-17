@@ -64,4 +64,13 @@ describe('TodoPage', () => {
 
     await waitFor(() => expect(task).not.toBeChecked())
   })
+
+  test('deve remover task da lista', async () => {
+    render(<TodoPage />)
+
+    const removers = screen.getAllByText('remover')
+    await userEvent.click(removers[0])
+
+    expect(screen.queryByText('Lavar louças')).not.toBeInTheDocument()
+  })
 })
