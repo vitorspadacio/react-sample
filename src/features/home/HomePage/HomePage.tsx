@@ -39,7 +39,6 @@ export default function () {
         <li>Estilização com SASS e/ou styled-components;</li>
         <li>Padronização de código com .editorconfig, ESLint e Prettier;</li>
         <li>Gerenciamento de estado único com Zustand (Redux);</li>
-        <li>Middleware de efeitos colaterais (Redux-Saga);</li>
         <li>Formulários com hooks (React-Hook-Form);</li>
         <li>Testes automátizados (Jest);</li>
         <li>Testes de integração com DOM em memória (Testing-Library);</li>
@@ -51,7 +50,7 @@ export default function () {
         <li>Componentes interagindo com estado único;</li>
         <li>Componentes compartilhados;</li>
         <li>Testes de integração;</li>
-        <li>Testes de unidade em módulos e generators (sagas);</li>
+        <li>Testes de unidade em módulos;</li>
         <li>Variáveis de ambientes;</li>
       </ul>
 
