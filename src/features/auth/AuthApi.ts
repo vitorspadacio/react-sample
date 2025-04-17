@@ -1,5 +1,4 @@
-// const provider = new GoogleAuthProvider()
-
+import { auth } from '@infrastructure/firebase'
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -8,7 +7,6 @@ import {
   signOut,
   updateProfile,
 } from 'firebase/auth'
-import { auth } from '../../infrastructure/firebase'
 
 const provider = new GoogleAuthProvider()
 

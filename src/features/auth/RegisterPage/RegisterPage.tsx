@@ -1,33 +1,32 @@
+import Input from '@components/Input'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
-import Input from '../../../components/Input'
-import { actions } from '../AuthState'
+import { useAuthStore } from '../AuthStore'
 import { BackButton, Buttons, Container, Form } from '../AuthStyles'
 import { RegisterForm, registerSchema } from './Register.schemas'
 import { RegisterButton } from './RegisterPage.styles'
 
 export default function () {
-  const dispatch = useDispatch()
   const navigate = useNavigate()
+  const { register } = useAuthStore()
 
   const { control, handleSubmit } = useForm<RegisterForm>({
     resolver: yupResolver(registerSchema),
   })
 
   useEffect(() => {
-    document.title = 'Cadastro • Untitled Lounge'
+    document.title = 'Cadastro • React Sample'
   }, [])
 
-  const handleRegisterClick = (register: RegisterForm) => dispatch(actions.register(register))
+  const handleRegisterClick = (form: RegisterForm) => register(form)
 
-  const handleBackClick = () => navigate('/')
+  const handleBackClick = () => navigate(-1)
 
   return (
     <Container>
-      <h1>Cadastrar</h1>
+      <h1>Cadastramento</h1>
 
       <Form onSubmit={handleSubmit(handleRegisterClick)}>
         <Input control={control} name='displayName' label='Nome de exibição' type='text' />
@@ -36,7 +35,12 @@ export default function () {
 
         <Input control={control} name='password' label='Senha' type='password' />
 
-        <Input control={control} name='confirmPassword' label='Confirmação da senha' type='password' />
+        <Input
+          control={control}
+          name='confirmPassword'
+          label='Confirmação da senha'
+          type='password'
+        />
 
         <Buttons>
           <RegisterButton type='submit'>Cadastrar</RegisterButton>

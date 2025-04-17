@@ -34,8 +34,9 @@ export default function ({
       {label ? <span>{label}</span> : undefined}
       <Input
         disabled={disabled}
-        hasError={Boolean(error?.message)}
+        haserror={error?.message}
         name={name}
+        title={name}
         onBlur={onBlur}
         onChange={onChange}
         onKeyDown={onKeyDown}

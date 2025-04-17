@@ -27,9 +27,9 @@ export default function () {
       <p>Essa é uma aplicação de exemplo de React.</p>
 
       <p>
-        Esse exemplo é opinativo e segue uma estrutura que mescla diferentes recomendações de JavaScript, TypeScript,
-        React, testes, além de unir a experiência de utilização e entrega de projetos para diferentes clientes em
-        produção.
+        Esse exemplo é opinativo e segue uma estrutura que mescla diferentes recomendações de
+        JavaScript, TypeScript, React, testes, além de unir a experiência de utilização e entrega de
+        projetos para diferentes clientes em produção.
       </p>
 
       <p>As tecnologias utilizadas no exemplo são:</p>

@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import colors from '../../assets/styles/colors'
+import colors from '@assets/styles/colors'
+import { styled } from 'styled-components'
 
 export const Nav = styled.nav`
   align-items: center;
@@ -17,9 +16,10 @@ export const Content = styled.section`
   width: 100%;
 `
 
-export const Title = styled(Link)`
+export const Title = styled.a`
   align-items: center;
   color: ${colors.dark};
+  cursor: pointer;
   display: flex;
   font-size: 1em;
   font-weight: 600;
@@ -34,8 +34,9 @@ export const Title = styled(Link)`
   }
 `
 
-export const MenuItem = styled(Link)`
+export const MenuItem = styled.a`
   color: ${colors.white};
+  cursor: pointer;
   padding: 1em 2em;
   text-decoration: none;
 

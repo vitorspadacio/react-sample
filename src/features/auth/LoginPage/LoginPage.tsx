@@ -1,41 +1,34 @@
+import google from '@assets/images/google.svg'
+import Input from '@components/Input'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router'
-import { Link, useSearchParams } from 'react-router-dom'
-import google from '../../../assets/images/google.svg'
-import Input from '../../../components/Input'
-import { selectUser } from '../AuthSelectors'
-import { actions } from '../AuthState'
+import { Link, useNavigate } from 'react-router'
+import { useAuthStore } from '../AuthStore'
 import { BackButton, Buttons, Container, Form } from '../AuthStyles'
 import { LoginForm, loginSchema } from './Login.schemas'
 import { EnterButton, GoogleButton, Register } from './LoginPage.styles'
 
 export default function () {
-  const dispatch = useDispatch()
+  const { logIn, googleLogIn } = useAuthStore()
   const navigate = useNavigate()
-  const user = useSelector(selectUser)
-  const [searchParams] = useSearchParams()
-  const backUrl = searchParams.get('back')
 
   const { control, handleSubmit, resetField } = useForm<LoginForm>({
     resolver: yupResolver(loginSchema),
   })
 
   useEffect(() => {
-    if (user) navigate('/')
-    document.title = 'Entrar • Untitled Lounge'
-  }, [navigate, user])
+    document.title = 'Entrar • React Sample'
+  }, [])
 
   const handleEnterClick = async (login: LoginForm) => {
-    dispatch(actions.logIn(login))
+    logIn(login.email, login.password)
     resetField('password')
   }
 
-  const handleBackClick = () => (backUrl ? navigate(backUrl) : navigate('/'))
+  const handleBackClick = () => navigate(-1)
 
-  const handleGoogleClick = () => dispatch(actions.googleLogIn())
+  const handleGoogleClick = () => googleLogIn()
 
   return (
     <Container>
@@ -47,13 +40,15 @@ export default function () {
         <Input control={control} name='password' placeholder='Senha' type='password' />
 
         <Buttons>
-          <EnterButton type='submit'>Entrar</EnterButton>
+          <EnterButton title='Entrar' type='submit'>
+            Entrar
+          </EnterButton>
 
           <BackButton type='button' onClick={handleBackClick}>
             Voltar
           </BackButton>
 
-          <GoogleButton type='button' onClick={handleGoogleClick}>
+          <GoogleButton title='Entrar com Google' type='button' onClick={handleGoogleClick}>
             <img alt='google log in' src={google} />
             Entrar com Google
           </GoogleButton>

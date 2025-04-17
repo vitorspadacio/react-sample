@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import colors from '../../../assets/styles/colors'
-import mediaQueries from '../../../assets/styles/media-queries'
+import colors from '@assets/styles/colors'
+import mediaQueries from '@assets/styles/media-queries'
+import { styled } from 'styled-components'
 
 export const Container = styled.ul`
   display: grid;

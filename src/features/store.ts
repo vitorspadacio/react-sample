@@ -1,5 +1,4 @@
 import { create } from 'zustand'
-import { AppState } from './types'
 
 export interface AppStore {
   loadingStack: number

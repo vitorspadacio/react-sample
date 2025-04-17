@@ -1,27 +1,35 @@
-import favicon from '../../assets/images/favicon.png'
-import noUserIcon from '../../assets/images/no_user.svg'
-import userIcon from '../../assets/images/user.svg'
+import favicon from '@assets/images/favicon.png'
+import noUserIcon from '@assets/images/no_user.svg'
+import userIcon from '@assets/images/user.svg'
+import { selectDisplayName } from '@features/auth/AuthSelectors'
+import { useAuthStore } from '@features/auth/AuthStore'
+import { router } from '@features/routes'
 import { Content, DisplayName, Logged, Login, MenuItem, Nav, Title } from './Menu.styles'
 
 export default function () {
-  const user = undefined // useSelector(selectUser)
-  const displayName = undefined // useSelector(selectDisplayName)
+  const { user } = useAuthStore()
+  const displayName = useAuthStore(selectDisplayName)
 
-  const actualLogLink = user ? <DisplayName>{displayName}</DisplayName> : <Login to='/auth/login'>Entrar</Login>
+  const actualLogLink = user ? (
+    <DisplayName>{displayName}</DisplayName>
+  ) : (
+    <Login onClick={() => handleNavigateClick('/auth/login')}>Entrar</Login>
+  )
 
   const actualUserIcon = user ? userIcon : noUserIcon
+
+  const handleNavigateClick = (route: string) => router.navigate(route)
 
   return (
     <Nav>
       <Content>
-        <Title to='/'>
+        <Title onClick={() => handleNavigateClick('/')}>
           <img src={favicon} alt='logo' />
           React Sample
         </Title>
 
-        <MenuItem to='/todo'>Todo</MenuItem>
-        <MenuItem to='/rpg'>RPG</MenuItem>
-        {/* <MenuItem to='/node-sample'>Node Sample</MenuItem> */}
+        <MenuItem onClick={() => handleNavigateClick('/todo')}>Todo</MenuItem>
+        <MenuItem onClick={() => handleNavigateClick('/rpg')}>RPG</MenuItem>
 
         <Logged>
           {actualLogLink}

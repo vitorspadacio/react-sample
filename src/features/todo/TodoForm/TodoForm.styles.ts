@@ -1,6 +1,6 @@
 import colors from '@assets/styles/colors'
 import { Button } from '@components/Styled/Buttons'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 
 export const Container = styled.form`
   display: flex;

@@ -1,17 +1,20 @@
-import styled from 'styled-components'
-import { OutlineButton } from '../../components/Styled/Buttons'
+import mediaQueries from '@assets/styles/media-queries'
+import { OutlineButton } from '@components/Styled/Buttons'
+import { styled } from 'styled-components'
 
 export const Container = styled.section`
   align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   text-align: center;
+  width: 100%;
 `
 
 export const Form = styled.form`
-  margin: 2em 0;
-  width: 35%;
+  margin: 2em auto;
+  width: 25em;
+
+  @media (max-width: ${mediaQueries.small}) {
+    width: 100%;
+  }
 `
 
 export const Buttons = styled.section`
