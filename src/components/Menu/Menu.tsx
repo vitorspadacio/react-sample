@@ -8,12 +8,18 @@ import { Content, DisplayName, Logged, Login, MenuItem, Nav, Title } from './Men
 
 export default function () {
   const { user } = useAuthStore()
+  const { logOut } = useAuthStore()
   const displayName = useAuthStore(selectDisplayName)
 
   const actualLogLink = user ? (
-    <DisplayName>{displayName}</DisplayName>
+    <>
+      <DisplayName>{displayName}</DisplayName>
+      <Login onClick={() => logOut()}>Sair</Login>
+    </>
   ) : (
-    <Login onClick={() => handleNavigateClick('/auth/login')}>Entrar</Login>
+    <Login title='Entrar pelo menu' onClick={() => handleNavigateClick('/auth/login')}>
+      Entrar
+    </Login>
   )
 
   const actualUserIcon = user ? userIcon : noUserIcon

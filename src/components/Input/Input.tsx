@@ -34,13 +34,13 @@ export default function ({
       {label ? <span>{label}</span> : undefined}
       <Input
         disabled={disabled}
-        haserror={error?.message}
+        haserror={Boolean(error?.message).toString()}
         name={name}
-        title={name}
         onBlur={onBlur}
         onChange={onChange}
         onKeyDown={onKeyDown}
         placeholder={placeholder}
+        title={name}
         type={type}
         value={value || ''}
       />

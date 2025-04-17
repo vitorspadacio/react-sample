@@ -71,6 +71,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
     try {
       await AuthApi.signOut()
       set({ user: undefined })
+      toast.info('Você saiu com sucesso')
       router.navigate('/')
     } catch (error) {
       toast.error(processError[error.code] || error.code)

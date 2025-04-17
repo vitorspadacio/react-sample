@@ -1,4 +1,5 @@
 import Loading from '@components/Loading'
+import Menu from '@components/Menu'
 import { render } from '@testing-library/react'
 import { createMemoryRouter, RouterProvider } from 'react-router'
 import { ToastContainer } from 'react-toastify'
@@ -7,7 +8,7 @@ const customRender = (ui: React.ReactElement) => {
   const router = createMemoryRouter([{ path: '*', element: ui }])
   const wrapper = () => (
     <div id='root'>
-      {/* <Menu /> */}
+      <Menu />
       <ToastContainer />
       <section id='content'>
         <RouterProvider router={router} />

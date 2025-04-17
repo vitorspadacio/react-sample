@@ -1,3 +1,4 @@
+import { router } from '@features/routes'
 import { fireEvent, render, screen, waitFor } from '@infrastructure/test-helpers/test-renderer'
 import userEvent from '@testing-library/user-event'
 import { initialState, useTodoStore } from '../TodoStore'
@@ -72,5 +73,14 @@ describe('TodoPage', () => {
     await userEvent.click(removers[0])
 
     expect(screen.queryByText('Lavar louças')).not.toBeInTheDocument()
+  })
+
+  test('deve navegar para todo ao clicar no menu todo', async () => {
+    jest.spyOn(router, 'navigate')
+    render(<TodoPage />)
+
+    await userEvent.click(screen.getByText('Todo'))
+
+    expect(router.navigate).toHaveBeenCalledWith('/todo')
   })
 })

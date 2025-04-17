@@ -38,6 +38,7 @@ describe('RegisterPage', () => {
     userEvent.click(screen.getByText('Cadastrar'))
 
     expect(await screen.findByText('Nome de exibição máximo de 12 caracteres')).toBeVisible()
+    expect(screen.getByTitle('displayName').getAttribute('haserror')).toBe('true')
   })
 
   test('deve exibir mensagem de erro se formato de e-mail for inválido', async () => {
@@ -47,6 +48,7 @@ describe('RegisterPage', () => {
     userEvent.click(screen.getByText('Cadastrar'))
 
     expect(await screen.findByText('E-mail precisa ter um formato válido')).toBeVisible()
+    expect(screen.getByTitle('email').getAttribute('haserror')).toBe('true')
   })
 
   test('deve exibir mensagem de erro se número mínimo da senha for menor que 6', async () => {
@@ -56,6 +58,7 @@ describe('RegisterPage', () => {
     userEvent.click(screen.getByText('Cadastrar'))
 
     expect(await screen.findByText('Senha mínima de 6 caracteres')).toBeVisible()
+    expect(screen.getByTitle('password').getAttribute('haserror')).toBe('true')
   })
 
   test('deve exibir erro se senha e confirmação não forem iguais', async () => {
@@ -66,6 +69,7 @@ describe('RegisterPage', () => {
     await userEvent.click(screen.getByText('Cadastrar'))
 
     expect(screen.getByText('Senha e confirmação não conferem')).toBeVisible()
+    expect(screen.getByTitle('confirmPassword').getAttribute('haserror')).toBe('true')
   })
 
   test('deve navegar para tela anterior ao clicar em voltar', async () => {
@@ -88,6 +92,11 @@ describe('RegisterPage', () => {
     await userEvent.type(screen.getByTitle('confirmPassword'), 'foobarpassword')
     await userEvent.click(screen.getByText('Cadastrar'))
 
+    expect(screen.getByTitle('displayName').getAttribute('haserror')).toBe('false')
+    expect(screen.getByTitle('displayName').getAttribute('haserror')).toBe('false')
+    expect(screen.getByTitle('email').getAttribute('haserror')).toBe('false')
+    expect(screen.getByTitle('password').getAttribute('haserror')).toBe('false')
+    expect(screen.getByTitle('confirmPassword').getAttribute('haserror')).toBe('false')
     expect(await screen.findByText('Cadastro feito com sucesso!')).toBeVisible()
     expect(router.navigate).toHaveBeenCalledWith('/auth/login')
   })
@@ -104,5 +113,19 @@ describe('RegisterPage', () => {
     await userEvent.click(screen.getByText('Cadastrar'))
 
     expect(await screen.findByText('E-mail já cadastrado')).toBeVisible()
+  })
+
+  test('deve exibir toast de erro genérico quando api de cadastro dar erro', async () => {
+    mockApi(createUserWithEmailAndPassword).mockRejectedValue({ code: 'error' })
+    render(<RegisterPage />)
+    jest.spyOn(router, 'navigate')
+
+    await userEvent.type(screen.getByTitle('displayName'), 'Foo Bar')
+    await userEvent.type(screen.getByTitle('email'), 'foo@bar.com')
+    await userEvent.type(screen.getByTitle('password'), 'foobarpassword')
+    await userEvent.type(screen.getByTitle('confirmPassword'), 'foobarpassword')
+    await userEvent.click(screen.getByText('Cadastrar'))
+
+    expect(await screen.findByText('error')).toBeVisible()
   })
 })

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 import { useAppStore } from '../../features/store'
 import './Loading.scss'
 

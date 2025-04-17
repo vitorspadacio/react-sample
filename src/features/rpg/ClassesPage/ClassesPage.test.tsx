@@ -1,6 +1,8 @@
+import { router } from '@features/routes'
 import fetch from '@infrastructure/fetch'
 import mockApi from '@infrastructure/test-helpers/mock-api'
 import { render, screen } from '@infrastructure/test-helpers/test-renderer'
+import userEvent from '@testing-library/user-event'
 import ClassesPage from './ClassesPage'
 
 const getClassesReturn = { results: [{ url: 'http://foo' }] }
@@ -31,5 +33,15 @@ describe('ClassesPage', () => {
     render(<ClassesPage />)
 
     expect(await screen.findByText('Ocorreu um erro. Motivo: Not Found'))
+  })
+
+  test('deve navegar para rpg ao clicar no menu rpg', async () => {
+    jest.spyOn(router, 'navigate')
+    render(<ClassesPage />)
+
+    await userEvent.click(screen.getByText('RPG'))
+
+    expect(await screen.findByText('Ocorreu um erro. Motivo: Not Found'))
+    expect(router.navigate).toHaveBeenCalledWith('/rpg')
   })
 })

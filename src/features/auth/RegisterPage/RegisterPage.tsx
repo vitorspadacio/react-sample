@@ -1,4 +1,5 @@
 import Input from '@components/Input'
+import { useAppStore } from '@features/store'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -10,6 +11,7 @@ import { RegisterButton } from './RegisterPage.styles'
 
 export default function () {
   const navigate = useNavigate()
+  const isLoading = useAppStore((state) => state.loadingStack > 0)
   const { register } = useAuthStore()
 
   const { control, handleSubmit } = useForm<RegisterForm>({
@@ -29,13 +31,26 @@ export default function () {
       <h1>Cadastramento</h1>
 
       <Form onSubmit={handleSubmit(handleRegisterClick)}>
-        <Input control={control} name='displayName' label='Nome de exibição' type='text' />
+        <Input
+          disabled={isLoading}
+          control={control}
+          name='displayName'
+          label='Nome de exibição'
+          type='text'
+        />
 
-        <Input control={control} name='email' label='E-mail' type='text' />
-
-        <Input control={control} name='password' label='Senha' type='password' />
+        <Input disabled={isLoading} control={control} name='email' label='E-mail' type='text' />
 
         <Input
+          disabled={isLoading}
+          control={control}
+          name='password'
+          label='Senha'
+          type='password'
+        />
+
+        <Input
+          disabled={isLoading}
           control={control}
           name='confirmPassword'
           label='Confirmação da senha'
@@ -43,9 +58,11 @@ export default function () {
         />
 
         <Buttons>
-          <RegisterButton type='submit'>Cadastrar</RegisterButton>
+          <RegisterButton disabled={isLoading} type='submit'>
+            Cadastrar
+          </RegisterButton>
 
-          <BackButton type='button' onClick={handleBackClick}>
+          <BackButton disabled={isLoading} type='button' onClick={handleBackClick}>
             Voltar
           </BackButton>
         </Buttons>

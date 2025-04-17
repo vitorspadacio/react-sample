@@ -1,3 +1,4 @@
+import { router } from '@features/routes'
 import { render, screen } from '@infrastructure/test-helpers/test-renderer'
 import userEvent from '@testing-library/user-event'
 import { useHomeStore } from '../HomeStore'
@@ -53,5 +54,14 @@ describe('HomePage', () => {
     userEvent.click(screen.getByText('Limpar'))
 
     expect(await screen.findByText('Contador: 0')).toBeVisible()
+  })
+
+  test('deve navegar para home ao clicar no logo no menu', async () => {
+    jest.spyOn(router, 'navigate')
+    render(<HomePage />)
+
+    await userEvent.click(screen.getByText('React Sample'))
+
+    expect(router.navigate).toHaveBeenCalledWith('/')
   })
 })
