@@ -8,7 +8,9 @@ export interface RegisterForm {
 }
 
 export const registerSchema = object().shape({
-  displayName: string().max(12, 'Nome de exibição máximo de 12 caracteres').required('Nome de exibição é obrigatório'),
+  displayName: string()
+    .max(12, 'Nome de exibição máximo de 12 caracteres')
+    .required('Nome de exibição é obrigatório'),
 
   email: string().email('E-mail precisa ter um formato válido').required('E-mail é obrigatório'),
 

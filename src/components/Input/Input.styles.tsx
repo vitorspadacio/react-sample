@@ -1,13 +1,13 @@
-import styled from 'styled-components'
-import colors from '../../assets/styles/colors'
+import colors from '@assets/styles/colors'
+import { styled } from 'styled-components'
 
 interface Props {
-  hasError?: boolean
+  haserror?: string
 }
 
 export const Input = styled.input<Props>`
   background-color: ${colors.white};
-  border: 1px solid ${({ hasError }) => (hasError ? colors.red : colors.light)};
+  border: 1px solid ${({ haserror }) => (haserror === 'true' ? colors.red : colors.light)};
   border-radius: 4px;
   color: ${colors.dark};
   font-size: 1em;
@@ -16,6 +16,6 @@ export const Input = styled.input<Props>`
   width: 100%;
 
   &::placeholder {
-    color: ${({ hasError }) => (hasError ? colors.red : colors.light)};
+    color: ${({ haserror }) => (haserror === 'true' ? colors.red : colors.light)};
   }
 `

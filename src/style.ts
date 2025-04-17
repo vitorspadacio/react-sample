@@ -1,5 +1,6 @@
+import colors from '@assets/styles/colors'
+import mediaQueries from '@assets/styles/media-queries'
 import { createGlobalStyle } from 'styled-components'
-import colors from './assets/styles/colors'
 
 export default createGlobalStyle`
   * {
@@ -27,8 +28,8 @@ export default createGlobalStyle`
     margin: auto 15%;
     padding: 2em;
 
-    @media (max-width: 768px) {
-      margin: auto;
+    @media (max-width: ${mediaQueries.medium}) {
+      margin: 0;
     }
   }
 

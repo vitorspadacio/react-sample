@@ -28,9 +28,9 @@ export const useRpgStore = create<RpgStore>((set) => ({
       set({ rpgClasses: classes })
     } catch (error) {
       set({ errorMessage: error.message })
+    } finally {
+      removeLoading()
     }
-
-    removeLoading()
   },
 
   clear: () => set(initialState),

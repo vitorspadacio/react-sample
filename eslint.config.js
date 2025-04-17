@@ -1,15 +1,16 @@
+import tseslint from '@typescript-eslint/eslint-plugin'
+import tsParser from '@typescript-eslint/parser'
 import prettierConfig from 'eslint-config-prettier'
+import importPlugin from 'eslint-plugin-import'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
 import prettierPlugin from 'eslint-plugin-prettier'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
-import tsParser from '@typescript-eslint/parser'
-import tseslint from '@typescript-eslint/eslint-plugin'
 import { defineConfig } from 'eslint/config'
-import jsxA11y from 'eslint-plugin-jsx-a11y'
 
 export default defineConfig([
   {
-    files: ['**/*.{js,jsx,ts,tsx}'],
+    files: ['**/*.{cjs,js,jsx,ts,tsx}'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
@@ -22,6 +23,7 @@ export default defineConfig([
       '@typescript-eslint': tseslint,
       'jsx-a11y': jsxA11y,
       'react-hooks': reactHooks,
+      import: importPlugin,
       prettier: prettierPlugin,
       react: react,
     },
@@ -47,7 +49,6 @@ export default defineConfig([
       'prettier/prettier': ['error'],
       'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
       'react/react-in-jsx-scope': 'off',
-      'sort-imports': ['error'],
       ...jsxA11y.flatConfigs.recommended.rules,
       ...prettierConfig.rules,
       eqeqeq: ['error', 'always', { null: 'ignore' }],

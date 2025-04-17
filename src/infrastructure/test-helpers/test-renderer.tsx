@@ -1,24 +1,22 @@
+import Loading from '@components/Loading'
 import { render } from '@testing-library/react'
-import { createMemoryHistory } from 'history'
-import * as React from 'react'
-import { Route, Router, Routes } from 'react-router-dom'
+import { createMemoryRouter, RouterProvider } from 'react-router'
+import { ToastContainer } from 'react-toastify'
 
-const customRender = (ui: React.ReactElement, { location = '/', path = '/' } = {}) => {
-  const history = createMemoryHistory()
-  const wrapper = ({ children }) => (
-    <div id="root">
-      <Router location={location} navigator={history}>
-        <Routes>
-          <Route path={path} element={children} />
-        </Routes>
-      </Router>
+const customRender = (ui: React.ReactElement) => {
+  const router = createMemoryRouter([{ path: '/', element: ui }])
+  const wrapper = () => (
+    <div id='root'>
+      <ToastContainer />
+      <section id='content'>
+        <RouterProvider router={router} />
+      </section>
+      <Loading />
     </div>
   )
 
-  return {
-    ...render(ui, { wrapper }),
-    history,
-  }
+  render(ui, { wrapper })
+  return { router }
 }
 
 export * from '@testing-library/react'

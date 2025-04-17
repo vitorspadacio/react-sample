@@ -1,26 +1,22 @@
-import mockApi from '../../../infrastructure/test-helpers/mock-api'
-import { render, screen } from '../../../infrastructure/test-helpers/test-renderer'
-import RpgApi from '../RpgApi'
-import { RpgClass } from '../RpgTypes'
+import fetch from '@infrastructure/fetch'
+import mockApi from '@infrastructure/test-helpers/mock-api'
+import { render, screen } from '@infrastructure/test-helpers/test-renderer'
 import ClassesPage from './ClassesPage'
 
-jest.mock('../RpgApi')
+const getClassesReturn = { results: [{ url: 'http://foo' }] }
 
-const getClassesReturn = [
-  {
-    name: 'Test1',
-    hitDie: 8,
-    savingThrows: ['DEX', 'STR'],
-    subclasses: ['TestA', 'TestB'],
-  } as RpgClass,
-]
+const getClassReturn = {
+  name: 'Test1',
+  hit_die: '8',
+  saving_throws: [{ name: 'DEX' }, { name: 'STR' }],
+  subclasses: [{ name: 'TestA' }, { name: 'TestB' }],
+  proficiencies: ['Foo', 'Bar'],
+}
 
-describe('PlanetsPage', () => {
-  beforeEach(() => {
-    mockApi(RpgApi.getClasses).mockResolvedValue(getClassesReturn)
-  })
-
+describe('ClassesPage', () => {
   test('deve exibir lista de classes', async () => {
+    mockApi(fetch.get).mockResolvedValueOnce(getClassesReturn).mockResolvedValueOnce(getClassReturn)
+
     render(<ClassesPage />)
 
     expect(await screen.findByText('Test1')).toBeVisible()
@@ -29,8 +25,9 @@ describe('PlanetsPage', () => {
     expect(screen.getByText('TestA, TestB')).toBeVisible()
   })
 
-  test('deve exibir mensagem de error quando requisição retornar erro', async () => {
-    mockApi(RpgApi.getClasses).mockRejectedValueOnce(new Error('Not Found'))
+  test('deve exibir mensagem de erro quando requisição retornar erro', async () => {
+    mockApi(fetch.get).mockRejectedValue(new Error('Not Found'))
+
     render(<ClassesPage />)
 
     expect(await screen.findByText('Ocorreu um erro. Motivo: Not Found'))
