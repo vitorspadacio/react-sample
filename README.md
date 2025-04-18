@@ -1,12 +1,12 @@
 # 🤖 react-sample
 [![Build Status](https://circleci.com/gh/vitorspadacio/react-sample.svg?style=shield)](https://circleci.com/gh/vitorspadacio/react-sample) 
-[![Coverage Status](https://coveralls.io/repos/github/vitorspadacio/react-sample/badge.svg?branch=main)](https://coveralls.io/github/vitorspadacio/react-sample?branch=main) [![dependencies Status](https://status.david-dm.org/gh/vitorspadacio/react-sample.svg)](https://david-dm.org/vitorspadacio/react-sample) [![devDependencies Status](https://status.david-dm.org/gh/vitorspadacio/react-sample.svg?type=dev)](https://david-dm.org/vitorspadacio/react-sample?type=dev)
+[![Coverage Status](https://coveralls.io/repos/github/vitorspadacio/react-sample/badge.svg?branch=main)](https://coveralls.io/github/vitorspadacio/react-sample?branch=main)
 
 Neste repositório você encontrará um exemplo de aplicação frontend usando a biblioteca React.
 
 Esse exemplo é opinativo e segue uma estrutura que mescla diferentes recomendações de JavaScript, TypeScript, React, testes, além de unir a experiência de utilização e entrega de projetos para diferentes clientes em produção.
 
-[Exemplo app publicado](https://react-sample-49efc.firebaseapp.com/)
+[Exemplo app publicado](https://react-sample-6f785.web.app/)
 
 ---
 
@@ -15,14 +15,13 @@ Esse exemplo é opinativo e segue uma estrutura que mescla diferentes recomenda�
 ## 📚 Tecnologias
 
 As tecnologias e estruturas utilizadas no exemplo são:
-- Node.js v16.15.0 LTS
-- Renderização com React 17;
+- Node.js v22.14.0 LTS
+- Renderização com React 19;
 - Estrutura de pastas pronta para aplicação de médio porte;
 - Estilização com SASS e/ou styled-components;
-- Padronização de código com .editorconfig e ESLint;
+- Padronização de código com .editorconfig, ESLint e Prettier;
 - Requisição HTTP com API fetch nativa;
-- Gerenciamento de estado único (Redux);
-- Middleware de efeitos colaterais (Redux-Saga);
+- Gerenciamento de estado único (Zustand);
 - Testes automátizados (Jest);
 - Testes de integração com DOM em memória (Testing-Library).
 
@@ -31,7 +30,7 @@ Além disso encontrará diferentes exemplos para os seguintes cenários:
 - Componentes interagindo com estado único;
 - Componentes compartilhados;
 - Testes de integração;
-- Testes de unidade em módulos e generators (sagas);
+- Testes de unidade em módulos;
 - Variáveis de ambientes.
 
 No quesito publicação temos:

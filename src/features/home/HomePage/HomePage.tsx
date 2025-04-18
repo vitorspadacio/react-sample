@@ -38,7 +38,7 @@ export default function () {
         <li>Estrutura de pastas pronta para aplicação de médio porte;</li>
         <li>Estilização com SASS e/ou styled-components;</li>
         <li>Padronização de código com .editorconfig, ESLint e Prettier;</li>
-        <li>Gerenciamento de estado único com Zustand (Redux);</li>
+        <li>Gerenciamento de estado único (Zustand);</li>
         <li>Formulários com hooks (React-Hook-Form);</li>
         <li>Testes automátizados (Jest);</li>
         <li>Testes de integração com DOM em memória (Testing-Library);</li>
