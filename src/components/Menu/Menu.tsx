@@ -36,6 +36,7 @@ export default function () {
 
         <MenuItem onClick={() => handleNavigateClick('/todo')}>Todo</MenuItem>
         <MenuItem onClick={() => handleNavigateClick('/rpg')}>RPG</MenuItem>
+        <MenuItem onClick={() => handleNavigateClick('/book')}>Livros</MenuItem>
 
         <Logged>
           {actualLogLink}

@@ -28,7 +28,7 @@ export default createGlobalStyle`
     margin: auto 15%;
     padding: 2em;
 
-    @media (max-width: ${mediaQueries.medium}) {
+    @media (max-width: ${mediaQueries.large}) {
       margin: 0;
     }
   }

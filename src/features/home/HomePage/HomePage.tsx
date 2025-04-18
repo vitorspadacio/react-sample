@@ -19,7 +19,7 @@ export default function () {
   const onResetClick = () => reset()
 
   return (
-    <Container id='home-page'>
+    <Container>
       <h1>Olá Mundo!</h1>
       <h2>Olá Mundo!</h2>
       <h3>Olá Mundo!</h3>
