@@ -22,7 +22,7 @@ describe('TodoPage', () => {
   test('deve adicionar tarefa na lista de tarefas após clicar no botão +', async () => {
     render(<TodoPage />)
 
-    userEvent.type(screen.getByTitle('descrição'), 'Teste A')
+    userEvent.type(screen.getByTitle('description'), 'Teste A')
     await screen.findByDisplayValue('Teste A')
     userEvent.click(screen.getByText('+'))
 
@@ -32,7 +32,7 @@ describe('TodoPage', () => {
   test('deve adicionar tarefa na lista de tarefas após apertar enter', async () => {
     render(<TodoPage />)
 
-    userEvent.type(screen.getByTitle('descrição'), 'Teste A')
+    userEvent.type(screen.getByTitle('description'), 'Teste A')
     await screen.findByDisplayValue('Teste A')
     fireEvent.submit(screen.getByTestId('todo-form'))
 
@@ -42,10 +42,10 @@ describe('TodoPage', () => {
   test('não deve adicionar tarefa na lista de tarefas com campo vazio', async () => {
     render(<TodoPage />)
 
-    userEvent.click(screen.getByTitle('descrição'))
+    userEvent.click(screen.getByTitle('description'))
     userEvent.click(screen.getByText('+'))
 
-    expect(await screen.findByText('Obrigatório preencher para adicionar tarefa')).toBeVisible()
+    expect(await screen.findByText('Descrição é obrigatório')).toBeVisible()
   })
 
   test('deve alterar estado da tarefa para completa ao clicar em uma tarefa incompleta', async () => {

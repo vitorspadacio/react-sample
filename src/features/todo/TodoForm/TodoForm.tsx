@@ -1,48 +1,26 @@
-import { Input } from '@components/Styled/Input'
-import { useState } from 'react'
+import Input from '@components/Input'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
 import { useTodoStore } from '../TodoStore'
+import { TodoForm, todoSchema } from './TodoForm.schemas'
 import { ButtonPlus, Container } from './TodoForm.styles'
 
 export default function () {
   const { addTask } = useTodoStore()
 
-  const [description, setDescription] = useState<string>('')
-  const [isValid, setIsValid] = useState<boolean>(false)
-  const [showError, setShowError] = useState<boolean>(false)
+  const { control, resetField, handleSubmit } = useForm<TodoForm>({
+    resolver: yupResolver(todoSchema),
+  })
 
-  const validate = (value) => {
-    setIsValid(value)
-    setShowError(!value)
+  const handleTodoClick = (form: TodoForm) => {
+    addTask(form.description)
+    resetField('description')
   }
-
-  const handleDescriptionChange = (event) => {
-    const {
-      target: { value },
-    } = event
-    validate(value)
-    setDescription(value)
-  }
-
-  const createTask = () => {
-    if (!isValid) return
-    addTask(description)
-    setDescription('')
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    validate(description)
-    createTask()
-  }
-
-  const shouldShowError = () =>
-    showError ? <span>Obrigatório preencher para adicionar tarefa</span> : ''
 
   return (
-    <Container id='todo-form' onSubmit={handleSubmit} data-testid='todo-form'>
+    <Container id='todo-form' onSubmit={handleSubmit(handleTodoClick)} data-testid='todo-form'>
       <ButtonPlus type='submit'>+</ButtonPlus>
-      <Input type='text' onChange={handleDescriptionChange} title='descrição' value={description} />
-      {shouldShowError()}
+      <Input control={control} name='description' type='text' />
     </Container>
   )
 }

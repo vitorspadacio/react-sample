@@ -26,5 +26,5 @@
     "./**/*",
     ".prettierrc.js",
     "vite.config.ts"
-  ]
+, "src/features/todo/TodoForm/TodoForm.schemas/.ts"  ]
 }

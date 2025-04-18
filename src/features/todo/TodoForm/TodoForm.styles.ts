@@ -10,6 +10,7 @@ export const Container = styled.form`
 `
 
 export const ButtonPlus = styled(Button)`
+  height: 3.25em;
   margin-right: 0.75em;
   padding: 1em 1.2em;
 `
