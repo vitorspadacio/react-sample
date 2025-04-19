@@ -1,3 +1,5 @@
+import { selectHasUser } from '@features/auth/AuthSelectors'
+import { useAuthStore } from '@features/auth/AuthStore'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import BookList from '../BookList'
@@ -7,6 +9,7 @@ import { CreateButton } from './BookPage.styles'
 
 export default function () {
   const navigate = useNavigate()
+  const hasUser = useAuthStore(selectHasUser)
   const { fetch, delete: deleteBook, clear } = useBookStore()
   const [idToDelete, setIdToDelete] = useState('')
 
@@ -19,7 +22,7 @@ export default function () {
     return () => clear()
   }, [])
 
-  const handleCreateClick = () => navigate('/book/create')
+  const handleCreateClick = () => navigate('/book/add')
 
   const handleDeleteClick = (id: string) => setIdToDelete(id)
 
@@ -33,7 +36,7 @@ export default function () {
   return (
     <>
       <h1>Livros</h1>
-      <CreateButton onClick={handleCreateClick}>Criar</CreateButton>
+      {hasUser && <CreateButton onClick={handleCreateClick}>Criar</CreateButton>}
       <BookList onDeleteClick={handleDeleteClick} />
       <DeleteModal
         idToDelete={idToDelete}

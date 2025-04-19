@@ -1,5 +1,13 @@
 import { database } from '@infrastructure/firebase'
-import { collection, deleteDoc, doc, getDocs } from 'firebase/firestore/lite'
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  setDoc,
+} from 'firebase/firestore/lite'
 import { Book } from './BookTypes'
 
 export default {
@@ -17,39 +25,27 @@ export default {
     )
   },
 
+  getBookById: async (id: string): Promise<Book> => {
+    const book = await getDoc(doc(database, 'books', id))
+    return {
+      id: book.id,
+      edition: book.data().edition,
+      link: book.data().link,
+      name: book.data().name,
+      series: book.data().series,
+    } as Book
+  },
+
+  add: (book: Book) => {
+    return addDoc(collection(database, 'books'), book)
+  },
+
+  update: (book: Book) => {
+    return setDoc(doc(database, 'books', book.id), book)
+  },
+
   delete: async (id: string) => {
     const conferenciaRef = doc(database, 'books', id)
     await deleteDoc(conferenciaRef)
   },
-
-  // add: ({
-  //   id, titulo, data, logo, temCartela,
-  // }: Conferencia) => {
-  //   const conferenciaToAdd = {
-  //     id,
-  //     titulo,
-  //     data,
-  //     logo,
-  //   }
-
-  //   if (temCartela) (conferenciaToAdd as any).cartela = `/cartelas/${id}`
-
-  //   return setDoc(doc(database, 'conferencias', id), conferenciaToAdd)
-  // },
-
-  // addToArmario: async (id: string) => {
-  //   const db = getDatabase()
-  //   const armarioRef = doc(db, 'armario', id)
-  //   const ingredienteRef = doc(db, 'ingredientes', id)
-  //   await setDoc(armarioRef, {
-  //     quantidade: 0,
-  //     ingrediente: ingredienteRef,
-  //   })
-  //   return id
-  // },
-  // updateQuantidade: async (id: string, quantidade: number) => {
-  //   const db = getDatabase()
-  //   const armarioRef = doc(db, 'armario', id)
-  //   await updateDoc(armarioRef, { quantidade })
-  // },
 }

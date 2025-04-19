@@ -18,4 +18,8 @@ export const Input = styled.input<Props>`
   &::placeholder {
     color: ${({ haserror }) => (haserror === 'true' ? colors.red : colors.light)};
   }
+
+  &:disabled {
+    background-color: ${colors.soft};
+  }
 `
