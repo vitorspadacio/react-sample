@@ -24,9 +24,10 @@ describe('TodoPage', () => {
 
     userEvent.type(screen.getByTitle('description'), 'Teste A')
     await screen.findByDisplayValue('Teste A')
-    userEvent.click(screen.getByText('+'))
+    await userEvent.click(screen.getByText('+'))
 
     expect(await screen.findByText('Teste A')).toBeVisible()
+    expect(await screen.findByDisplayValue('')).toBeVisible()
   })
 
   test('deve adicionar tarefa na lista de tarefas após apertar enter', async () => {
@@ -37,6 +38,7 @@ describe('TodoPage', () => {
     fireEvent.submit(screen.getByTestId('todo-form'))
 
     expect(await screen.findByText('Teste A')).toBeVisible()
+    expect(await screen.findByDisplayValue('')).toBeVisible()
   })
 
   test('não deve adicionar tarefa na lista de tarefas com campo vazio', async () => {

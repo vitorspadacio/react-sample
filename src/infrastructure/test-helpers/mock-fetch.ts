@@ -15,7 +15,10 @@ export const mockFetch = (fetchMock: Promise<any> = Promise.resolve()) => {
   return fetch
 }
 
-export const createFetchPromise = (expectedResult: any, responseType = responseTypes.ok): Promise<any> =>
+export const createFetchPromise = (
+  expectedResult: any,
+  responseType = responseTypes.ok,
+): Promise<any> =>
   Promise.resolve({
     ...responseType,
     json: () => Promise.resolve({ results: expectedResult }),

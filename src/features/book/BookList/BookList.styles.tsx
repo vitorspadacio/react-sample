@@ -1,15 +1,20 @@
 import colors from '@assets/styles/colors'
 import { styled } from 'styled-components'
 
+interface Props {
+  hasuser?: string
+}
+
 export const Container = styled.section`
   display: flex;
   flex-wrap: wrap;
 `
 
-export const Table = styled.div`
+export const Table = styled.div<Props>`
   display: grid;
   gap: 0.25em;
-  grid-template-columns: 1fr 2fr 2fr 0.5fr 1fr 1fr;
+  grid-template-columns: ${({ hasuser }) =>
+    hasuser === 'true' ? '1fr 2fr 2fr 0.5fr 1fr 1fr' : '1fr 2fr 2fr 0.5fr 1fr'};
   grid-template-rows: auto 5em;
   margin: 1em 0;
 `
@@ -18,6 +23,10 @@ export const Header = styled.div`
   background: #f4f4f4;
   font-weight: bold;
   padding: 0.75em;
+`
+
+export const Row = styled.div`
+  display: contents;
 `
 
 export const Cell = styled.div`

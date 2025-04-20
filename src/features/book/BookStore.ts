@@ -73,7 +73,6 @@ export const useBookStore = create<BookStore>((set, get) => ({
       get().fetch()
       toast.info('Livro removido com sucesso')
     } catch (error) {
-      console.log({ error })
       toast.error(processError[error.code] || error.message)
     } finally {
       removeLoading()

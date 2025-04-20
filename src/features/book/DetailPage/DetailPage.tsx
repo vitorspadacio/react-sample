@@ -1,9 +1,10 @@
 import Input from '@components/Input'
+import { router } from '@features/routes'
 import { useAppStore } from '@features/store'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useCallback, useEffect, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
-import { useLocation, useNavigate, useParams } from 'react-router'
+import { useLocation, useParams } from 'react-router'
 import BookApi from '../BookApi'
 import { useBookStore } from '../BookStore'
 import { BackButton, Buttons, Container, Form, RegisterButton } from '../BookStyles'
@@ -15,7 +16,6 @@ const routes = {
 }
 
 export default function () {
-  const navigate = useNavigate()
   const isLoading = useAppStore((state) => state.loadingStack > 0)
   const { add, edit } = useBookStore()
   const { id } = useParams()
@@ -36,7 +36,7 @@ export default function () {
 
   const fetchBook = useCallback(async () => {
     const book = await BookApi.getBookById(id)
-    setValue('id', id, { shouldValidate: true })
+    setValue('id', book.id, { shouldValidate: true })
     setValue('edition', book.edition, { shouldValidate: true })
     setValue('link', book.link, { shouldValidate: true })
     setValue('name', book.name, { shouldValidate: true })
@@ -54,7 +54,7 @@ export default function () {
     else add(form)
   }
 
-  const handleBackClick = () => navigate(-1)
+  const handleBackClick = () => router.navigate(-1)
 
   return (
     <Container>
