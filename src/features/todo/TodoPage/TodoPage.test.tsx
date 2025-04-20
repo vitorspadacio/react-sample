@@ -19,12 +19,12 @@ describe('TodoPage', () => {
     expect(screen.getByTitle('Limpar banheiro está completa?')).not.toBeChecked()
   })
 
-  test.skip('deve adicionar tarefa na lista de tarefas após clicar no botão +', async () => {
+  test('deve adicionar tarefa na lista de tarefas após clicar no botão +', async () => {
     render(<TodoPage />)
 
     userEvent.type(screen.getByTitle('description'), 'Teste A')
     await screen.findByDisplayValue('Teste A')
-    await userEvent.click(screen.getByText('+'))
+    fireEvent.click(screen.getByText('+'))
 
     expect(await screen.findByText('Teste A')).toBeVisible()
     expect(await screen.findByDisplayValue('')).toBeVisible()
